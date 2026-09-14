@@ -8,8 +8,8 @@ const nextConfig = {
   },
   images: {
     remotePatterns: [
-      { protocol: 'https', hostname: 'images.unsplash.com', pathname: '/**' },
-      { protocol: 'https', hostname: 'via.placeholder.com', pathname: '/**' },
+      { protocol: 'https', hostname: 'imagedelivery.net', pathname: '/**' },
+      { protocol: 'https', hostname: 'images.probaterealestatesales.com', pathname: '/**' },
       { protocol: 'https', hostname: 'i.ytimg.com', pathname: '/**' },
       { protocol: 'https', hostname: 'yt3.ggpht.com', pathname: '/**' },
     ],

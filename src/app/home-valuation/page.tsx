@@ -1,9 +1,10 @@
-import { ArrowRight, Calculator, DollarSign, Home, Phone, TrendingUp } from 'lucide-react';
+import { ArrowRight, DollarSign, Home, Phone, TrendingUp } from 'lucide-react';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import { CalendlyBookingPanel } from '@/components/calendly/CalendlyBookingPanel';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
@@ -37,16 +38,11 @@ export default function HomeValuationPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <Breadcrumb items={breadcrumbs.slice(1)} />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Calculator className="h-16 w-16 mx-auto mb-6" />
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Free Home Valuation</h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            Get an accurate estimate of your probate property's value in Las Vegas, Nevada.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Free Home Valuation"
+        subtitle="Get an accurate estimate of your probate property's value in Las Vegas, Nevada."
+        imageId="propertyValuation"
+      />
 
       {/* Schedule CMA discussion (Calendly replaces legacy valuation request form) */}
       <section className="py-16 bg-white">

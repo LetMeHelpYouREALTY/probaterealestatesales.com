@@ -1,4 +1,3 @@
-import { SITE_PHONE_TEL_HREF, SITE_PHONE_DISPLAY } from '@/lib/site-contact';
 import {
   ArrowRight,
   CheckCircle,
@@ -10,6 +9,7 @@ import {
   MapPin,
   Shield,
 } from 'lucide-react';
+import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const checklistCategories = [
   {

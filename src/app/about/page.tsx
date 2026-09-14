@@ -1,6 +1,6 @@
 import {
-  Award,
   ArrowRight,
+  Award,
   Clock,
   Mail,
   MapPin,
@@ -14,9 +14,11 @@ import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SiteImage from '@/components/SiteImage';
 import WhyChooseUs from '@/components/WhyChooseUs';
-import { SITE_PHONE_E164, SITE_PHONE_TEL_HREF, SITE_PHONE_DISPLAY } from '@/lib/site-contact';
+import { SITE_PHONE_DISPLAY, SITE_PHONE_E164, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const FAQ = dynamic(() => import('@/components/FAQ'), {
   loading: () => <div className="py-16 text-center text-gray-500">Loading FAQ...</div>,
@@ -79,31 +81,26 @@ export default function AboutPage() {
       <Breadcrumb items={breadcrumbs.slice(1)} />
       <SchemaMarkup type="faq" breadcrumbs={breadcrumbs} person={personSchema} />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">About Dr. Jan Duffy</h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
-              Licensed Nevada Real Estate Professional | Probate Real Estate Specialist
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <div className="flex items-center gap-2">
-                <Award className="h-5 w-5" />
-                <span>License #S.0197614</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="h-5 w-5" />
-                <span>20+ Years Experience</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="h-5 w-5" />
-                <span>Las Vegas, Nevada</span>
-              </div>
-            </div>
+      <PageHero
+        title="About Dr. Jan Duffy"
+        subtitle="Licensed Nevada Real Estate Professional | Probate Real Estate Specialist"
+        imageId="consultationRoom"
+      >
+        <div className="flex flex-col sm:flex-row gap-4 justify-start items-center">
+          <div className="flex items-center gap-2">
+            <Award className="h-5 w-5" />
+            <span>License #S.0197614</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Clock className="h-5 w-5" />
+            <span>20+ Years Experience</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <MapPin className="h-5 w-5" />
+            <span>Las Vegas, Nevada</span>
           </div>
         </div>
-      </section>
+      </PageHero>
 
       {/* Main Content */}
       <section className="py-16 bg-white">
@@ -113,10 +110,14 @@ export default function AboutPage() {
             <div>
               <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-8 mb-8">
                 <div className="aspect-square max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
-                  <img
-                    src="/images/dr-jan-duffy.jpg"
-                    alt="Dr. Jan Duffy - Probate Real Estate Expert"
+                  <SiteImage
+                    imageId="agentPortrait"
+                    alt="Dr. Jan Duffy, Las Vegas probate realtor"
+                    width={512}
+                    height={512}
                     className="w-full h-full object-cover"
+                    sizes="(max-width: 768px) 100vw, 512px"
+                    priority
                   />
                 </div>
               </div>

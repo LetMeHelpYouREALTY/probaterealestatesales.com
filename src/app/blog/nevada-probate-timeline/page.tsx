@@ -37,10 +37,7 @@ export default function NevadaProbateTimelinePage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/blog/"
-            className="inline-flex items-center text-white hover:text-white mb-6"
-          >
+          <Link href="/blog/" className="inline-flex items-center text-white hover:text-white mb-6">
             <ArrowLeft className="h-5 w-5 mr-2" />
             Back to Blog
           </Link>

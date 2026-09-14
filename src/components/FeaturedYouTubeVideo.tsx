@@ -1,7 +1,4 @@
-import {
-  YOUTUBE_FEATURED_EMBED_SRC,
-  YOUTUBE_FEATURED_TITLE,
-} from '@/config/youtube';
+import { YOUTUBE_FEATURED_EMBED_SRC, YOUTUBE_FEATURED_TITLE } from '@/config/youtube';
 
 type FeaturedYouTubeVideoProps = {
   sectionHeadingId?: string;

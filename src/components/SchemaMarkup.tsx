@@ -21,7 +21,8 @@ function schemaIsOrContainsFAQPage(schema: any): boolean {
   if (schema['@type'] === 'FAQPage') return true;
   if (Array.isArray(schema)) return schema.some((item: any) => schemaIsOrContainsFAQPage(item));
   const graph = schema['@graph'];
-  if (Array.isArray(graph)) return graph.some((item: any) => item && schemaIsOrContainsFAQPage(item));
+  if (Array.isArray(graph))
+    return graph.some((item: any) => item && schemaIsOrContainsFAQPage(item));
   return false;
 }
 
@@ -113,7 +114,9 @@ export default function SchemaMarkup({
 }: SchemaMarkupProps) {
   useEffect(() => {
     // Remove only scripts we previously added (avoid touching layout's JSON-LD to prevent React 418 hydration mismatch)
-    const ourScripts = document.querySelectorAll('script[type="application/ld+json"][data-schema-markup="page"]');
+    const ourScripts = document.querySelectorAll(
+      'script[type="application/ld+json"][data-schema-markup="page"]'
+    );
     for (const script of ourScripts) {
       script.remove();
     }
@@ -358,7 +361,9 @@ export default function SchemaMarkup({
 
     // Cleanup: remove only our page-injected scripts
     return () => {
-      const scripts = document.querySelectorAll('script[type="application/ld+json"][data-schema-markup="page"]');
+      const scripts = document.querySelectorAll(
+        'script[type="application/ld+json"][data-schema-markup="page"]'
+      );
       for (const script of scripts) {
         script.remove();
       }

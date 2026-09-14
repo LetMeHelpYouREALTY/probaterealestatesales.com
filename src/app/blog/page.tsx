@@ -2,6 +2,7 @@ import { ArrowRight, BookOpen, Calendar, TrendingUp, Video } from 'lucide-react'
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
 
 export const metadata: Metadata = {
@@ -31,18 +32,11 @@ export default function BlogPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <Breadcrumb items={breadcrumbs.slice(1)} />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Probate Real Estate Blog & Resources
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            Stay informed with the latest probate real estate news, market updates, and educational
-            videos.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Probate Real Estate Blog & Resources"
+        subtitle="Stay informed with Las Vegas probate real estate news, market updates, and educational videos."
+        imageId="resourcesGuides"
+      />
 
       {/* Blog Categories */}
       <section className="py-16 bg-white">

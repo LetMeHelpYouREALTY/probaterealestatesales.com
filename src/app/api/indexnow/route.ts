@@ -1,8 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import {
-  submitToIndexNow,
-  INDEXNOW_URLS,
-} from '@/lib/indexnow';
+import { type NextRequest, NextResponse } from 'next/server';
+import { INDEXNOW_URLS, submitToIndexNow } from '@/lib/indexnow';
 
 /**
  * IndexNow submission - notify Bing/Yandex when URLs change.

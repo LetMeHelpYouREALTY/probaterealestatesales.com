@@ -1,11 +1,16 @@
-import { SITE_PHONE_TEL_HREF, SITE_PHONE_DISPLAY } from '@/lib/site-contact';
-import { ArrowRight, Clock, DollarSign, MapPin, Users } from 'lucide-react';
+import { ArrowRight, Clock, DollarSign, Users } from 'lucide-react';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import RealScoutOfficeListings from '@/components/RealScoutOfficeListings';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import GbpLocalActions from '@/components/GbpLocalActions';
+import GbpOfficeMap from '@/components/GbpOfficeMap';
+import PageHero from '@/components/PageHero';
+import RealScoutOfficeListings from '@/components/RealScoutOfficeListings';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SiteImage from '@/components/SiteImage';
+import { getLocationImageId } from '@/lib/cloudflare-images';
+import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const FAQ = dynamic(() => import('@/components/FAQ'), {
   loading: () => <div className="py-16 text-center text-gray-500">Loading FAQ...</div>,
@@ -37,16 +42,18 @@ const locations = [
     features: ['Downtown probate court access', 'Strip area properties', 'Quick market analysis'],
     probateTimeline: '6-8 months',
     courtCosts: '$1,000',
-    image: '/images/las-vegas-probate.jpg',
   },
   {
     name: 'Henderson',
     slug: 'henderson',
     description: 'Green Valley and Anthem probate property expertise',
-    features: ['Green Valley Ranch area', 'Anthem community', 'Family-friendly neighborhoods'],
+    features: [
+      'Green Valley Ranch area',
+      'Anthem community',
+      'Green Valley Ranch golf course homes',
+    ],
     probateTimeline: '6-8 months',
     courtCosts: '$1,000',
-    image: '/images/henderson-probate.jpg',
   },
   {
     name: 'Summerlin',
@@ -55,7 +62,6 @@ const locations = [
     features: ['Luxury home probate sales', 'Golf course properties', 'High-end market expertise'],
     probateTimeline: '6-8 months',
     courtCosts: '$1,000',
-    image: '/images/summerlin-probate.jpg',
   },
   {
     name: 'North Las Vegas',
@@ -64,7 +70,6 @@ const locations = [
     features: ['Aliante area properties', 'Centennial Hills homes', 'Growing market opportunities'],
     probateTimeline: '6-8 months',
     courtCosts: '$1,000',
-    image: '/images/north-las-vegas-probate.jpg',
   },
   {
     name: 'Boulder City',
@@ -73,25 +78,26 @@ const locations = [
     features: ['Historic home expertise', 'Lake Mead proximity', 'Small town probate process'],
     probateTimeline: '6-8 months',
     courtCosts: '$1,000',
-    image: '/images/boulder-city-probate.jpg',
   },
   {
     name: 'Mesquite',
     slug: 'mesquite',
     description: 'Golf community probate real estate',
-    features: ['Golf course properties', 'Retirement community', 'Desert landscape homes'],
+    features: ['Golf course properties', 'Virgin Valley homes', 'Desert landscape homes'],
     probateTimeline: '6-8 months',
     courtCosts: '$1,000',
-    image: '/images/mesquite-probate.jpg',
   },
   {
     name: 'Spring Valley',
     slug: 'spring-valley',
     description: 'Residential area probate services',
-    features: ['Family homes', 'Established neighborhoods', 'Affordable probate options'],
+    features: [
+      'Single-story and two-story residences',
+      'Southwest Las Vegas streets',
+      'Mid-valley probate listings',
+    ],
     probateTimeline: '6-8 months',
     courtCosts: '$1,000',
-    image: '/images/spring-valley-probate.jpg',
   },
   {
     name: 'Enterprise',
@@ -100,7 +106,6 @@ const locations = [
     features: ['Newer developments', 'Growing area', 'Modern home probate sales'],
     probateTimeline: '6-8 months',
     courtCosts: '$1,000',
-    image: '/images/enterprise-probate.jpg',
   },
 ];
 
@@ -115,32 +120,26 @@ export default function LocationsPage() {
       <Breadcrumb items={breadcrumbs.slice(1)} />
       <SchemaMarkup type="faq" breadcrumbs={breadcrumbs} />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Nevada Probate Real Estate Services
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
-            Expert probate real estate services across all Nevada locations. Nevada's fastest
-            probate process: 6-8 months vs California's 9-18 months.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <div className="flex items-center gap-2">
-              <Clock className="h-5 w-5" />
-              <span>6-8 Month Timeline</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <DollarSign className="h-5 w-5" />
-              <span>Clark County: $1,000 Court Costs</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Users className="h-5 w-5" />
-              <span>2 Probate Commissioners</span>
-            </div>
+      <PageHero
+        title="Nevada Probate Real Estate Services"
+        subtitle="Expert probate real estate services across Las Vegas, Henderson, Summerlin, and Clark County. Nevada's 6-8 month probate timeline vs California's 9-18 months."
+        imageId="listingsHero"
+      >
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-white">
+          <div className="flex items-center gap-2">
+            <Clock className="h-5 w-5" />
+            <span>6-8 Month Timeline</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <DollarSign className="h-5 w-5" />
+            <span>Clark County: $1,000 Court Costs</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Users className="h-5 w-5" />
+            <span>2 Probate Commissioners</span>
           </div>
         </div>
-      </section>
+      </PageHero>
 
       {/* Nevada Advantage Section */}
       <section className="py-16 bg-white">
@@ -203,8 +202,13 @@ export default function LocationsPage() {
                 key={location.slug}
                 className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
               >
-                <div className="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                  <MapPin className="h-16 w-16 text-white" />
+                <div className="relative h-48">
+                  <SiteImage
+                    imageId={getLocationImageId(location.slug)}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{location.name}</h3>
@@ -234,7 +238,7 @@ export default function LocationsPage() {
                   </ul>
 
                   <Link
-                    href={`/locations/${location.slug}`}
+                    href={`/locations/${location.slug}/`}
                     className="block w-full text-center bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
                   >
                     View {location.name} Services
@@ -243,6 +247,13 @@ export default function LocationsPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <GbpLocalActions variant="stack" className="mb-10 items-center text-center" />
+          <GbpOfficeMap heading="Google Maps pin — Probate Real Estate Sales, Las Vegas" />
         </div>
       </section>
 

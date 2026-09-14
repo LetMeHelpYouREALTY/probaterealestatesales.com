@@ -1,8 +1,8 @@
-import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 export const metadata: Metadata = {
   title: 'Terms of Service | Probate Real Estate Sales',
@@ -76,8 +76,8 @@ export default function TermsPage() {
                 3. Real Estate License
               </h2>
               <p className="text-secondary-700 mb-4">
-                Dr. Jan Duffy is a licensed real estate professional in the State of Nevada.
-                License number: S.0197614
+                Dr. Jan Duffy is a licensed real estate professional in the State of Nevada. License
+                number: S.0197614
               </p>
             </section>
 

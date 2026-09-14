@@ -21,6 +21,7 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import { ProbateTimelineEstimator } from '@/components/ProbateTimelineEstimator';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SiteImage from '@/components/SiteImage';
 import { SITE_LOGO_ABSOLUTE_URL } from '@/config/site-google';
 import { SERVICE_PAGES } from '@/lib/service-pages';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
@@ -149,10 +150,19 @@ export default function ServicesPage() {
 
       {/* 1. HERO SECTION WITH PSYCHOLOGICAL TRIGGERS */}
       <section
-        className="hero-probate bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white py-20"
+        className="hero-probate relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white py-20"
         data-intent="solve-urgent-problem"
       >
-        <div className="container mx-auto px-4 text-center">
+        <div className="absolute inset-0">
+          <SiteImage
+            imageId="courtApprovedSales"
+            fill
+            priority
+            className="object-cover opacity-30"
+            sizes="100vw"
+          />
+        </div>
+        <div className="container mx-auto px-4 text-center relative">
           {/* Headline Formula: Problem + Solution + Unique Differentiator + Location */}
           <h1 className="emotional-headline text-5xl md:text-6xl font-bold mb-8 leading-tight">
             Overwhelmed by Nevada Probate? We Sell Inherited Properties in{' '}

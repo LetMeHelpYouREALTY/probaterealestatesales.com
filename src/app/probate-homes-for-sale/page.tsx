@@ -1,20 +1,13 @@
-import {
-  ArrowRight,
-  CheckCircle,
-  DollarSign,
-  Home,
-  MapPin,
-  Phone,
-  Search,
-  Shield,
-} from 'lucide-react';
+import { ArrowRight, Phone, Search } from 'lucide-react';
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import PageHero from '@/components/PageHero';
 import RealScoutOfficeListings from '@/components/RealScoutOfficeListings';
 import SchemaMarkup from '@/components/SchemaMarkup';
-import { SITE_PHONE_E164, SITE_PHONE_TEL_HREF, SITE_PHONE_DISPLAY } from '@/lib/site-contact';
+import SectionVisual from '@/components/SectionVisual';
+import { SITE_PHONE_DISPLAY, SITE_PHONE_E164, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const FAQ = dynamic(() => import('@/components/FAQ'), {
   loading: () => <div className="py-16 text-center text-gray-500">Loading FAQ...</div>,
@@ -122,35 +115,28 @@ export default function ProbateHomesForSalePage() {
       <Breadcrumb items={breadcrumbs.slice(1)} />
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white py-20">
-          <div className="container-max px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Probate Homes for Sale in Las Vegas, Nevada
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 text-blue-100">
-                Discover expertly curated probate property listings and find your next investment or
-                home with confidence
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contact/"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-primary-600 text-white rounded-lg font-semibold text-lg hover:bg-primary-700 transition-colors"
-                >
-                  <Search className="h-5 w-5 mr-2" />
-                  View Current Listings
-                </Link>
-                <Link
-                  href={SITE_PHONE_TEL_HREF}
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-700 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
-                >
-                  <Phone className="h-5 w-5 mr-2" />
-                  Call {SITE_PHONE_DISPLAY}
-                </Link>
-              </div>
-            </div>
+        <PageHero
+          title="Probate Homes for Sale in Las Vegas, Nevada"
+          subtitle="Court-approved probate listings for buyers in Las Vegas and Clark County, with expert guidance from Dr. Jan Duffy."
+          imageId="listingsHero"
+        >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/contact/"
+              className="inline-flex items-center justify-center px-8 py-4 bg-primary-600 text-white rounded-lg font-semibold text-lg hover:bg-primary-700 transition-colors"
+            >
+              <Search className="h-5 w-5 mr-2" />
+              View Current Listings
+            </Link>
+            <Link
+              href={SITE_PHONE_TEL_HREF}
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-700 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
+            >
+              <Phone className="h-5 w-5 mr-2" />
+              Call {SITE_PHONE_DISPLAY}
+            </Link>
           </div>
-        </section>
+        </PageHero>
 
         {/* Understanding Probate Homes for Sale */}
         <section className="py-16 bg-white">
@@ -159,6 +145,9 @@ export default function ProbateHomesForSalePage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 Understanding Probate Homes for Sale
               </h2>
+              <div className="mb-8">
+                <SectionVisual imageId="lasVegasHomes" className="h-56 md:h-72" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Probate homes for sale represent a unique segment of the real estate market in Las
                 Vegas and throughout Nevada. These properties become available when someone passes
@@ -176,8 +165,8 @@ export default function ProbateHomesForSalePage() {
                 >
                   probate sales
                 </Link>{' '}
-                work can help you identify opportunities and make informed purchasing decisions. Learn
-                more about{' '}
+                work can help you identify opportunities and make informed purchasing decisions.
+                Learn more about{' '}
                 <Link
                   href="/probate-property-buyers/"
                   className="text-primary-700 hover:text-primary-900 font-semibold underline"

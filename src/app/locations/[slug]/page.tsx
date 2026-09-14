@@ -1,25 +1,21 @@
-import {
-  ArrowRight,
-  Calendar,
-  Clock,
-  DollarSign,
-  Home,
-  MapPin,
-  Phone,
-  Users,
-} from 'lucide-react';
+import { ArrowRight, Calendar, Clock, DollarSign, Home, MapPin, Phone, Users } from 'lucide-react';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/Breadcrumb';
+import GbpLocalActions from '@/components/GbpLocalActions';
+import GbpOfficeMap from '@/components/GbpOfficeMap';
+import PageHero from '@/components/PageHero';
 import RealScoutOfficeListings from '@/components/RealScoutOfficeListings';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SectionVisual from '@/components/SectionVisual';
+import { getLocationImageId, getSiteImageSrc } from '@/lib/cloudflare-images';
 import {
   HYPERLOCAL_LOCATIONS,
+  type LocationThemeColor,
   NEVADA_PROBATE_FACTS,
   SITE_CONFIG,
-  type LocationThemeColor,
 } from '@/lib/hyperlocal';
 
 const FAQ = dynamic(() => import('@/components/FAQ'), {
@@ -47,15 +43,20 @@ export async function generateMetadata({
     description: `Expert probate real estate services in ${loc.name}, Nevada. ${loc.description} Nevada's fastest probate: 6-8 months. Free consultation: ${SITE_CONFIG.phone}`,
     alternates: { canonical: `https://www.probaterealestatesales.com/locations/${slug}/` },
     robots: { index: true, follow: true },
+    openGraph: {
+      title: `${loc.name} Probate Real Estate Services | Nevada Probate | Dr. Jan Duffy`,
+      description: `Expert probate real estate services in ${loc.name}, Nevada. ${loc.description}`,
+      images: [
+        {
+          url: getSiteImageSrc(getLocationImageId(slug)),
+          width: 1200,
+          height: 675,
+          alt: `${loc.name} Nevada probate real estate`,
+        },
+      ],
+    },
   };
 }
-
-const themeClasses: Record<LocationThemeColor, string> = {
-  blue: 'from-blue-900 to-blue-700',
-  green: 'from-green-900 to-green-700',
-  slate: 'from-slate-800 to-slate-600',
-  amber: 'from-amber-800 to-amber-600',
-};
 
 const themeAccent: Record<LocationThemeColor, string> = {
   blue: 'text-blue-600',
@@ -64,18 +65,7 @@ const themeAccent: Record<LocationThemeColor, string> = {
   amber: 'text-amber-600',
 };
 
-const themeCta: Record<LocationThemeColor, string> = {
-  blue: 'bg-blue-600 hover:bg-blue-700',
-  green: 'bg-green-600 hover:bg-green-700',
-  slate: 'bg-slate-600 hover:bg-slate-700',
-  amber: 'bg-amber-600 hover:bg-amber-700',
-};
-
-export default async function LocationSlugPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function LocationSlugPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const loc = HYPERLOCAL_LOCATIONS.find((l) => l.slug === slug);
   if (!loc) notFound();
@@ -87,39 +77,33 @@ export default async function LocationSlugPage({
   ];
 
   const theme = loc.themeColor ?? 'blue';
-  const heroClass = themeClasses[theme];
   const accentClass = themeAccent[theme];
-  const ctaClass = themeCta[theme];
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Breadcrumb items={breadcrumbs.slice(1)} />
       <SchemaMarkup type="faq" location={loc.name} breadcrumbs={breadcrumbs} />
 
-      <section className={`bg-gradient-to-r ${heroClass} text-white py-20`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            {loc.name} Probate Real Estate Services
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
-            Expert probate real estate services in {loc.name}, Nevada. {loc.description}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <div className="flex items-center gap-2">
-              <Clock className="h-5 w-5" />
-              <span>6-8 Month Timeline</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <DollarSign className="h-5 w-5" />
-              <span>Clark County: {NEVADA_PROBATE_FACTS.courtCostClark} Court Costs</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Users className="h-5 w-5" />
-              <span>2 Probate Commissioners</span>
-            </div>
+      <PageHero
+        title={`${loc.name} Probate Real Estate Services`}
+        subtitle={`Expert probate real estate services in ${loc.name}, Nevada. ${loc.description}`}
+        imageId={getLocationImageId(slug)}
+      >
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex items-center gap-2">
+            <Clock className="h-5 w-5" />
+            <span>6-8 Month Timeline</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <DollarSign className="h-5 w-5" />
+            <span>Clark County: {NEVADA_PROBATE_FACTS.courtCostClark} Court Costs</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Users className="h-5 w-5" />
+            <span>2 Probate Commissioners</span>
           </div>
         </div>
-      </section>
+      </PageHero>
 
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -148,17 +132,15 @@ export default async function LocationSlugPage({
                   <div>
                     <h3 className="font-semibold text-gray-900">Court Access</h3>
                     <p className="text-gray-600">
-                      Direct access to Clark County probate commissioners James Fontana and
-                      Russell Geis.
+                      Direct access to Clark County probate commissioners James Fontana and Russell
+                      Geis.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
             <div className="bg-gray-100 p-8 rounded-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                {loc.name} Probate Timeline
-              </h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">{loc.name} Probate Timeline</h3>
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600">Court Filing</span>
@@ -189,7 +171,8 @@ export default async function LocationSlugPage({
               {loc.name} Neighborhoods & Probate Real Estate
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Expert probate real estate services across {loc.name}'s most desirable neighborhoods
+              Expert probate real estate services across {loc.name} areas including{' '}
+              {loc.neighborhoods.join(', ')}
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -265,6 +248,19 @@ export default async function LocationSlugPage({
         </div>
       </section>
 
+      <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-8">
+            <SectionVisual imageId={getLocationImageId(slug)} className="h-56 md:h-72" />
+          </div>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
+            Visit Probate Real Estate Sales — serving {loc.name}
+          </h2>
+          <GbpLocalActions variant="stack" className="mb-10 items-center text-center" />
+          <GbpOfficeMap heading={`${loc.name} buyers: our Las Vegas office on Google Maps`} />
+        </div>
+      </section>
+
       <RealScoutOfficeListings
         title={`Current ${loc.name} Properties Available`}
         subtitle={`Browse probate properties in the ${loc.name} area. Available for immediate purchase with expert probate guidance.`}
@@ -287,8 +283,8 @@ export default async function LocationSlugPage({
             Ready to Start Your {loc.name} Probate Process?
           </h2>
           <p className="text-xl mb-8">
-            Get a free consultation and learn how Nevada's faster probate timeline can help you
-            sell inherited property in {loc.name} quickly.
+            Get a free consultation and learn how Nevada's faster probate timeline can help you sell
+            inherited property in {loc.name} quickly.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -335,10 +331,7 @@ export default async function LocationSlugPage({
 
       <section className="py-8 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Link
-            href="/locations/"
-            className={`${accentClass} hover:opacity-80 font-semibold`}
-          >
+          <Link href="/locations/" className={`${accentClass} hover:opacity-80 font-semibold`}>
             ← Back to All Nevada Locations
           </Link>
         </div>

@@ -58,18 +58,18 @@ const footerNavigation = {
     },
   ],
   locations: [
-    { name: 'Las Vegas', href: '/locations/las-vegas', description: 'Downtown & Strip area' },
-    { name: 'Henderson', href: '/locations/henderson', description: 'Green Valley & Anthem' },
-    { name: 'Summerlin', href: '/locations/summerlin', description: 'Master-planned community' },
+    { name: 'Las Vegas', href: '/locations/las-vegas/', description: 'Downtown & Strip area' },
+    { name: 'Henderson', href: '/locations/henderson/', description: 'Green Valley & Anthem' },
+    { name: 'Summerlin', href: '/locations/summerlin/', description: 'Master-planned community' },
     {
       name: 'North Las Vegas',
-      href: '/locations/north-las-vegas',
+      href: '/locations/north-las-vegas/',
       description: 'Aliante & Centennial Hills',
     },
-    { name: 'Boulder City', href: '/locations/boulder-city', description: 'Historic area' },
-    { name: 'Mesquite', href: '/locations/mesquite', description: 'Golf community' },
-    { name: 'Spring Valley', href: '/locations/spring-valley', description: 'Residential area' },
-    { name: 'Enterprise', href: '/locations/enterprise', description: 'Southwest Las Vegas' },
+    { name: 'Boulder City', href: '/locations/boulder-city/', description: 'Historic area' },
+    { name: 'Mesquite', href: '/locations/mesquite/', description: 'Golf community' },
+    { name: 'Spring Valley', href: '/locations/spring-valley/', description: 'Residential area' },
+    { name: 'Enterprise', href: '/locations/enterprise/', description: 'Southwest Las Vegas' },
   ],
   resources: [
     {
@@ -136,10 +136,10 @@ const footerNavigation = {
     },
   ],
   about: [
-    { name: 'About Dr. Duffy', href: '/#about', description: 'Expert credentials' },
-    { name: 'Ph.D. in Research', href: '/#about', description: 'Academic excellence' },
-    { name: '20+ Years Experience', href: '/#about', description: 'Las Vegas real estate' },
-    { name: 'Court Trusted', href: '/#about', description: 'Professional recognition' },
+    { name: 'About Dr. Duffy', href: '/about/', description: 'Expert credentials' },
+    { name: 'Ph.D. in Research', href: '/about/', description: 'Academic excellence' },
+    { name: '20+ Years Experience', href: '/about/', description: 'Las Vegas real estate' },
+    { name: 'Court Trusted', href: '/about/', description: 'Professional recognition' },
   ],
 };
 

@@ -132,10 +132,7 @@ export default function SEOMetaTags({
       <meta name="twitter:image:alt" content={fullTitle} />
 
       {/* Business-specific Meta Tags */}
-      <meta
-        name="business:contact_data:street_address"
-        content="400 S 4th St suite 250 b"
-      />
+      <meta name="business:contact_data:street_address" content="400 S 4th St suite 250 b" />
       <meta name="business:contact_data:locality" content="Las Vegas" />
       <meta name="business:contact_data:region" content="NV" />
       <meta name="business:contact_data:postal_code" content="89101" />

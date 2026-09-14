@@ -52,7 +52,13 @@ export const HYPERLOCAL_LOCATIONS = [
     themeColor: 'green' as LocationThemeColor,
     name: 'Henderson',
     description: 'Green Valley and Anthem probate property expertise',
-    neighborhoods: ['Green Valley', 'Anthem', 'Green Valley Ranch', 'MacDonald Ranch', 'Seven Hills'],
+    neighborhoods: [
+      'Green Valley',
+      'Anthem',
+      'Green Valley Ranch',
+      'MacDonald Ranch',
+      'Seven Hills',
+    ],
     latitude: 36.0395,
     longitude: -115.0498,
     court: 'Clark County District Court',
@@ -92,7 +98,7 @@ export const HYPERLOCAL_LOCATIONS = [
     themeColor: 'green' as LocationThemeColor,
     name: 'Enterprise',
     description: 'Southwest Las Vegas probate expertise',
-    neighborhoods: ['Enterprise', 'Mountain\'s Edge', 'Southern Highlands'],
+    neighborhoods: ['Enterprise', "Mountain's Edge", 'Southern Highlands'],
     latitude: 36.0253,
     longitude: -115.2419,
     court: 'Clark County District Court',
@@ -153,7 +159,8 @@ export const PROBATE_SERVICES = [
   },
   {
     name: 'Clark County Probate Division',
-    description: 'Direct access to Clark County probate commissioners - James Fontana & Russell Geis',
+    description:
+      'Direct access to Clark County probate commissioners - James Fontana & Russell Geis',
     url: '/probate-division/',
   },
 ] as const;

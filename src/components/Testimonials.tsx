@@ -1,7 +1,7 @@
-import { GOOGLE_BUSINESS_REVIEW_URL } from '@/config/site-google';
-import { SITE_PHONE_TEL_HREF, SITE_PHONE_DISPLAY } from '@/lib/site-contact';
 import { Heart, Quote, Star } from 'lucide-react';
 import Image from 'next/image';
+import { GOOGLE_BUSINESS_REVIEW_URL } from '@/config/site-google';
+import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const testimonials = [
   {

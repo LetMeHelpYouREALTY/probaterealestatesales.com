@@ -37,10 +37,7 @@ export default function ClarkCountyProbatePage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-purple-900 to-purple-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/blog/"
-            className="inline-flex items-center text-white hover:text-white mb-6"
-          >
+          <Link href="/blog/" className="inline-flex items-center text-white hover:text-white mb-6">
             <ArrowLeft className="h-5 w-5 mr-2" />
             Back to Blog
           </Link>
@@ -232,8 +229,7 @@ export default function ClarkCountyProbatePage() {
                   >
                     court representation services
                   </Link>{' '}
-                  handle this process.
-                  court approval. The petition must include:
+                  handle this process. court approval. The petition must include:
                 </p>
                 <ul className="space-y-2 text-secondary-700">
                   <li className="flex items-start">

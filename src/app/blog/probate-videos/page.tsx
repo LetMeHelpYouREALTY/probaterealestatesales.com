@@ -45,8 +45,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Probate Real Estate Videos | Las Vegas',
-    description:
-      'Educational probate real estate videos and topics from Dr. Jan Duffy, Las Vegas.',
+    description: 'Educational probate real estate videos and topics from Dr. Jan Duffy, Las Vegas.',
     images: ['/images/og-dr-jan-duffy.jpg'],
   },
 };
@@ -90,10 +89,7 @@ export default function ProbateVideosPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/blog/"
-            className="inline-flex items-center text-white hover:text-white mb-6"
-          >
+          <Link href="/blog/" className="inline-flex items-center text-white hover:text-white mb-6">
             <ArrowLeft className="h-5 w-5 mr-2" />
             Back to Blog
           </Link>
@@ -101,7 +97,8 @@ export default function ProbateVideosPage() {
             <Video className="h-16 w-16 mx-auto mb-6" />
             <h1 className="text-4xl md:text-6xl font-bold mb-6">Probate Real Estate Videos</h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Watch the featured video on this page, then browse more uploads and topic outlines below.
+              Watch the featured video on this page, then browse more uploads and topic outlines
+              below.
             </p>
             <a
               href={YOUTUBE_CHANNEL_HANDLE_URL}

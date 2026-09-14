@@ -10,8 +10,10 @@ import {
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import GbpOfficeMap from '@/components/GbpOfficeMap';
 import Hero from '@/components/Hero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SectionVisual from '@/components/SectionVisual';
 import { GBP_BUSINESS_NAME, SITE_PHONE_DISPLAY } from '@/lib/site-contact';
 
 // Removed heavy components - moved to dedicated pages for better performance
@@ -142,28 +144,52 @@ export default function Home() {
               View All Services
               <ArrowRight className="h-4 w-4 ml-1" />
             </Link>
-            <Link href="/probate-division/" className="text-primary-700 hover:text-primary-900 font-medium text-sm">
+            <Link
+              href="/probate-division/"
+              className="text-primary-700 hover:text-primary-900 font-medium text-sm"
+            >
               Probate Division
             </Link>
-            <Link href="/probate-homes-for-sale/" className="text-primary-700 hover:text-primary-900 font-medium text-sm">
+            <Link
+              href="/probate-homes-for-sale/"
+              className="text-primary-700 hover:text-primary-900 font-medium text-sm"
+            >
               Probate Homes
             </Link>
-            <Link href="/trust-property-sales/" className="text-primary-700 hover:text-primary-900 font-medium text-sm">
+            <Link
+              href="/trust-property-sales/"
+              className="text-primary-700 hover:text-primary-900 font-medium text-sm"
+            >
               Trust Sales
             </Link>
-            <Link href="/conservatorship-real-estate/" className="text-primary-700 hover:text-primary-900 font-medium text-sm">
+            <Link
+              href="/conservatorship-real-estate/"
+              className="text-primary-700 hover:text-primary-900 font-medium text-sm"
+            >
               Conservatorship
             </Link>
-            <Link href="/probate-property-buyers/" className="text-primary-700 hover:text-primary-900 font-medium text-sm">
+            <Link
+              href="/probate-property-buyers/"
+              className="text-primary-700 hover:text-primary-900 font-medium text-sm"
+            >
               Probate Buyers
             </Link>
-            <Link href="/probate-estate-sales/" className="text-primary-700 hover:text-primary-900 font-medium text-sm">
+            <Link
+              href="/probate-estate-sales/"
+              className="text-primary-700 hover:text-primary-900 font-medium text-sm"
+            >
               Estate Sales
             </Link>
-            <Link href="/contact/" className="text-primary-700 hover:text-primary-900 font-medium text-sm">
+            <Link
+              href="/contact/"
+              className="text-primary-700 hover:text-primary-900 font-medium text-sm"
+            >
               Contact
             </Link>
-            <Link href="/locations/enterprise/" className="text-primary-700 hover:text-primary-900 font-medium text-sm">
+            <Link
+              href="/locations/enterprise/"
+              className="text-primary-700 hover:text-primary-900 font-medium text-sm"
+            >
               Enterprise
             </Link>
           </div>
@@ -205,6 +231,9 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-8">
+            <div className="md:col-span-2 lg:col-span-4">
+              <SectionVisual imageId="consultationRoom" className="h-56 md:h-72" />
+            </div>
             <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md hover-lift transition-all duration-300">
               <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
                 <HomeIcon className="h-6 w-6 text-primary-700" />
@@ -253,9 +282,8 @@ export default function Home() {
                 </h3>
                 <p className="text-secondary-600 text-sm">
                   Complete handling of all legal documents and probate court requirements. Explore
-                  our{' '}
-                  <span className="text-primary-700 font-medium">court representation</span> services
-                  and{' '}
+                  our <span className="text-primary-700 font-medium">court representation</span>{' '}
+                  services and{' '}
                   <Link
                     href="/probate-division/"
                     className="text-primary-700 font-medium underline"
@@ -314,6 +342,9 @@ export default function Home() {
               Access our comprehensive probate guides, calculators, and checklists to help you
               navigate the process
             </p>
+            <div className="mt-6 max-w-3xl mx-auto">
+              <SectionVisual imageId="resourcesGuides" className="h-48 md:h-64" />
+            </div>
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <Link
@@ -368,6 +399,9 @@ export default function Home() {
       >
         <div className="container-max py-12">
           <div className="text-center max-w-3xl mx-auto">
+            <div className="mb-6 overflow-hidden rounded-xl">
+              <SectionVisual imageId="propertyValuation" className="h-48 md:h-60" />
+            </div>
             <h2 className="text-3xl font-bold mb-4">Get Your Free Property Valuation</h2>
             <p className="text-xl text-white mb-6">
               Get an instant estimate of your property value with our professional valuation tool
@@ -387,6 +421,9 @@ export default function Home() {
       {/* Properties CTA */}
       <section className="py-16 bg-white">
         <div className="container-max text-center">
+          <div className="mb-8 max-w-4xl mx-auto">
+            <SectionVisual imageId="listingsHero" className="h-52 md:h-72" />
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-4">
             Browse Probate Homes for Sale
           </h2>
@@ -412,10 +449,13 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-secondary-900 mb-4">
               Why Choose Dr. Jan Duffy?
             </h2>
+            <div className="mb-6 max-w-xl mx-auto">
+              <SectionVisual imageId="consultationRoomSide" className="h-48" />
+            </div>
             <p className="text-lg text-secondary-600 mb-6">
-              With 20+ years of experience, deep work in probate and trust property sales, and a Ph.D.
-              in Research, Dr. Jan Duffy brings focused expertise to every probate transaction. Learn
-              more about{' '}
+              With 20+ years of experience, deep work in probate and trust property sales, and a
+              Ph.D. in Research, Dr. Jan Duffy brings focused expertise to every probate
+              transaction. Learn more about{' '}
               <Link
                 href="/about/"
                 className="text-primary-700 hover:text-primary-900 font-semibold underline"
@@ -441,7 +481,9 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="text-2xl font-bold text-primary-700 mb-2">Probate &amp; trust</div>
-                <div className="text-secondary-700 font-medium">Las Vegas &amp; Clark County focus</div>
+                <div className="text-secondary-700 font-medium">
+                  Las Vegas &amp; Clark County focus
+                </div>
               </div>
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="text-3xl font-bold text-primary-700 mb-2">20+</div>
@@ -449,7 +491,9 @@ export default function Home() {
               </div>
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="text-2xl font-bold text-primary-700 mb-2">Ph.D.</div>
-                <div className="text-secondary-700 font-medium">Research &amp; data-driven guidance</div>
+                <div className="text-secondary-700 font-medium">
+                  Research &amp; data-driven guidance
+                </div>
               </div>
             </div>
             <Link
@@ -508,6 +552,9 @@ export default function Home() {
       <section id="contact" className="scroll-mt-20 bg-primary-600 text-white">
         <div className="container-max py-12">
           <div className="text-center max-w-3xl mx-auto">
+            <div className="mb-6 overflow-hidden rounded-xl">
+              <SectionVisual imageId="freeConsultation" className="h-48 md:h-60" />
+            </div>
             <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
             <p className="text-xl text-white mb-6">
               Contact us today for a free consultation about your probate real estate needs
@@ -521,6 +568,12 @@ export default function Home() {
               <ArrowRight className="h-5 w-5 ml-2" />
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="py-12 bg-white">
+        <div className="container-max">
+          <GbpOfficeMap heading="Visit our Las Vegas office on Google Maps" />
         </div>
       </section>
 
