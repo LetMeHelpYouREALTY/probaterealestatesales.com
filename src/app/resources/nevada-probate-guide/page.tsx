@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
@@ -40,32 +41,26 @@ export default function NevadaProbateGuidePage() {
       <Breadcrumb items={breadcrumbs.slice(1)} />
       <SchemaMarkup type="faq" breadcrumbs={breadcrumbs} />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Complete Nevada Probate Guide 2025
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
-            Everything you need to know about Nevada probate real estate. Nevada's fastest probate
-            process: 6-8 months vs California's 9-18 months.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <div className="flex items-center gap-2">
-              <Clock className="h-5 w-5" />
-              <span>6-8 Month Timeline</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <DollarSign className="h-5 w-5" />
-              <span>Clark County: $1,000 Court Costs</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Users className="h-5 w-5" />
-              <span>2 Probate Commissioners</span>
-            </div>
+      <PageHero
+        title="Complete Nevada Probate Guide 2025"
+        subtitle="Nevada's 6-8 month probate timeline, Clark County court costs, and how to sell inherited property in Las Vegas."
+        imageId="resourcesGuides"
+      >
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex items-center gap-2">
+            <Clock className="h-5 w-5" />
+            <span>6-8 Month Timeline</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <DollarSign className="h-5 w-5" />
+            <span>Clark County: $1,000 Court Costs</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Users className="h-5 w-5" />
+            <span>2 Probate Commissioners</span>
           </div>
         </div>
-      </section>
+      </PageHero>
 
       {/* Quick Navigation */}
       <section className="py-8 bg-white border-b">

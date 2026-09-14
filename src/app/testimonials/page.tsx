@@ -1,9 +1,10 @@
-import { ArrowRight, Award, ExternalLink, Heart, Phone, Quote, Star } from 'lucide-react';
+import { ArrowRight, Award, ExternalLink, Phone, Quote, Star } from 'lucide-react';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import { GOOGLE_BUSINESS_REVIEW_URL } from '@/config/site-google';
 import { buildLocalBusinessNestedReviewsStructuredData } from '@/lib/schema';
@@ -177,24 +178,11 @@ export default function TestimonialsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(testimonialsReviewLd) }}
       />
       <Breadcrumb items={breadcrumbs.slice(1)} />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary-900 to-primary-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-primary-800 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Heart className="h-4 w-4" />
-              Client Success Stories
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Families Trust Dr. Jan Duffy During Difficult Times
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white">
-              Real stories from real families who have experienced Dr. Duffy's compassionate, expert
-              guidance through the probate process.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title="Clients Trust Dr. Jan Duffy During Difficult Times"
+        subtitle="Real stories from executors and heirs who used Dr. Duffy's probate real estate guidance in Las Vegas and Clark County."
+        imageId="freeConsultation"
+      />
 
       {/* Dr. Jan Duffy Introduction */}
       <section className="py-16 bg-white">

@@ -15,6 +15,7 @@ import {
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import SEOMetaTags from '@/components/SEOMetaTags';
 
@@ -96,36 +97,27 @@ export default function LasVegasProbateGuide() {
         }}
       />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Las Vegas Probate Real Estate
-              <span className="block text-blue-600">Complete Guide 2025</span>
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Everything you need to know about selling inherited property in Las Vegas, Clark
-              County, and surrounding Nevada areas. Expert guidance from local probate specialists.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={SITE_PHONE_TEL_HREF}
-                className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors inline-flex items-center"
-              >
-                <Phone className="mr-2 h-5 w-5" />
-                Free Consultation: {SITE_PHONE_DISPLAY}
-              </a>
-              <a
-                href="/#contact"
-                className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-colors"
-              >
-                Get Started Today
-              </a>
-            </div>
-          </div>
+      <PageHero
+        title="Las Vegas Probate Real Estate Complete Guide 2025"
+        subtitle="How to sell inherited property in Las Vegas and Clark County, with court timelines, costs, and local probate specialists."
+        imageId="lasVegasHomes"
+      >
+        <div className="flex flex-col sm:flex-row gap-4">
+          <a
+            href={SITE_PHONE_TEL_HREF}
+            className="bg-white text-primary-800 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-50 transition-colors inline-flex items-center"
+          >
+            <Phone className="mr-2 h-5 w-5" />
+            Free Consultation: {SITE_PHONE_DISPLAY}
+          </a>
+          <a
+            href="/contact/"
+            className="bg-transparent text-white px-8 py-4 rounded-lg text-lg font-semibold border-2 border-white hover:bg-white hover:text-primary-800 transition-colors"
+          >
+            Get Started Today
+          </a>
         </div>
-      </section>
+      </PageHero>
 
       <section className="border-b border-gray-200 bg-slate-50 py-5">
         <div className="container mx-auto px-4">

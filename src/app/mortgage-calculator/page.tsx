@@ -1,8 +1,9 @@
-import { ArrowRight, Calculator, DollarSign, Home, Info, Phone, TrendingUp } from 'lucide-react';
+import { ArrowRight, DollarSign, Home, Info, Phone, TrendingUp } from 'lucide-react';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
@@ -47,16 +48,11 @@ export default function MortgageCalculatorPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <Breadcrumb items={breadcrumbs.slice(1)} />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Calculator className="h-16 w-16 mx-auto mb-6" />
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Mortgage Calculator</h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            Calculate your monthly mortgage payment for probate properties in Las Vegas, Nevada.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Mortgage Calculator"
+        subtitle="Calculate monthly payments for probate property purchases in Las Vegas, Nevada."
+        imageId="propertyValuation"
+      />
 
       {/* Calculator Section */}
       <section className="py-16 bg-white">

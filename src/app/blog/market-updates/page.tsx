@@ -2,6 +2,7 @@ import { ArrowLeft, BarChart, Calendar, DollarSign, TrendingUp } from 'lucide-re
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
 
 export const metadata: Metadata = {
@@ -32,22 +33,16 @@ export default function MarketUpdatesPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <Breadcrumb items={breadcrumbs.slice(1)} />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/blog/" className="inline-flex items-center text-white hover:text-white mb-6">
-            <ArrowLeft className="h-5 w-5 mr-2" />
-            Back to Blog
-          </Link>
-          <div className="text-center">
-            <TrendingUp className="h-16 w-16 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Market Updates</h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Latest Las Vegas real estate market trends and probate property insights.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title="Market Updates"
+        subtitle="Latest Las Vegas real estate market trends and probate property insights."
+        imageId="listingsHero"
+      >
+        <Link href="/blog/" className="inline-flex items-center text-white hover:text-blue-100">
+          <ArrowLeft className="h-5 w-5 mr-2" />
+          Back to Blog
+        </Link>
+      </PageHero>
 
       {/* Market Updates Section */}
       <section className="py-16 bg-white">
