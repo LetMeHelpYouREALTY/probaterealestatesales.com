@@ -2,6 +2,7 @@ import { ExternalLink, MapPin, Phone } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import {
   getLegalResourcesByGroup,
@@ -199,37 +200,31 @@ export default function LasVegasProbateLegalResourcesPage() {
         customSchema={faqSchema}
       />
 
-      <section className="bg-gradient-to-r from-primary-700 to-primary-900 py-16 text-white">
-        <div className="container-max">
-          <h1 className="text-3xl font-bold md:text-5xl">
-            Las Vegas probate & estate legal resources
-          </h1>
-          <p className="mt-4 max-w-3xl text-lg text-primary-100">
-            Clark County self-help, courts, and legal aid that families often use alongside probate
-            real estate. Use this list to plan visits and calls—always confirm hours and services
-            with each office.
-          </p>
-          <p className="mt-4 max-w-3xl text-sm text-primary-200">
-            <strong className="text-white">Disclaimer:</strong> This page is for general information
-            only and is not legal advice. Dr. Jan Duffy is a licensed real estate professional, not
-            an attorney. Listing an office here is not an endorsement.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={SITE_PHONE_TEL_HREF}
-              className="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 font-semibold text-primary-900 hover:bg-primary-50"
-            >
-              Probate real estate: {SITE_PHONE_DISPLAY}
-            </a>
-            <Link
-              href="/resources/las-vegas-probate-guide/"
-              className="inline-flex items-center justify-center rounded-lg border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
-            >
-              Las Vegas probate real estate guide
-            </Link>
-          </div>
+      <PageHero
+        title="Las Vegas probate & estate legal resources"
+        subtitle="Clark County self-help, courts, and legal aid that families often use alongside probate real estate. Use this list to plan visits and calls—always confirm hours and services with each office."
+        imageId="courthouse"
+      >
+        <p className="max-w-3xl text-sm text-white/90">
+          <strong className="text-white">Disclaimer:</strong> This page is for general information
+          only and is not legal advice. Dr. Jan Duffy is a licensed real estate professional, not an
+          attorney. Listing an office here is not an endorsement.
+        </p>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a
+            href={SITE_PHONE_TEL_HREF}
+            className="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 font-semibold text-primary-900 hover:bg-primary-50"
+          >
+            Probate real estate: {SITE_PHONE_DISPLAY}
+          </a>
+          <Link
+            href="/resources/las-vegas-probate-guide/"
+            className="inline-flex items-center justify-center rounded-lg border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
+          >
+            Las Vegas probate real estate guide
+          </Link>
         </div>
-      </section>
+      </PageHero>
 
       <div className="container-max py-12">
         <nav className="mb-12 rounded-lg border border-secondary-200 bg-white p-4 shadow-sm">

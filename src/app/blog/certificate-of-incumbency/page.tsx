@@ -1,8 +1,10 @@
-import { AlertCircle, ArrowLeft, CheckCircle, FileText, Info } from 'lucide-react';
+import { AlertCircle, ArrowLeft, CheckCircle, Info } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import { getSiteImageSrc } from '@/lib/cloudflare-images';
 
 export const metadata: Metadata = {
   title: 'Certificate of Incumbency in Las Vegas | Complete Guide | Nevada Trusts 2025',
@@ -22,6 +24,14 @@ export const metadata: Metadata = {
     publishedTime: '2024-10-15T00:00:00Z',
     modifiedTime: '2025-01-31T00:00:00Z',
     authors: ['Dr. Jan Duffy'],
+    images: [
+      {
+        url: getSiteImageSrc('certificateOfIncumbency'),
+        width: 1200,
+        height: 675,
+        alt: 'Nevada certificate of incumbency documents for a Las Vegas trust property sale',
+      },
+    ],
   },
 };
 
@@ -35,23 +45,17 @@ export default function CertificateOfIncumbencyPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <Breadcrumb items={breadcrumbs.slice(1)} />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-green-900 to-green-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/blog/" className="inline-flex items-center text-white hover:text-white mb-6">
-            <ArrowLeft className="h-5 w-5 mr-2" />
-            Back to Blog
-          </Link>
-          <div className="text-center">
-            <FileText className="h-16 w-16 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Certificate of Incumbency Guide</h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Everything you need to know about Nevada's certificate of incumbency for trusts and
-              probate property transactions.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title="Certificate of Incumbency Guide"
+        subtitle="Everything you need to know about Nevada's certificate of incumbency for trusts and probate property transactions."
+        imageId="certificateOfIncumbency"
+        overlayClassName="from-slate-950/80 via-emerald-950/65 to-primary-900/50"
+      >
+        <Link href="/blog/" className="inline-flex items-center text-white hover:text-white">
+          <ArrowLeft className="h-5 w-5 mr-2" />
+          Back to Blog
+        </Link>
+      </PageHero>
 
       {/* What Is Section */}
       <section className="py-16 bg-white">

@@ -12,6 +12,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import GbpOfficeMap from '@/components/GbpOfficeMap';
 import Hero from '@/components/Hero';
+import HomebuyerListingsStrip from '@/components/HomebuyerListingsStrip';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import SectionVisual from '@/components/SectionVisual';
 import { GBP_BUSINESS_NAME, SITE_PHONE_DISPLAY } from '@/lib/site-contact';
@@ -65,6 +66,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Hero />
+      <HomebuyerListingsStrip />
 
       {/* Quick Navigation */}
       <section className="py-12 bg-gradient-to-br from-gray-50 to-blue-50 border-b border-gray-200">

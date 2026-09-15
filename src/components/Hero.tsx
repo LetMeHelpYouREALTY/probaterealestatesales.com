@@ -5,14 +5,19 @@ import { SITE_PHONE_DISPLAY } from '@/lib/site-contact';
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-primary-50 via-white to-accent-50 overflow-hidden min-h-screen flex items-center">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-
-      {/* Las Vegas Skyline Background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-primary-200 to-transparent" />
+    <section className="relative overflow-hidden min-h-screen flex items-center">
+      <div className="absolute inset-0">
+        <SiteImage
+          imageId="listingsHero"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+          alt="Las Vegas valley homes with Strip skyline — probate real estate sales"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/92 to-white/75" />
       </div>
+      <div className="absolute inset-0 bg-grid-pattern opacity-5" />
 
       <div className="relative section-padding w-full">
         <div className="container-max">
@@ -140,6 +145,13 @@ export default function Hero() {
                   aria-label="View our probate services"
                 >
                   Our Services →
+                </a>
+                <a
+                  href="/probate-homes-for-sale/"
+                  className="text-primary-700 hover:text-primary-900 font-medium text-sm focus-ring rounded-md px-2 py-1"
+                  aria-label="Search probate homes for sale in Las Vegas"
+                >
+                  Search probate homes →
                 </a>
                 <a
                   href="/locations/"

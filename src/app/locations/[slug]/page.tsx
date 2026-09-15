@@ -10,6 +10,7 @@ import PageHero from '@/components/PageHero';
 import RealScoutOfficeListings from '@/components/RealScoutOfficeListings';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import SectionVisual from '@/components/SectionVisual';
+import SiteImage from '@/components/SiteImage';
 import { getLocationImageId, getSiteImageSrc } from '@/lib/cloudflare-images';
 import {
   HYPERLOCAL_LOCATIONS,
@@ -177,11 +178,22 @@ export default async function LocationSlugPage({ params }: { params: Promise<{ s
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {loc.neighborhoods.map((nb) => (
-              <div key={nb} className="bg-white p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{nb}</h3>
-                <p className="text-gray-600">
-                  Probate property expertise in {nb}. Nevada's fastest probate timeline.
-                </p>
+              <div key={nb} className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className="relative h-36">
+                  <SiteImage
+                    imageId={getLocationImageId(slug)}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    alt={`${nb} ${loc.name} Nevada probate real estate`}
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{nb}</h3>
+                  <p className="text-gray-600">
+                    Probate property expertise in {nb}. Nevada's 6-8 month probate timeline.
+                  </p>
+                </div>
               </div>
             ))}
           </div>

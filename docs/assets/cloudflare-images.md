@@ -28,7 +28,9 @@ Delivery URL pattern:
 
 `https://imagedelivery.net/<ACCOUNT_HASH>/<imageId>/public`
 
-Image ids match keys in `public/images/cloudflare-catalog.json` (for example `hendersonHomes`).
+Image ids match keys in `public/images/cloudflare-catalog.json` (for example `hendersonHomes`, `probateTimeline`, `certificateOfIncumbency`).
+
+Re-run the upload script after adding files so Cloudflare stays the primary CDN and git remains the backup.
 
 ## Alt text
 

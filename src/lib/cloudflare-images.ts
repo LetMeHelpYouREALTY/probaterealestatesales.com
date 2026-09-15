@@ -35,6 +35,9 @@ export const SITE_IMAGE_IDS = [
   'propertyValuation',
   'trustSales',
   'conservatorship',
+  'certificateOfIncumbency',
+  'probateTimeline',
+  'probateVideos',
 ] as const;
 
 export type SiteImageId = (typeof SITE_IMAGE_IDS)[number];
@@ -171,6 +174,21 @@ export const SITE_IMAGES: Record<SiteImageId, SiteImageRecord> = {
     alt: 'Conservatorship real estate files and keys for a Clark County property',
     heading: 'Conservatorship Real Estate',
   },
+  certificateOfIncumbency: {
+    file: 'sections/certificate-of-incumbency.jpg',
+    alt: 'Nevada certificate of incumbency and trustee documents for a Las Vegas trust property sale',
+    heading: 'Certificate of Incumbency Guide',
+  },
+  probateTimeline: {
+    file: 'sections/nevada-probate-timeline.jpg',
+    alt: 'Nevada probate timeline calendar and Clark County court documents on a Las Vegas desk',
+    heading: 'Nevada Probate Timeline Guide',
+  },
+  probateVideos: {
+    file: 'sections/probate-videos-hero.jpg',
+    alt: 'Probate real estate education desk with video lesson, timeline checklist, and Las Vegas listing packet',
+    heading: 'Probate Real Estate Videos',
+  },
 };
 
 const LOCATION_IMAGE_BY_SLUG: Record<string, SiteImageId> = {
@@ -227,6 +245,9 @@ export function getSiteImageRecord(id: SiteImageId): SiteImageRecord {
     case 'propertyValuation':
     case 'trustSales':
     case 'conservatorship':
+    case 'certificateOfIncumbency':
+    case 'probateTimeline':
+    case 'probateVideos':
       return SITE_IMAGES[id];
     default:
       return assertNever(id);

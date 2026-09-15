@@ -23,5 +23,8 @@
   "estateLiquidation": "services/estate-liquidation.jpg",
   "propertyValuation": "services/probate-property-valuation.jpg",
   "trustSales": "services/trust-property-sales.jpg",
-  "conservatorship": "services/conservatorship-real-estate.jpg"
+  "conservatorship": "services/conservatorship-real-estate.jpg",
+  "certificateOfIncumbency": "sections/certificate-of-incumbency.jpg",
+  "probateTimeline": "sections/nevada-probate-timeline.jpg",
+  "probateVideos": "sections/probate-videos-hero.jpg"
 }

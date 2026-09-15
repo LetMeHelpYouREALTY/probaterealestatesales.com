@@ -18,8 +18,28 @@ test.describe('GBP actions and heading images', () => {
       page.locator('iframe[title*="Google Maps"], iframe[title*="office map"]')
     ).toHaveCount(1);
 
-    const geoRegion = await page.locator('meta[name="geo.region"]').getAttribute('content');
-    expect(geoRegion).toBe('US-NV');
+    await expect(page.getByRole('heading', { name: /Search probate homes for sale/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Browse probate homes/i })).toBeVisible();
+  });
+
+  test('blog and legal resource pages replace gradient heroes with heading photos', async ({
+    page,
+  }) => {
+    await page.goto('/blog/nevada-probate-timeline/');
+    await expect(
+      page.getByRole('heading', { name: /Nevada Probate Timeline Guide/i })
+    ).toBeVisible();
+    await expect(page.locator('img[alt*="probate timeline"]').first()).toBeVisible();
+
+    await page.goto('/blog/certificate-of-incumbency/');
+    await expect(page.getByRole('heading', { name: /Certificate of Incumbency Guide/i })).toBeVisible();
+    await expect(page.locator('img[alt*="certificate of incumbency"]').first()).toBeVisible();
+
+    await page.goto('/resources/las-vegas-probate-legal-resources/');
+    await expect(
+      page.getByRole('heading', { name: /Las Vegas probate & estate legal resources/i })
+    ).toBeVisible();
+    await expect(page.locator('img[alt*="Regional Justice Center"]').first()).toBeVisible();
   });
 
   test('location page uses a real photo instead of a map-pin placeholder', async ({ page }) => {

@@ -2,7 +2,9 @@ import { ArrowLeft, CheckCircle, Clock, DollarSign, FileText, MapPin, Scale } fr
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import { getSiteImageSrc } from '@/lib/cloudflare-images';
 
 export const metadata: Metadata = {
   title: 'Clark County Probate Court Procedures Guide | Step-by-Step Process',
@@ -21,6 +23,14 @@ export const metadata: Metadata = {
     publishedTime: '2024-09-20T00:00:00Z',
     modifiedTime: '2025-01-31T00:00:00Z',
     authors: ['Dr. Jan Duffy'],
+    images: [
+      {
+        url: getSiteImageSrc('courthouse'),
+        width: 1200,
+        height: 675,
+        alt: 'Clark County Regional Justice Center Las Vegas probate court building',
+      },
+    ],
   },
 };
 
@@ -34,24 +44,17 @@ export default function ClarkCountyProbatePage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <Breadcrumb items={breadcrumbs.slice(1)} />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-purple-900 to-purple-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/blog/" className="inline-flex items-center text-white hover:text-white mb-6">
-            <ArrowLeft className="h-5 w-5 mr-2" />
-            Back to Blog
-          </Link>
-          <div className="text-center">
-            <Scale className="h-16 w-16 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Clark County Probate Court Procedures
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Step-by-step guide to navigating Clark County probate court for property sales.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title="Clark County Probate Court Procedures"
+        subtitle="Step-by-step guide to navigating Clark County probate court for property sales."
+        imageId="courthouse"
+        overlayClassName="from-slate-950/80 via-purple-950/70 to-primary-900/55"
+      >
+        <Link href="/blog/" className="inline-flex items-center text-white hover:text-white">
+          <ArrowLeft className="h-5 w-5 mr-2" />
+          Back to Blog
+        </Link>
+      </PageHero>
 
       {/* Overview Section */}
       <section className="py-16 bg-white">

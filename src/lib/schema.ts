@@ -449,6 +449,8 @@ export const defaultSchemas = {
       getSiteImageAbsoluteUrl('lasVegasHomes'),
       getSiteImageAbsoluteUrl('consultationRoom'),
       getSiteImageAbsoluteUrl('listingsHero'),
+      getSiteImageAbsoluteUrl('courthouse'),
+      getSiteImageAbsoluteUrl('probateTimeline'),
     ],
     /** Maps listing URL helps Google connect site ↔ Maps ↔ GBP */
     hasMap: OFFICE_GOOGLE_MAPS_LISTING_URL,

@@ -2,7 +2,9 @@ import { ArrowLeft, Calendar, CheckCircle, Clock, FileText } from 'lucide-react'
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import { getSiteImageSrc } from '@/lib/cloudflare-images';
 
 export const metadata: Metadata = {
   title: 'Nevada Probate Timeline Guide | Complete 6-8 Month Process',
@@ -21,6 +23,14 @@ export const metadata: Metadata = {
     publishedTime: '2024-11-01T00:00:00Z',
     modifiedTime: '2025-01-31T00:00:00Z',
     authors: ['Dr. Jan Duffy'],
+    images: [
+      {
+        url: getSiteImageSrc('probateTimeline'),
+        width: 1200,
+        height: 675,
+        alt: 'Nevada probate timeline calendar and Clark County court documents',
+      },
+    ],
   },
 };
 
@@ -34,22 +44,16 @@ export default function NevadaProbateTimelinePage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <Breadcrumb items={breadcrumbs.slice(1)} />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/blog/" className="inline-flex items-center text-white hover:text-white mb-6">
-            <ArrowLeft className="h-5 w-5 mr-2" />
-            Back to Blog
-          </Link>
-          <div className="text-center">
-            <Clock className="h-16 w-16 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Nevada Probate Timeline Guide</h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Understanding the 6-8 month probate process for real estate sales in Nevada.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title="Nevada Probate Timeline Guide"
+        subtitle="Understanding the 6-8 month probate process for real estate sales in Nevada."
+        imageId="probateTimeline"
+      >
+        <Link href="/blog/" className="inline-flex items-center text-white hover:text-white">
+          <ArrowLeft className="h-5 w-5 mr-2" />
+          Back to Blog
+        </Link>
+      </PageHero>
 
       {/* Timeline Section */}
       <section className="py-16 bg-white">
