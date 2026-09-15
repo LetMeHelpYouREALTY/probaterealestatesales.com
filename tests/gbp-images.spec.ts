@@ -19,7 +19,9 @@ test.describe('GBP actions and heading images', () => {
     ).toHaveCount(1);
 
     await expect(page.getByRole('heading', { name: /Search probate homes for sale/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Browse probate homes/i })).toBeVisible();
+    await expect(
+      page.getByRole('link', { name: 'Browse probate homes', exact: true })
+    ).toBeVisible();
   });
 
   test('blog and legal resource pages replace gradient heroes with heading photos', async ({
