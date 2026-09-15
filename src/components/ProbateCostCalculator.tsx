@@ -1,9 +1,8 @@
 'use client';
 
-import { SITE_PHONE_TEL_HREF, SITE_PHONE_DISPLAY } from '@/lib/site-contact';
-
 import { ArrowRight, Calculator, CheckCircle, DollarSign, Info } from 'lucide-react';
 import { useState } from 'react';
+import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const courtFees = {
   filingFee: {
@@ -385,9 +384,7 @@ export default function ProbateCostCalculator() {
                 <div className="text-4xl md:text-5xl font-bold mb-2">
                   ${costs.total.toLocaleString()}
                 </div>
-                <p className="text-white">
-                  {percentageOfEstate.toFixed(1)}% of total estate value
-                </p>
+                <p className="text-white">{percentageOfEstate.toFixed(1)}% of total estate value</p>
               </div>
 
               <div className="grid grid-cols-2 gap-4 text-center">

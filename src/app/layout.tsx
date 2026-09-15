@@ -4,6 +4,7 @@ import Script from 'next/script';
 import './globals.css';
 import { CalendlyBadgeScript } from '@/components/calendly/CalendlyBadgeScript';
 import Footer from '@/components/Footer';
+import GbpLocalActions from '@/components/GbpLocalActions';
 import Navigation from '@/components/Navigation';
 import { getLocalBusinessSameAsUrls, OFFICE_GOOGLE_MAPS_LISTING_URL } from '@/config/site-google';
 import { defaultSchemas } from '@/lib/schema';
@@ -66,6 +67,12 @@ export const metadata: Metadata = {
     },
   },
   metadataBase: new URL('https://www.probaterealestatesales.com'),
+  other: {
+    'geo.region': 'US-NV',
+    'geo.placename': 'Las Vegas, Nevada',
+    'geo.position': '36.1699;-115.1398',
+    ICBM: '36.1699, -115.1398',
+  },
 };
 
 export const viewport: Viewport = {
@@ -88,6 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="https://www.youtube-nocookie.com" />
         <link rel="dns-prefetch" href="https://i.ytimg.com" />
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
+        <link rel="dns-prefetch" href="https://imagedelivery.net" />
         <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
 
         {/* WebSite + LocalBusiness + RealEstateAgent + Person (E-E-A-T) - on every page */}
@@ -201,6 +209,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
         <Navigation />
+        <GbpLocalActions />
         <main>{children}</main>
         <Footer />
         <CalendlyBadgeScript />

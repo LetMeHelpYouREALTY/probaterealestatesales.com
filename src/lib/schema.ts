@@ -8,6 +8,7 @@ import {
   THREADS_PROFILE_URL,
 } from '@/config/site-google';
 import { YOUTUBE_CHANNEL_URL } from '@/config/youtube';
+import { getSiteImageAbsoluteUrl } from '@/lib/cloudflare-images';
 import {
   GBP_BUSINESS_NAME,
   GBP_DESCRIPTION,
@@ -442,7 +443,15 @@ export const defaultSchemas = {
       geoRadius: '50 miles',
     },
     logo: SITE_LOGO_ABSOLUTE_URL,
-    image: SITE_LOGO_ABSOLUTE_URL,
+    image: [
+      SITE_LOGO_ABSOLUTE_URL,
+      getSiteImageAbsoluteUrl('downtownOffice'),
+      getSiteImageAbsoluteUrl('lasVegasHomes'),
+      getSiteImageAbsoluteUrl('consultationRoom'),
+      getSiteImageAbsoluteUrl('listingsHero'),
+      getSiteImageAbsoluteUrl('courthouse'),
+      getSiteImageAbsoluteUrl('probateTimeline'),
+    ],
     /** Maps listing URL helps Google connect site ↔ Maps ↔ GBP */
     hasMap: OFFICE_GOOGLE_MAPS_LISTING_URL,
     sameAs: getLocalBusinessSameAsUrls(),

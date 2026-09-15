@@ -1,11 +1,12 @@
-import { SITE_PHONE_TEL_HREF, SITE_PHONE_DISPLAY } from '@/lib/site-contact';
-import { Award, FileText, Gavel, MapPin, Phone, Shield, Users, ArrowRight } from 'lucide-react';
+import { ArrowRight, Award, FileText, Gavel, MapPin, Phone, Shield } from 'lucide-react';
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
-import { SITE_LOGO_ABSOLUTE_URL } from '@/config/site-google';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SiteImage from '@/components/SiteImage';
+import { SITE_LOGO_ABSOLUTE_URL } from '@/config/site-google';
+import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const FAQ = dynamic(() => import('@/components/FAQ'), {
   loading: () => <div className="py-16 text-center text-gray-500">Loading FAQ...</div>,
@@ -219,6 +220,16 @@ export default function ProbateDivisionPage() {
         itemScope
         itemType="https://schema.org/Organization"
       >
+        <div className="absolute inset-0">
+          <SiteImage
+            imageId="courthouse"
+            fill
+            priority
+            className="object-cover opacity-35"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-slate-950/70" />
+        </div>
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
         <div className="relative container-max section-padding">
           <div className="max-w-4xl mx-auto text-center space-y-8">
@@ -493,14 +504,17 @@ export default function ProbateDivisionPage() {
                   </div>
                 </div>
 
-                {/* Director Image Placeholder */}
-                <div className="relative">
-                  <div className="aspect-square bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl shadow-lg flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <Users className="w-24 h-24 text-blue-600 mx-auto mb-4" />
-                      <div className="text-lg font-semibold text-gray-700">NANCY SANBORN</div>
-                      <div className="text-sm text-gray-600 mt-2">Director of Trust & Probate</div>
-                    </div>
+                <div className="relative overflow-hidden rounded-xl shadow-lg">
+                  <SiteImage
+                    imageId="consultationRoom"
+                    width={640}
+                    height={640}
+                    className="aspect-square w-full object-cover"
+                    alt="Trust and probate consultation office, Las Vegas Nevada"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-slate-900/80 p-4 text-center text-white">
+                    <div className="text-lg font-semibold">Nancy Sanborn</div>
+                    <div className="text-sm text-blue-100">Director of Trust &amp; Probate</div>
                   </div>
                 </div>
               </div>
@@ -548,6 +562,17 @@ export default function ProbateDivisionPage() {
                 </p>
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white">
+        <div className="container-max section-padding">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Probate Division Questions
+            </h2>
+            <FAQ />
           </div>
         </div>
       </section>

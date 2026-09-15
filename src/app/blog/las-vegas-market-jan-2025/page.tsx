@@ -2,7 +2,9 @@ import { ArrowLeft, BarChart, Calendar, DollarSign, Home, TrendingUp } from 'luc
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import { getSiteImageSrc } from '@/lib/cloudflare-images';
 
 export const metadata: Metadata = {
   title: 'Las Vegas Probate Property Market Update January 2025 | Real Estate Trends',
@@ -22,6 +24,14 @@ export const metadata: Metadata = {
     publishedTime: '2025-01-15T00:00:00Z',
     modifiedTime: '2025-01-31T00:00:00Z',
     authors: ['Dr. Jan Duffy'],
+    images: [
+      {
+        url: getSiteImageSrc('listingsHero'),
+        width: 1200,
+        height: 675,
+        alt: 'Las Vegas valley homes — probate property market update',
+      },
+    ],
   },
   other: {
     'article:published_time': '2025-01-15T00:00:00Z',
@@ -40,32 +50,23 @@ export default function LasVegasMarketJan2025Page() {
   return (
     <main className="min-h-screen bg-gray-50">
       <Breadcrumb items={breadcrumbs.slice(1)} />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/blog/market-updates/"
-            className="inline-flex items-center text-white hover:text-white mb-6"
-          >
-            <ArrowLeft className="h-5 w-5 mr-2" />
-            Back to Market Updates
-          </Link>
-          <div className="text-center">
-            <TrendingUp className="h-16 w-16 mx-auto mb-6" />
-            <div className="flex items-center justify-center mb-4">
-              <Calendar className="h-6 w-6 mr-2" />
-              <span className="text-lg">January 2025</span>
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Las Vegas Probate Property Market Update
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Comprehensive analysis of probate real estate trends and market conditions in Las
-              Vegas.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title="Las Vegas Probate Property Market Update"
+        subtitle="Comprehensive analysis of probate real estate trends and market conditions in Las Vegas."
+        imageId="listingsHero"
+      >
+        <Link
+          href="/blog/market-updates/"
+          className="inline-flex items-center text-white hover:text-white"
+        >
+          <ArrowLeft className="h-5 w-5 mr-2" />
+          Back to Market Updates
+        </Link>
+        <p className="mt-4 inline-flex items-center text-white/90">
+          <Calendar className="h-5 w-5 mr-2" aria-hidden />
+          January 2025
+        </p>
+      </PageHero>
 
       {/* Executive Summary */}
       <section className="py-16 bg-white">

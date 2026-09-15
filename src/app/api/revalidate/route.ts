@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
 import { revalidatePath, revalidateTag } from 'next/cache';
+import { type NextRequest, NextResponse } from 'next/server';
 import { submitToIndexNow } from '@/lib/indexnow';
 
 const BASE_URL = 'https://www.probaterealestatesales.com';
@@ -39,10 +39,7 @@ export async function POST(request: NextRequest) {
       }
       return NextResponse.json({ revalidated: true, tag });
     }
-    return NextResponse.json(
-      { error: 'Missing path or tag param' },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: 'Missing path or tag param' }, { status: 400 });
   } catch (err) {
     return NextResponse.json(
       { error: 'Revalidation failed', details: String(err) },

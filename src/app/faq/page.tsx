@@ -1,9 +1,10 @@
-import { SITE_PHONE_TEL_HREF, SITE_PHONE_DISPLAY } from '@/lib/site-contact';
 import type { Metadata } from 'next';
 import Breadcrumb from '@/components/Breadcrumb';
 import FAQ from '@/components/FAQ';
+import PageHero from '@/components/PageHero';
 import RealScoutOfficeListings from '@/components/RealScoutOfficeListings';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 export const metadata: Metadata = {
   title: 'How Long Does Probate Take in Nevada? | FAQ | Las Vegas Probate Timeline',
@@ -35,29 +36,26 @@ export default function FAQPage() {
     <main className="min-h-screen">
       <Breadcrumb items={breadcrumbs.slice(1)} />
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Nevada Probate Real Estate FAQ</h1>
-          <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
-            Get comprehensive answers to all your questions about probate real estate sales in
-            Nevada. From timelines to legal requirements, we cover everything you need to know.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href={SITE_PHONE_TEL_HREF}
-              className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-primary-700 bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors"
-            >
-              Call Now: {SITE_PHONE_DISPLAY}
-            </a>
-            <a
-              href="https://drjanduffy.realscout.com/onboarding"
-              className="inline-flex items-center justify-center px-8 py-4 border border-white text-lg font-medium rounded-md text-white hover:bg-white hover:text-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors"
-            >
-              Free Consultation
-            </a>
-          </div>
+      <PageHero
+        title="Nevada Probate Real Estate FAQ"
+        subtitle="Get comprehensive answers about probate real estate sales in Nevada. From timelines to court requirements, we cover what buyers and executors ask most."
+        imageId="resourcesGuides"
+      >
+        <div className="flex flex-col sm:flex-row gap-4">
+          <a
+            href={SITE_PHONE_TEL_HREF}
+            className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-primary-700 bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors"
+          >
+            Call Now: {SITE_PHONE_DISPLAY}
+          </a>
+          <a
+            href="https://drjanduffy.realscout.com/onboarding"
+            className="inline-flex items-center justify-center px-8 py-4 border border-white text-lg font-medium rounded-md text-white hover:bg-white hover:text-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors"
+          >
+            Free Consultation
+          </a>
         </div>
-      </section>
+      </PageHero>
 
       {/* FAQ Section */}
       <FAQ />

@@ -8,6 +8,7 @@ import ContentMarketingCalendar from '@/components/ContentMarketingCalendar';
 import EducationalContentHub from '@/components/EducationalContentHub';
 import LeadGenerationSystem from '@/components/LeadGenerationSystem';
 import NevadaProbateLaws from '@/components/NevadaProbateLaws';
+import PageHero from '@/components/PageHero';
 import ProbateCostCalculator from '@/components/ProbateCostCalculator';
 import ProbatePropertyChecklist from '@/components/ProbatePropertyChecklist';
 import ProbateTimeline from '@/components/ProbateTimeline';
@@ -49,30 +50,26 @@ export default function ResourcesPage() {
   return (
     <main className="min-h-screen">
       <Breadcrumb items={breadcrumbs.slice(1)} />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-20">
-        <div className="container-max text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Probate Real Estate Resources</h1>
-          <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto mb-8">
-            Dr. Jan Duffy's comprehensive collection of educational content, tools, and guides to
-            help you navigate the Nevada probate process with confidence.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://drjanduffy.realscout.com/onboarding"
-              className="bg-white text-primary-700 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block"
-            >
-              Schedule Free Consultation
-            </a>
-            <a
-              href={SITE_PHONE_TEL_HREF}
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-900 transition-colors inline-block"
-            >
-              Call {SITE_PHONE_DISPLAY}
-            </a>
-          </div>
+      <PageHero
+        title="Probate Real Estate Resources"
+        subtitle="Guides, checklists, and calculators for Nevada probate property sales in Las Vegas and Clark County."
+        imageId="resourcesGuides"
+      >
+        <div className="flex flex-col sm:flex-row gap-4">
+          <a
+            href="https://drjanduffy.realscout.com/onboarding"
+            className="bg-white text-primary-700 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block"
+          >
+            Schedule Free Consultation
+          </a>
+          <a
+            href={SITE_PHONE_TEL_HREF}
+            className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-900 transition-colors inline-block"
+          >
+            Call {SITE_PHONE_DISPLAY}
+          </a>
         </div>
-      </section>
+      </PageHero>
 
       {/* Resource Navigation */}
       <section className="py-16 bg-secondary-50">

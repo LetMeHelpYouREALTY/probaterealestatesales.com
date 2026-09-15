@@ -1,4 +1,3 @@
-import { SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 import {
   ArrowRight,
   Calendar,
@@ -11,6 +10,7 @@ import {
   Star,
   Users,
 } from 'lucide-react';
+import { SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const primaryCTA = {
   headline: 'Need Help With a Probate Property?',

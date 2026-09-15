@@ -31,8 +31,7 @@ export default function RealScoutOfficeListings({
   priceMin = '500000',
   priceMax = '750000',
   title = 'Current Las Vegas Properties Available',
-  subtitle =
-    "Browse our current inventory of properties in the Las Vegas area. These properties are available for immediate purchase with our expert guidance.",
+  subtitle = 'Browse our current inventory of properties in the Las Vegas area. These properties are available for immediate purchase with our expert guidance.',
   themeColor = 'blue',
 }: RealScoutOfficeListingsProps) {
   const scriptLoaded = useRealScoutScript();

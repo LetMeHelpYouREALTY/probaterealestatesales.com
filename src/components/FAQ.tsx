@@ -1,9 +1,8 @@
 'use client';
 
-import { SITE_PHONE_TEL_HREF, SITE_PHONE_DISPLAY } from '@/lib/site-contact';
-
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
+import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 interface FAQItem {
   question: string;

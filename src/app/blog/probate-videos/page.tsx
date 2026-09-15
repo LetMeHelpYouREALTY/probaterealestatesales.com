@@ -1,9 +1,11 @@
-import { ArrowLeft, ExternalLink, ListVideo, Video } from 'lucide-react';
+import { ArrowLeft, ExternalLink } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import { FeaturedYouTubeVideo } from '@/components/FeaturedYouTubeVideo';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SiteImage from '@/components/SiteImage';
 import { YouTubeChannelEmbed } from '@/components/YouTubeChannelEmbed';
 import { SITE_LOGO_ABSOLUTE_URL } from '@/config/site-google';
 import {
@@ -15,6 +17,7 @@ import {
   YOUTUBE_FEATURED_UPLOAD_DATE,
   YOUTUBE_FEATURED_WATCH_URL,
 } from '@/config/youtube';
+import { getSiteImageSrc } from '@/lib/cloudflare-images';
 import { GBP_BUSINESS_NAME } from '@/lib/site-contact';
 
 export const metadata: Metadata = {
@@ -35,19 +38,18 @@ export const metadata: Metadata = {
     url: 'https://www.probaterealestatesales.com/blog/probate-videos/',
     images: [
       {
-        url: '/images/og-dr-jan-duffy.jpg',
+        url: getSiteImageSrc('probateVideos'),
         width: 1200,
-        height: 630,
-        alt: 'Dr. Jan Duffy — probate real estate education and videos',
+        height: 675,
+        alt: 'Probate real estate education desk with video lesson and Las Vegas listing packet',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Probate Real Estate Videos | Las Vegas',
-    description:
-      'Educational probate real estate videos and topics from Dr. Jan Duffy, Las Vegas.',
-    images: ['/images/og-dr-jan-duffy.jpg'],
+    description: 'Educational probate real estate videos and topics from Dr. Jan Duffy, Las Vegas.',
+    images: [getSiteImageSrc('probateVideos')],
   },
 };
 
@@ -87,35 +89,28 @@ export default function ProbateVideosPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(videoObjectLd) }}
       />
       <Breadcrumb items={breadcrumbs.slice(1)} />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/blog/"
-            className="inline-flex items-center text-white hover:text-white mb-6"
+      <PageHero
+        title="Probate Real Estate Videos"
+        subtitle="Watch the featured video on this page, then browse more uploads and topic outlines below."
+        imageId="probateVideos"
+      >
+        <Link href="/blog/" className="inline-flex items-center text-white hover:text-white">
+          <ArrowLeft className="h-5 w-5 mr-2" />
+          Back to Blog
+        </Link>
+        <div className="mt-6">
+          <a
+            href={YOUTUBE_CHANNEL_HANDLE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-900 rounded-md font-semibold hover:bg-blue-50 transition-colors"
+            aria-label="Open Dr. Jan Duffy's YouTube channel in a new tab"
           >
-            <ArrowLeft className="h-5 w-5 mr-2" />
-            Back to Blog
-          </Link>
-          <div className="text-center">
-            <Video className="h-16 w-16 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Probate Real Estate Videos</h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Watch the featured video on this page, then browse more uploads and topic outlines below.
-            </p>
-            <a
-              href={YOUTUBE_CHANNEL_HANDLE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-900 rounded-md font-semibold hover:bg-blue-50 transition-colors"
-              aria-label="Open Dr. Jan Duffy's YouTube channel in a new tab"
-            >
-              Watch on YouTube
-              <ExternalLink className="h-5 w-5 shrink-0" aria-hidden />
-            </a>
-          </div>
+            Watch on YouTube
+            <ExternalLink className="h-5 w-5 shrink-0" aria-hidden />
+          </a>
         </div>
-      </section>
+      </PageHero>
 
       <FeaturedYouTubeVideo />
 
@@ -138,8 +133,13 @@ export default function ProbateVideosPage() {
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-gray-900 rounded-xl overflow-hidden shadow-lg border border-gray-800">
-              <div className="aspect-video bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center relative">
-                <ListVideo className="h-14 w-14 text-white opacity-90" aria-hidden />
+              <div className="aspect-video relative">
+                <SiteImage
+                  imageId="probateTimeline"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
                 <span className="absolute bottom-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded">
                   Topic
                 </span>
@@ -155,8 +155,13 @@ export default function ProbateVideosPage() {
             </div>
 
             <div className="bg-gray-900 rounded-xl overflow-hidden shadow-lg border border-gray-800">
-              <div className="aspect-video bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center relative">
-                <ListVideo className="h-14 w-14 text-white opacity-90" aria-hidden />
+              <div className="aspect-video relative">
+                <SiteImage
+                  imageId="certificateOfIncumbency"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
                 <span className="absolute bottom-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded">
                   Topic
                 </span>
@@ -172,8 +177,13 @@ export default function ProbateVideosPage() {
             </div>
 
             <div className="bg-gray-900 rounded-xl overflow-hidden shadow-lg border border-gray-800">
-              <div className="aspect-video bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center relative">
-                <ListVideo className="h-14 w-14 text-white opacity-90" aria-hidden />
+              <div className="aspect-video relative">
+                <SiteImage
+                  imageId="courthouse"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
                 <span className="absolute bottom-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded">
                   Topic
                 </span>
@@ -189,8 +199,13 @@ export default function ProbateVideosPage() {
             </div>
 
             <div className="bg-gray-900 rounded-xl overflow-hidden shadow-lg border border-gray-800">
-              <div className="aspect-video bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center relative">
-                <ListVideo className="h-14 w-14 text-white opacity-90" aria-hidden />
+              <div className="aspect-video relative">
+                <SiteImage
+                  imageId="propertyValuation"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
                 <span className="absolute bottom-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded">
                   Topic
                 </span>
@@ -206,8 +221,13 @@ export default function ProbateVideosPage() {
             </div>
 
             <div className="bg-gray-900 rounded-xl overflow-hidden shadow-lg border border-gray-800">
-              <div className="aspect-video bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center relative">
-                <ListVideo className="h-14 w-14 text-white opacity-90" aria-hidden />
+              <div className="aspect-video relative">
+                <SiteImage
+                  imageId="trustSales"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
                 <span className="absolute bottom-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded">
                   Topic
                 </span>
@@ -223,8 +243,13 @@ export default function ProbateVideosPage() {
             </div>
 
             <div className="bg-gray-900 rounded-xl overflow-hidden shadow-lg border border-gray-800">
-              <div className="aspect-video bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center relative">
-                <ListVideo className="h-14 w-14 text-white opacity-90" aria-hidden />
+              <div className="aspect-video relative">
+                <SiteImage
+                  imageId="courtGavel"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
                 <span className="absolute bottom-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded">
                   Topic
                 </span>

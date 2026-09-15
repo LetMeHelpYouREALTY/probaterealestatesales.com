@@ -30,6 +30,8 @@ SEO and performance guidelines for images on probaterealestatesales.com.
 ## Optimization
 
 - Run `npm run optimize-images` in `public/images/` before adding new assets
+- Upload to Cloudflare Images with `npm run cloudflare:images` (git remains the backup)
+- See `docs/assets/cloudflare-images.md`
 - See `public/images/image-config.json` for quality and responsive settings
 - Lazy load below-fold images (`loading="lazy"`)
 

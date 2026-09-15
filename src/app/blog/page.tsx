@@ -2,7 +2,9 @@ import { ArrowRight, BookOpen, Calendar, TrendingUp, Video } from 'lucide-react'
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SiteImage from '@/components/SiteImage';
 
 export const metadata: Metadata = {
   title: 'Probate Properties Blog | Las Vegas Probate Real Estate News & Market Updates',
@@ -31,68 +33,92 @@ export default function BlogPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <Breadcrumb items={breadcrumbs.slice(1)} />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Probate Real Estate Blog & Resources
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            Stay informed with the latest probate real estate news, market updates, and educational
-            videos.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Probate Real Estate Blog & Resources"
+        subtitle="Stay informed with Las Vegas probate real estate news, market updates, and educational videos."
+        imageId="resourcesGuides"
+      />
 
       {/* Blog Categories */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <Link href="/blog/probate-videos/" className="group">
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-8 hover:shadow-lg transition-shadow">
-                <Video className="h-12 w-12 text-blue-600 mb-4" />
-                <h3 className="text-2xl font-semibold text-secondary-900 mb-2 group-hover:text-primary-900">
-                  Probate Videos
-                </h3>
-                <p className="text-secondary-600">
-                  Watch educational videos about probate real estate processes, timelines, and best
-                  practices.
-                </p>
-                <div className="mt-4 flex items-center text-primary-700 font-medium">
-                  Watch Videos
-                  <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              <div className="overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-indigo-100 hover:shadow-lg transition-shadow">
+                <div className="relative h-36">
+                  <SiteImage
+                    imageId="probateVideos"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <div className="p-8">
+                  <Video className="h-12 w-12 text-blue-600 mb-4" />
+                  <h3 className="text-2xl font-semibold text-secondary-900 mb-2 group-hover:text-primary-900">
+                    Probate Videos
+                  </h3>
+                  <p className="text-secondary-600">
+                    Watch educational videos about probate real estate processes, timelines, and
+                    best practices.
+                  </p>
+                  <div className="mt-4 flex items-center text-primary-700 font-medium">
+                    Watch Videos
+                    <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
               </div>
             </Link>
 
             <Link href="/blog/market-updates/" className="group">
-              <div className="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-8 hover:shadow-lg transition-shadow">
-                <TrendingUp className="h-12 w-12 text-green-600 mb-4" />
-                <h3 className="text-2xl font-semibold text-secondary-900 mb-2 group-hover:text-primary-900">
-                  Market Updates
-                </h3>
-                <p className="text-secondary-600">
-                  Get the latest Las Vegas real estate market trends and probate property insights.
-                </p>
-                <div className="mt-4 flex items-center text-primary-700 font-medium">
-                  Read Updates
-                  <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              <div className="overflow-hidden rounded-xl bg-gradient-to-br from-green-50 to-emerald-100 hover:shadow-lg transition-shadow">
+                <div className="relative h-36">
+                  <SiteImage
+                    imageId="listingsHero"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <div className="p-8">
+                  <TrendingUp className="h-12 w-12 text-green-600 mb-4" />
+                  <h3 className="text-2xl font-semibold text-secondary-900 mb-2 group-hover:text-primary-900">
+                    Market Updates
+                  </h3>
+                  <p className="text-secondary-600">
+                    Get the latest Las Vegas real estate market trends and probate property
+                    insights.
+                  </p>
+                  <div className="mt-4 flex items-center text-primary-700 font-medium">
+                    Read Updates
+                    <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
               </div>
             </Link>
 
             <Link href="/resources/" className="group">
-              <div className="bg-gradient-to-br from-purple-50 to-violet-100 rounded-xl p-8 hover:shadow-lg transition-shadow">
-                <BookOpen className="h-12 w-12 text-purple-600 mb-4" />
-                <h3 className="text-2xl font-semibold text-secondary-900 mb-2 group-hover:text-primary-900">
-                  Resources & Guides
-                </h3>
-                <p className="text-secondary-600">
-                  Comprehensive guides on Nevada probate laws, timelines, costs, and procedures.
-                </p>
-                <div className="mt-4 flex items-center text-primary-700 font-medium">
-                  View Resources
-                  <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              <div className="overflow-hidden rounded-xl bg-gradient-to-br from-purple-50 to-violet-100 hover:shadow-lg transition-shadow">
+                <div className="relative h-36">
+                  <SiteImage
+                    imageId="resourcesGuides"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <div className="p-8">
+                  <BookOpen className="h-12 w-12 text-purple-600 mb-4" />
+                  <h3 className="text-2xl font-semibold text-secondary-900 mb-2 group-hover:text-primary-900">
+                    Resources & Guides
+                  </h3>
+                  <p className="text-secondary-600">
+                    Comprehensive guides on Nevada probate laws, timelines, costs, and procedures.
+                  </p>
+                  <div className="mt-4 flex items-center text-primary-700 font-medium">
+                    View Resources
+                    <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
               </div>
             </Link>
@@ -107,13 +133,19 @@ export default function BlogPage() {
             Latest Articles
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Placeholder for blog posts - will be populated dynamically */}
             <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-gradient-to-br from-blue-400 to-blue-600"></div>
+              <div className="relative h-48">
+                <SiteImage
+                  imageId="probateTimeline"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
               <div className="p-6">
                 <div className="flex items-center text-sm text-secondary-500 mb-2">
                   <Calendar className="h-4 w-4 mr-2" />
-                  <span>Coming Soon</span>
+                  <span>November 2024</span>
                 </div>
                 <h3 className="text-xl font-semibold text-secondary-900 mb-2">
                   Understanding Nevada Probate Timeline
@@ -133,11 +165,18 @@ export default function BlogPage() {
             </div>
 
             <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-gradient-to-br from-green-400 to-green-600"></div>
+              <div className="relative h-48">
+                <SiteImage
+                  imageId="certificateOfIncumbency"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
               <div className="p-6">
                 <div className="flex items-center text-sm text-secondary-500 mb-2">
                   <Calendar className="h-4 w-4 mr-2" />
-                  <span>Coming Soon</span>
+                  <span>October 2024</span>
                 </div>
                 <h3 className="text-xl font-semibold text-secondary-900 mb-2">
                   Certificate of Incumbency Guide
@@ -156,11 +195,18 @@ export default function BlogPage() {
             </div>
 
             <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-gradient-to-br from-purple-400 to-purple-600"></div>
+              <div className="relative h-48">
+                <SiteImage
+                  imageId="courthouse"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
               <div className="p-6">
                 <div className="flex items-center text-sm text-secondary-500 mb-2">
                   <Calendar className="h-4 w-4 mr-2" />
-                  <span>Coming Soon</span>
+                  <span>September 2024</span>
                 </div>
                 <h3 className="text-xl font-semibold text-secondary-900 mb-2">
                   Clark County Probate Court Procedures

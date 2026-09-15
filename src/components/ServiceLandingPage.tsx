@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import GbpLocalActions from '@/components/GbpLocalActions';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import { OFFICE_ADDRESS_LINE } from '@/config/site-google';
+import { getServiceImageId } from '@/lib/cloudflare-images';
 import { getRelatedServices, type ServicePageContent } from '@/lib/service-pages';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
@@ -40,15 +43,15 @@ export default function ServiceLandingPage({ service }: ServiceLandingPageProps)
         }}
       />
 
-      <section className="bg-gray-50 border-b">
-        <div className="mx-auto max-w-5xl px-4 py-14">
-          <p className="text-sm font-semibold uppercase tracking-wide text-primary-700">
-            {service.category}
-          </p>
-          <h1 className="mt-2 text-4xl font-bold text-secondary-900">{service.title}</h1>
-          <p className="mt-4 text-lg text-secondary-700">{service.summary}</p>
-        </div>
-      </section>
+      <PageHero
+        title={service.title}
+        subtitle={service.summary}
+        imageId={getServiceImageId(service.slug)}
+      >
+        <p className="text-sm font-semibold uppercase tracking-wide text-white/90">
+          {service.category}
+        </p>
+      </PageHero>
 
       <section className="mx-auto max-w-5xl px-4 py-12">
         <div className="rounded-xl border bg-white p-6 shadow-sm">
@@ -60,6 +63,9 @@ export default function ServiceLandingPage({ service }: ServiceLandingPageProps)
             Contact: <a href={SITE_PHONE_TEL_HREF}>{SITE_PHONE_DISPLAY}</a>
           </p>
           <p className="text-secondary-700">Office: {OFFICE_ADDRESS_LINE}</p>
+          <div className="mt-6">
+            <GbpLocalActions variant="stack" />
+          </div>
         </div>
 
         {relatedServices.length > 0 && (

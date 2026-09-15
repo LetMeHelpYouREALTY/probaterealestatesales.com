@@ -135,6 +135,7 @@ The website is built with a mobile-first approach and includes:
 ## 📈 Performance Features
 
 - Image optimization with Next.js Image component
+- Cloudflare Images CDN with git-backed originals (`public/images/`, `npm run cloudflare:images`)
 - CSS-in-JS with Tailwind CSS
 - Code splitting and lazy loading
 - Optimized bundle size
@@ -143,7 +144,7 @@ The website is built with a mobile-first approach and includes:
 
 - **Google indexing**: See [docs/GOOGLE_INDEXING_CHECKLIST.md](docs/GOOGLE_INDEXING_CHECKLIST.md) for setup and maintenance.
 - **IndexNow** (Vercel): `npm run indexnow` – submit URLs to Bing/Yandex. See [docs/INDEXNOW.md](docs/INDEXNOW.md).
-- **Cloudflare Crawler Hints** (dashboard only): `npm run cloudflare:crawler-hints -- --links` – print dashboard URLs to enable IndexNow per zone. See [docs/CLOUDFLARE-INDEXNOW.md](docs/CLOUDFLARE-INDEXNOW.md).
+- **Cloudflare Images**: `npm run cloudflare:images` – upload git-backed photos. See [docs/assets/cloudflare-images.md](docs/assets/cloudflare-images.md).
 
 ## 🚀 Deployment
 

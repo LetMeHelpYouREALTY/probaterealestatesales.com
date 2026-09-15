@@ -2,7 +2,10 @@ import { ArrowLeft, BarChart, Calendar, DollarSign, TrendingUp } from 'lucide-re
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SiteImage from '@/components/SiteImage';
+import { SITE_PHONE_DISPLAY } from '@/lib/site-contact';
 
 export const metadata: Metadata = {
   title: 'Las Vegas Real Estate Market Updates | Probate Property Trends',
@@ -32,25 +35,16 @@ export default function MarketUpdatesPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       <Breadcrumb items={breadcrumbs.slice(1)} />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/blog/"
-            className="inline-flex items-center text-white hover:text-white mb-6"
-          >
-            <ArrowLeft className="h-5 w-5 mr-2" />
-            Back to Blog
-          </Link>
-          <div className="text-center">
-            <TrendingUp className="h-16 w-16 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Market Updates</h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Latest Las Vegas real estate market trends and probate property insights.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title="Market Updates"
+        subtitle="Latest Las Vegas real estate market trends and probate property insights."
+        imageId="listingsHero"
+      >
+        <Link href="/blog/" className="inline-flex items-center text-white hover:text-blue-100">
+          <ArrowLeft className="h-5 w-5 mr-2" />
+          Back to Blog
+        </Link>
+      </PageHero>
 
       {/* Market Updates Section */}
       <section className="py-16 bg-white">
@@ -112,22 +106,32 @@ export default function MarketUpdatesPage() {
               </Link>
             </article>
 
-            {/* Coming Soon Placeholder */}
-            <div className="bg-gray-50 rounded-xl p-8 text-center border-2 border-dashed border-gray-300">
-              <BarChart className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-secondary-900 mb-2">
-                More Market Updates Coming Soon
-              </h3>
-              <p className="text-secondary-600 mb-4">
-                We'll be posting regular market updates with detailed analysis of Las Vegas probate
-                property trends.
-              </p>
-              <Link
-                href="/contact/"
-                className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-md font-medium hover:bg-primary-700 transition-colors"
-              >
-                Subscribe for Updates
-              </Link>
+            {/* Coming Soon */}
+            <div className="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-md">
+              <div className="relative h-40">
+                <SiteImage
+                  imageId="listingsHero"
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                  alt="Las Vegas valley homes — upcoming probate market updates"
+                />
+              </div>
+              <div className="p-8 text-center">
+                <h3 className="text-xl font-semibold text-secondary-900 mb-2">
+                  Next Las Vegas probate market update
+                </h3>
+                <p className="text-secondary-600 mb-4">
+                  Call {SITE_PHONE_DISPLAY} or book a consult to get current Clark County probate
+                  inventory notes between published reports.
+                </p>
+                <Link
+                  href="/contact/"
+                  className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-md font-medium hover:bg-primary-700 transition-colors"
+                >
+                  Request a market briefing
+                </Link>
+              </div>
             </div>
           </div>
         </div>

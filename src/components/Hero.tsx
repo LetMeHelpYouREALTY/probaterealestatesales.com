@@ -1,18 +1,23 @@
+import { ArrowRight, Award, Calendar, Download, Mail, Phone, Shield, Star } from 'lucide-react';
+import SiteImage from '@/components/SiteImage';
 import { GOOGLE_BUSINESS_REVIEW_URL } from '@/config/site-google';
 import { SITE_PHONE_DISPLAY } from '@/lib/site-contact';
-import { ArrowRight, Award, Calendar, Download, Mail, Phone, Shield, Star } from 'lucide-react';
-import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-primary-50 via-white to-accent-50 overflow-hidden min-h-screen flex items-center">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-
-      {/* Las Vegas Skyline Background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-primary-200 to-transparent" />
+    <section className="relative overflow-hidden min-h-screen flex items-center">
+      <div className="absolute inset-0">
+        <SiteImage
+          imageId="listingsHero"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+          alt="Las Vegas valley homes with Strip skyline — probate real estate sales"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/92 to-white/75" />
       </div>
+      <div className="absolute inset-0 bg-grid-pattern opacity-5" />
 
       <div className="relative section-padding w-full">
         <div className="container-max">
@@ -29,15 +34,17 @@ export default function Hero() {
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                   <span className="text-gradient">Probate Real Estate Sales</span>
                   <br />
-                  <span className="text-secondary-900">Las Vegas &amp; Clark County probate homes</span>
+                  <span className="text-secondary-900">
+                    Las Vegas &amp; Clark County probate homes
+                  </span>
                   <br />
                   <span className="text-gradient">Sell in 45 days</span>
                 </h1>
 
                 <p className="text-xl text-secondary-600 max-w-2xl">
-                  Court-approved probate property sales and inherited property guidance. Compassionate,
-                  professional service through every step of your probate sale—led by Dr. Jan Duffy,
-                  Nevada probate real estate specialist.
+                  Court-approved probate property sales and inherited property guidance.
+                  Compassionate, professional service through every step of your probate sale—led by
+                  Dr. Jan Duffy, Nevada probate real estate specialist.
                 </p>
               </div>
 
@@ -140,6 +147,13 @@ export default function Hero() {
                   Our Services →
                 </a>
                 <a
+                  href="/probate-homes-for-sale/"
+                  className="text-primary-700 hover:text-primary-900 font-medium text-sm focus-ring rounded-md px-2 py-1"
+                  aria-label="Search probate homes for sale in Las Vegas"
+                >
+                  Search probate homes →
+                </a>
+                <a
                   href="/locations/"
                   className="text-primary-700 hover:text-primary-900 font-medium text-sm focus-ring rounded-md px-2 py-1"
                   aria-label="View service areas"
@@ -213,14 +227,14 @@ export default function Hero() {
                 <div className="bg-white rounded-2xl shadow-2xl p-8 transform rotate-2 hover:rotate-0 transition-transform duration-500">
                   <div className="text-center">
                     <div className="w-48 h-48 mx-auto mb-4 overflow-hidden rounded-full border-4 border-primary-200 shadow-lg">
-                      <Image
-                        src="/images/dr-jan-duffy.jpg"
+                      <SiteImage
+                        imageId="agentPortrait"
                         alt="Dr. Jan Duffy, lead specialist — Probate Real Estate Sales"
                         width={192}
                         height={192}
                         priority
                         className="w-full h-full object-cover"
-                        sizes="(max-width: 768px) 192px, 192px"
+                        sizes="192px"
                       />
                     </div>
                     <h2 className="text-xl font-bold text-secondary-900 mb-2">Dr. Jan Duffy</h2>

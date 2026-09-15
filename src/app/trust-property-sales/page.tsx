@@ -1,10 +1,11 @@
 import { ArrowRight, CheckCircle, FileText, Gavel, Phone, Shield, Users } from 'lucide-react';
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
-import { SITE_PHONE_E164, SITE_PHONE_TEL_HREF, SITE_PHONE_DISPLAY } from '@/lib/site-contact';
+import { SITE_PHONE_DISPLAY, SITE_PHONE_E164, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const FAQ = dynamic(() => import('@/components/FAQ'), {
   loading: () => <div className="py-16 text-center text-gray-500">Loading FAQ...</div>,
@@ -81,35 +82,28 @@ export default function TrustPropertySalesPage() {
       <Breadcrumb items={breadcrumbs.slice(1)} />
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white py-20">
-          <div className="container-max px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Trust Property Sales in Las Vegas, Nevada
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 text-blue-100">
-                Expert guidance for trustees, beneficiaries, and attorneys on selling trust-owned
-                real estate with confidence and compliance
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contact/"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-primary-600 text-white rounded-lg font-semibold text-lg hover:bg-primary-700 transition-colors"
-                >
-                  <FileText className="h-5 w-5 mr-2" />
-                  Get Trust Sale Consultation
-                </Link>
-                <Link
-                  href={SITE_PHONE_TEL_HREF}
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-700 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
-                >
-                  <Phone className="h-5 w-5 mr-2" />
-                  Call {SITE_PHONE_DISPLAY}
-                </Link>
-              </div>
-            </div>
+        <PageHero
+          title="Trust Property Sales in Las Vegas, Nevada"
+          subtitle="Expert guidance for trustees, beneficiaries, and attorneys on selling trust-owned real estate with confidence and compliance"
+          imageId="trustSales"
+        >
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              href="/contact/"
+              className="inline-flex items-center justify-center px-8 py-4 bg-primary-600 text-white rounded-lg font-semibold text-lg hover:bg-primary-700 transition-colors"
+            >
+              <FileText className="h-5 w-5 mr-2" />
+              Get Trust Sale Consultation
+            </Link>
+            <Link
+              href={SITE_PHONE_TEL_HREF}
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-700 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
+            >
+              <Phone className="h-5 w-5 mr-2" />
+              Call {SITE_PHONE_DISPLAY}
+            </Link>
           </div>
-        </section>
+        </PageHero>
 
         {/* Understanding Trust Property Sales */}
         <section className="py-16 bg-white">
@@ -129,8 +123,8 @@ export default function TrustPropertySalesPage() {
                 >
                   probate real estate transactions
                 </Link>
-                . Understanding these requirements is essential for trustees, beneficiaries, and their
-                legal advisors. Learn about{' '}
+                . Understanding these requirements is essential for trustees, beneficiaries, and
+                their legal advisors. Learn about{' '}
                 <Link
                   href="/blog/certificate-of-incumbency/"
                   className="text-primary-700 hover:text-primary-900 font-semibold underline"

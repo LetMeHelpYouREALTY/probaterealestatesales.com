@@ -4,9 +4,13 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import { CalendlyBookingPanel } from '@/components/calendly/CalendlyBookingPanel';
+import GbpLocalActions from '@/components/GbpLocalActions';
+import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SectionVisual from '@/components/SectionVisual';
 import {
   FACEBOOK_PAGE_URL,
+  GOOGLE_BUSINESS_REVIEW_URL,
   INSTAGRAM_PAGE_URL,
   LINKEDIN_COMPANY_URL,
   OFFICE_GOOGLE_MAPS_DIRECTIONS_URL,
@@ -58,17 +62,11 @@ export default function ContactPage() {
       <Breadcrumb items={breadcrumbs.slice(1)} />
       <SchemaMarkup type="faq" breadcrumbs={breadcrumbs} />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Contact us</h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            Reach the same team and phone number as our{' '}
-            <span className="font-semibold text-white">Google Business Profile</span>—most clients
-            find us there first.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Contact us"
+        subtitle={`Reach the same team and phone number as our Google Business Profile—most clients find us there first.`}
+        imageId="downtownOffice"
+      />
 
       {/* Contact Information */}
       <section className="py-16 bg-white">
@@ -188,6 +186,14 @@ export default function ContactPage() {
                 <MapPin className="h-4 w-4 mr-2" />
                 Get Directions
               </a>
+              <a
+                href={GOOGLE_BUSINESS_REVIEW_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 mt-3 bg-white text-purple-700 border border-purple-600 rounded-md hover:bg-purple-50 transition-colors text-sm font-medium"
+              >
+                View Google Reviews
+              </a>
             </div>
           </div>
 
@@ -219,7 +225,10 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Google Maps Section */}
+          <div className="mb-8">
+            <SectionVisual imageId="downtownOffice" className="h-52 md:h-72" />
+          </div>
+          <GbpLocalActions variant="stack" className="mb-10 items-center text-center" />
           <div className="mb-12">
             <h2 className="text-2xl font-bold text-secondary-900 mb-6 text-center">Find Us</h2>
             <div className="rounded-xl overflow-hidden shadow-lg border border-gray-200">
