@@ -37,6 +37,7 @@
     "test:desktop": "playwright test --project='chromium' --project='firefox' --project='webkit'",
     "indexnow": "node scripts/indexnow-submit.js",
     "cloudflare:images": "node scripts/upload-cloudflare-images.js",
+    "cloudflare:images:verify": "node scripts/verify-cloudflare-images.js",
     "hyperlocal:validate": "node scripts/hyperlocal-schema-validate.js",
     "hyperlocal:audit": "node scripts/probate-content-audit.js",
     "hyperlocal": "node scripts/hyperlocal-schema-validate.js && node scripts/probate-content-audit.js",

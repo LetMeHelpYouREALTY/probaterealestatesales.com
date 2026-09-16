@@ -1,13 +1,34 @@
 import { SITE_ORIGIN } from '@/config/site-google';
 
 /**
- * Cloudflare Images is the primary CDN. Git-tracked files under `public/images/`
- * are the backup and the local/dev source when no delivery hash is configured.
+ * Cloudflare Images (hosted) is the primary CDN. Git-tracked files under
+ * `public/images/` are the backup and the local/dev source until hosted
+ * delivery is switched on.
  *
- * Set NEXT_PUBLIC_CLOUDFLARE_IMAGES_ACCOUNT_HASH (imagedelivery.net) and/or
- * NEXT_PUBLIC_CLOUDFLARE_IMAGES_DELIVERY_BASE (custom images hostname).
- * Upload with: node scripts/upload-cloudflare-images.js
+ * Dashboard → Images → Developer Resources (public; appears in every URL):
+ *   Account ID   2cc579c1ec9e426ed585e933ebf4753b
+ *   Account hash byE6BTe9lNqo21V57n4aPQ
+ *   Delivery     https://imagedelivery.net/byE6BTe9lNqo21V57n4aPQ/<image_id>/<variant_name>
+ *
+ * Based on Cloudflare Images hosted docs (2026-09): upload with custom IDs,
+ * serve the `public` variant, keep the Vercel apex DNS-only (do not orange-cloud).
+ *
+ * Switch live src to Images after `npm run cloudflare:images`:
+ *   NEXT_PUBLIC_CLOUDFLARE_IMAGES_HOSTED=true
+ * Optional override: NEXT_PUBLIC_CLOUDFLARE_IMAGES_ACCOUNT_HASH
+ * Optional custom host: NEXT_PUBLIC_CLOUDFLARE_IMAGES_DELIVERY_BASE
  */
+
+/** Cloudflare account that owns Images storage (API uploads). Not a secret. */
+export const CLOUDFLARE_IMAGES_ACCOUNT_ID = '2cc579c1ec9e426ed585e933ebf4753b';
+
+/** Images account hash from Developer Resources. Safe to expose in URLs. */
+export const CLOUDFLARE_IMAGES_ACCOUNT_HASH = 'byE6BTe9lNqo21V57n4aPQ';
+
+/** Default named variant created on every Images account. */
+export const CLOUDFLARE_IMAGES_DEFAULT_VARIANT = 'public';
+
+export const CLOUDFLARE_IMAGES_DELIVERY_ORIGIN = `https://imagedelivery.net/${CLOUDFLARE_IMAGES_ACCOUNT_HASH}`;
 
 export const SITE_IMAGE_IDS = [
   'agentPortrait',
@@ -262,23 +283,58 @@ export function getServiceImageId(slug: string): SiteImageId {
   return SERVICE_IMAGE_BY_SLUG[slug] ?? 'consultationRoom';
 }
 
-/**
- * Cloudflare Images delivery URL when configured; otherwise the git-backed
- * file under /images (served by Vercel).
- */
-export function getSiteImageSrc(id: SiteImageId, variant = 'public'): string {
-  const record = getSiteImageRecord(id);
+export function getCloudflareImageDeliveryUrl(
+  id: SiteImageId,
+  variant = CLOUDFLARE_IMAGES_DEFAULT_VARIANT
+): string {
   const customBase = process.env.NEXT_PUBLIC_CLOUDFLARE_IMAGES_DELIVERY_BASE?.replace(/\/$/, '');
-  const accountHash = process.env.NEXT_PUBLIC_CLOUDFLARE_IMAGES_ACCOUNT_HASH?.trim();
-
   if (customBase) {
     return `${customBase}/${id}/${variant}`;
   }
 
-  if (accountHash) {
-    return `https://imagedelivery.net/${accountHash}/${id}/${variant}`;
+  const hash = resolveCloudflareImagesAccountHash();
+  return `https://imagedelivery.net/${hash}/${id}/${variant}`;
+}
+
+function resolveCloudflareImagesAccountHash(): string {
+  const fromEnv = process.env.NEXT_PUBLIC_CLOUDFLARE_IMAGES_ACCOUNT_HASH?.trim();
+  if (fromEnv && fromEnv !== 'off' && fromEnv !== '0' && fromEnv !== 'false') {
+    return fromEnv;
+  }
+  return CLOUDFLARE_IMAGES_ACCOUNT_HASH;
+}
+
+function isHostedDeliveryRequested(): boolean {
+  const hostedFlag = process.env.NEXT_PUBLIC_CLOUDFLARE_IMAGES_HOSTED?.trim().toLowerCase();
+  if (hostedFlag === 'true' || hostedFlag === '1' || hostedFlag === 'yes') {
+    return true;
+  }
+  if (hostedFlag === 'false' || hostedFlag === '0' || hostedFlag === 'off') {
+    return false;
   }
 
+  const hashEnv = process.env.NEXT_PUBLIC_CLOUDFLARE_IMAGES_ACCOUNT_HASH?.trim();
+  if (hashEnv === 'off' || hashEnv === '0' || hashEnv === 'false') {
+    return false;
+  }
+
+  return Boolean(
+    process.env.NEXT_PUBLIC_CLOUDFLARE_IMAGES_DELIVERY_BASE?.trim() || hashEnv
+  );
+}
+
+/**
+ * Cloudflare Images delivery URL when hosted delivery is on; otherwise the
+ * git-backed file under /images (served by Vercel).
+ */
+export function getSiteImageSrc(
+  id: SiteImageId,
+  variant = CLOUDFLARE_IMAGES_DEFAULT_VARIANT
+): string {
+  const record = getSiteImageRecord(id);
+  if (isCloudflareImagesEnabled()) {
+    return getCloudflareImageDeliveryUrl(id, variant);
+  }
   return `/images/${record.file}`;
 }
 
@@ -287,10 +343,7 @@ export function getSiteImageAlt(id: SiteImageId, override?: string): string {
 }
 
 export function isCloudflareImagesEnabled(): boolean {
-  return Boolean(
-    process.env.NEXT_PUBLIC_CLOUDFLARE_IMAGES_DELIVERY_BASE?.trim() ||
-      process.env.NEXT_PUBLIC_CLOUDFLARE_IMAGES_ACCOUNT_HASH?.trim()
-  );
+  return isHostedDeliveryRequested();
 }
 
 export function getSiteImageAbsoluteUrl(id: SiteImageId): string {

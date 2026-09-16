@@ -12,10 +12,7 @@ name = "probaterealestatesales"
 [env.preview]
 name = "probaterealestatesales-preview"
 
-# Image optimization settings
-[env.production.vars]
-NEXT_IMAGE_DOMAINS = "images.unsplash.com,via.placeholder.com"
-
-# Environment variables
+# Image optimization / public vars (Next.js on Vercel reads Vercel env, not these)
 [env.production.vars]
 NODE_ENV = "production"
+NEXT_PUBLIC_CLOUDFLARE_IMAGES_ACCOUNT_HASH = "byE6BTe9lNqo21V57n4aPQ"
