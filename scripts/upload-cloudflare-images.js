@@ -1,19 +1,22 @@
 #!/usr/bin/env node
 /**
- * Upload git-backed images to Cloudflare Images.
+ * Upload git-backed images to Cloudflare Images (hosted storage).
+ *
+ * Docs (2026-09): https://developers.cloudflare.com/images/storage/upload-images/methods/
+ * Custom IDs:     https://developers.cloudflare.com/images/storage/upload-images/upload-custom-path/
+ * Delivery:       https://imagedelivery.net/<ACCOUNT_HASH>/<IMAGE_ID>/<VARIANT_NAME>
  *
  * Primary CDN: imagedelivery.net (or a custom images hostname)
  * Backup: files in public/images/ committed to git
  *
  * Required env:
  *   CLOUDFLARE_IMAGES_API_TOKEN  (Account.Cloudflare Images:Edit)
- *   CLOUDFLARE_ACCOUNT_ID
  *
  * Optional:
- *   CLOUDFLARE_IMAGES_CUSTOM_ID  if true (default), uses catalog keys as Cloudflare image ids
+ *   CLOUDFLARE_ACCOUNT_ID        defaults to the Images account in src/lib/cloudflare-images.ts
  *
  * Usage:
- *   CLOUDFLARE_IMAGES_API_TOKEN=xxx CLOUDFLARE_ACCOUNT_ID=yyy node scripts/upload-cloudflare-images.js
+ *   CLOUDFLARE_IMAGES_API_TOKEN=xxx npm run cloudflare:images
  */
 
 const fs = require('node:fs');
@@ -24,17 +27,28 @@ const CATALOG_PATH = path.join(ROOT, 'public/images/cloudflare-catalog.json');
 const MAP_PATH = path.join(ROOT, 'public/images/cloudflare-image-ids.json');
 const IMAGES_DIR = path.join(ROOT, 'public/images');
 
-const token = process.env.CLOUDFLARE_IMAGES_API_TOKEN || process.env.CLOUDFLARE_API_TOKEN;
-const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
+const ACCOUNT_ID = '2cc579c1ec9e426ed585e933ebf4753b';
+const ACCOUNT_HASH = 'byE6BTe9lNqo21V57n4aPQ';
+const DEFAULT_VARIANT = 'public';
 
-if (!token || !accountId) {
-  console.error('Set CLOUDFLARE_IMAGES_API_TOKEN and CLOUDFLARE_ACCOUNT_ID.');
-  console.error('Git-backed files in public/images/ remain the working source until then.');
+const token = process.env.CLOUDFLARE_IMAGES_API_TOKEN || process.env.CLOUDFLARE_API_TOKEN;
+const accountId = process.env.CLOUDFLARE_ACCOUNT_ID || ACCOUNT_ID;
+
+if (!token) {
+  console.error('Set CLOUDFLARE_IMAGES_API_TOKEN (Account → Cloudflare Images:Edit).');
+  console.error('Git-backed files in public/images/ remain the live source until uploads succeed.');
+  console.error(
+    `Delivery URL once hosted: https://imagedelivery.net/${ACCOUNT_HASH}/<image_id>/${DEFAULT_VARIANT}`
+  );
   process.exit(1);
 }
 
 const catalog = JSON.parse(fs.readFileSync(CATALOG_PATH, 'utf8'));
 const existingMap = fs.existsSync(MAP_PATH) ? JSON.parse(fs.readFileSync(MAP_PATH, 'utf8')) : {};
+
+function deliveryUrl(id) {
+  return `https://imagedelivery.net/${ACCOUNT_HASH}/${id}/${DEFAULT_VARIANT}`;
+}
 
 async function uploadOne(id, relativeFile) {
   const filePath = path.join(IMAGES_DIR, relativeFile);
@@ -69,35 +83,45 @@ async function uploadOne(id, relativeFile) {
   if (!response.ok || !json.success) {
     const alreadyExists = JSON.stringify(json.errors || []).includes('Duplicate');
     if (alreadyExists) {
-      console.log(`ℹ️  ${id} already on Cloudflare Images`);
-      return { id, cloudflareId: id, file: relativeFile };
+      console.log(`ℹ️  ${id} already on Cloudflare Images → ${deliveryUrl(id)}`);
+      return { id, cloudflareId: id, file: relativeFile, deliveryUrl: deliveryUrl(id) };
     }
     throw new Error(`Upload failed for ${id}: ${JSON.stringify(json.errors || json)}`);
   }
 
-  console.log(`✅ Uploaded ${id} (${relativeFile})`);
+  console.log(`✅ Uploaded ${id} (${relativeFile}) → ${deliveryUrl(id)}`);
   return {
     id,
     cloudflareId: json.result?.id || id,
     file: relativeFile,
     filename: json.result?.filename,
+    deliveryUrl: json.result?.variants?.[0] || deliveryUrl(id),
   };
 }
 
 async function main() {
   const nextMap = { ...existingMap };
+  let failed = 0;
   for (const [id, file] of Object.entries(catalog)) {
     try {
       const result = await uploadOne(id, file);
       nextMap[id] = result;
     } catch (error) {
+      failed += 1;
       console.error(`❌ ${id}:`, error.message);
     }
   }
 
   fs.writeFileSync(MAP_PATH, `${JSON.stringify(nextMap, null, 2)}\n`);
   console.log(`\nWrote ${MAP_PATH}`);
-  console.log('Set NEXT_PUBLIC_CLOUDFLARE_IMAGES_ACCOUNT_HASH in Vercel to serve from Cloudflare.');
+  if (failed > 0) {
+    console.error(`${failed} upload(s) failed. Git backup stays live.`);
+    process.exit(1);
+  }
+  console.log('All catalog images are on Cloudflare Images.');
+  console.log(
+    'Set NEXT_PUBLIC_CLOUDFLARE_IMAGES_HOSTED=true on Vercel Production to serve from imagedelivery.net.'
+  );
 }
 
 main().catch((error) => {
