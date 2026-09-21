@@ -26,5 +26,12 @@
   "conservatorship": "services/conservatorship-real-estate.jpg",
   "certificateOfIncumbency": "sections/certificate-of-incumbency.jpg",
   "probateTimeline": "sections/nevada-probate-timeline.jpg",
-  "probateVideos": "sections/probate-videos-hero.jpg"
+  "probateVideos": "sections/probate-videos-hero.jpg",
+  "smallEstateAffidavit": "sections/small-estate-affidavit.jpg",
+  "serviceCoverage": "sections/clark-county-service-coverage.jpg",
+  "downloadableGuides": "sections/downloadable-probate-guides.jpg",
+  "independentAdministration": "services/independent-administration.jpg",
+  "probateCostCalculator": "sections/probate-cost-calculator.jpg",
+  "partitionAction": "services/partition-action-consulting.jpg",
+  "executorConsulting": "services/executor-property-consulting.jpg"
 }

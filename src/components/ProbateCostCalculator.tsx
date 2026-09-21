@@ -2,6 +2,7 @@
 
 import { ArrowRight, Calculator, CheckCircle, DollarSign, Info } from 'lucide-react';
 import { useState } from 'react';
+import SectionVisual from '@/components/SectionVisual';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const courtFees = {
@@ -172,6 +173,9 @@ export default function ProbateCostCalculator() {
             Estimate the total costs of probate in Nevada with Dr. Jan Duffy's comprehensive cost
             calculator. Understand all fees and expenses upfront.
           </p>
+          <div className="mt-8 max-w-4xl mx-auto">
+            <SectionVisual imageId="probateCostCalculator" className="h-48 md:h-64" />
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">

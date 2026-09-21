@@ -3,6 +3,8 @@ import Breadcrumb from '@/components/Breadcrumb';
 import GbpLocalActions from '@/components/GbpLocalActions';
 import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SectionVisual from '@/components/SectionVisual';
+import SiteImage from '@/components/SiteImage';
 import { OFFICE_ADDRESS_LINE } from '@/config/site-google';
 import { getServiceImageId } from '@/lib/cloudflare-images';
 import { getRelatedServices, type ServicePageContent } from '@/lib/service-pages';
@@ -58,6 +60,9 @@ export default function ServiceLandingPage({ service }: ServiceLandingPageProps)
           <h2 className="text-2xl font-semibold text-secondary-900">
             Service Coverage: Las Vegas & Clark County
           </h2>
+          <div className="mt-4">
+            <SectionVisual imageId="serviceCoverage" className="h-48 md:h-64" />
+          </div>
           <p className="mt-4 text-secondary-700">{service.details}</p>
           <p className="mt-4 text-secondary-700">
             Contact: <a href={SITE_PHONE_TEL_HREF}>{SITE_PHONE_DISPLAY}</a>
@@ -73,16 +78,26 @@ export default function ServiceLandingPage({ service }: ServiceLandingPageProps)
             <h2 className="text-2xl font-semibold text-secondary-900">Related Services</h2>
             <ul className="mt-4 grid gap-3 md:grid-cols-2">
               {relatedServices.map((related) => (
-                <li key={related.slug} className="rounded-lg border bg-white p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-primary-700">
-                    {related.category}
-                  </p>
-                  <Link
-                    href={`/services/${related.slug}/`}
-                    className="mt-1 block font-semibold text-secondary-900 hover:text-primary-700"
-                  >
-                    {related.title}
-                  </Link>
+                <li key={related.slug} className="overflow-hidden rounded-lg border bg-white">
+                  <div className="relative h-24">
+                    <SiteImage
+                      imageId={getServiceImageId(related.slug)}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-primary-700">
+                      {related.category}
+                    </p>
+                    <Link
+                      href={`/services/${related.slug}/`}
+                      className="mt-1 block font-semibold text-secondary-900 hover:text-primary-700"
+                    >
+                      {related.title}
+                    </Link>
+                  </div>
                 </li>
               ))}
             </ul>

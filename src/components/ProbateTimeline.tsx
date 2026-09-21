@@ -10,6 +10,7 @@ import {
   MapPin,
   Users,
 } from 'lucide-react';
+import SectionVisual from '@/components/SectionVisual';
 
 const timelineSteps = [
   {
@@ -140,6 +141,9 @@ export default function ProbateTimeline() {
             Dr. Jan Duffy guides you through every step of the Nevada probate process, from initial
             filing to final distribution. Understand what to expect and when.
           </p>
+          <div className="mt-8 max-w-4xl mx-auto">
+            <SectionVisual imageId="probateTimeline" className="h-48 md:h-64" />
+          </div>
         </div>
 
         {/* Timeline Steps */}

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SiteImage from '@/components/SiteImage';
 import { getSiteImageSrc } from '@/lib/cloudflare-images';
 
 export const metadata: Metadata = {
@@ -188,40 +189,81 @@ export default function LasVegasMarketJan2025Page() {
             Neighborhood Performance
           </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white rounded-lg p-6 shadow-md">
-              <h3 className="text-xl font-semibold text-secondary-900 mb-3">Summerlin</h3>
-              <p className="text-secondary-700 mb-3">
-                Premium properties in Summerlin continue to command strong prices, with average sale
-                prices above market average. Days on market: 38-50 days.
-              </p>
-              <div className="text-primary-700 font-semibold">↑ Strong Demand</div>
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="relative h-36">
+                <SiteImage
+                  imageId="summerlinHomes"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-secondary-900 mb-3">Summerlin</h3>
+                <p className="text-secondary-700 mb-3">
+                  Premium properties in Summerlin continue to command strong prices, with average
+                  sale prices above market average. Days on market: 38-50 days.
+                </p>
+                <div className="text-primary-700 font-semibold">↑ Strong Demand</div>
+              </div>
             </div>
 
-            <div className="bg-white rounded-lg p-6 shadow-md">
-              <h3 className="text-xl font-semibold text-secondary-900 mb-3">Henderson</h3>
-              <p className="text-secondary-700 mb-3">
-                Steady activity in Henderson with consistent pricing. Well-maintained properties in
-                Green Valley and Anthem areas selling quickly. Days on market: 45-60 days.
-              </p>
-              <div className="text-blue-600 font-semibold">→ Stable Market</div>
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="relative h-36">
+                <SiteImage
+                  imageId="hendersonHomes"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-secondary-900 mb-3">Henderson</h3>
+                <p className="text-secondary-700 mb-3">
+                  Steady activity in Henderson with consistent pricing. Well-maintained properties
+                  in Green Valley and Anthem areas selling quickly. Days on market: 45-60 days.
+                </p>
+                <div className="text-blue-600 font-semibold">→ Stable Market</div>
+              </div>
             </div>
 
-            <div className="bg-white rounded-lg p-6 shadow-md">
-              <h3 className="text-xl font-semibold text-secondary-900 mb-3">North Las Vegas</h3>
-              <p className="text-secondary-700 mb-3">
-                Growing interest in North Las Vegas properties, particularly in newer developments.
-                Value-oriented buyers finding opportunities. Days on market: 50-65 days.
-              </p>
-              <div className="text-green-600 font-semibold">↑ Increasing Interest</div>
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="relative h-36">
+                <SiteImage
+                  imageId="northLasVegasHomes"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-secondary-900 mb-3">North Las Vegas</h3>
+                <p className="text-secondary-700 mb-3">
+                  Growing interest in North Las Vegas properties, particularly in newer
+                  developments. Value-oriented buyers finding opportunities. Days on market: 50-65
+                  days.
+                </p>
+                <div className="text-green-600 font-semibold">↑ Increasing Interest</div>
+              </div>
             </div>
 
-            <div className="bg-white rounded-lg p-6 shadow-md">
-              <h3 className="text-xl font-semibold text-secondary-900 mb-3">Las Vegas Central</h3>
-              <p className="text-secondary-700 mb-3">
-                Downtown and central Las Vegas properties showing consistent activity. Investor
-                interest remains strong. Days on market: 40-55 days.
-              </p>
-              <div className="text-purple-600 font-semibold">→ Active Market</div>
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="relative h-36">
+                <SiteImage
+                  imageId="lasVegasHomes"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-secondary-900 mb-3">Las Vegas Central</h3>
+                <p className="text-secondary-700 mb-3">
+                  Downtown and central Las Vegas properties showing consistent activity. Investor
+                  interest remains strong. Days on market: 40-55 days.
+                </p>
+                <div className="text-purple-600 font-semibold">→ Active Market</div>
+              </div>
             </div>
           </div>
         </div>

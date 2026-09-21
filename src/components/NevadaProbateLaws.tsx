@@ -1,4 +1,5 @@
 import { AlertTriangle, ArrowRight, CheckCircle, Clock, Gavel, Shield } from 'lucide-react';
+import SectionVisual from '@/components/SectionVisual';
 
 const nevadaStatutes = [
   {
@@ -198,6 +199,9 @@ export default function NevadaProbateLaws() {
             Dr. Jan Duffy explains the key Nevada Revised Statutes (NRS) that govern probate
             proceedings and how they affect your estate administration.
           </p>
+          <div className="mt-8 max-w-4xl mx-auto">
+            <SectionVisual imageId="courtGavel" className="h-48 md:h-64" />
+          </div>
         </div>
 
         {/* Key Statutes */}

@@ -13,6 +13,9 @@ import {
   Users,
 } from 'lucide-react';
 import Link from 'next/link';
+import SectionVisual from '@/components/SectionVisual';
+import SiteImage from '@/components/SiteImage';
+import type { SiteImageId } from '@/lib/cloudflare-images';
 
 const essentialGuides = [
   {
@@ -22,7 +25,8 @@ const essentialGuides = [
     icon: Gavel,
     duration: 'Quick reference',
     category: 'Clark County',
-    link: '/resources/las-vegas-probate-legal-resources',
+    link: '/resources/las-vegas-probate-legal-resources/',
+    imageId: 'courthouse' as SiteImageId,
   },
   {
     title: "Understanding Nevada Probate Laws: A Homeowner's Guide",
@@ -30,7 +34,8 @@ const essentialGuides = [
     icon: BookOpen,
     duration: '15 min read',
     category: 'Legal Guide',
-    link: '/resources/nevada-probate-guide',
+    link: '/resources/nevada-probate-guide/',
+    imageId: 'resourcesGuides' as SiteImageId,
   },
   {
     title: 'Timeline: What to Expect When Selling Probate Property',
@@ -39,7 +44,8 @@ const essentialGuides = [
     icon: Clock,
     duration: '10 min read',
     category: 'Timeline',
-    link: '/resources/nevada-probate-guide#timeline',
+    link: '/resources/nevada-probate-guide/#timeline',
+    imageId: 'probateTimeline' as SiteImageId,
   },
   {
     title: '5 Common Probate Sale Mistakes and How to Avoid Them',
@@ -47,7 +53,8 @@ const essentialGuides = [
     icon: AlertTriangle,
     duration: '12 min read',
     category: 'Tips & Advice',
-    link: '/resources/nevada-probate-guide#process',
+    link: '/resources/nevada-probate-guide/#process',
+    imageId: 'courtApprovedSales' as SiteImageId,
   },
   {
     title: "Maximizing Estate Value: Dr. Duffy's Proven Strategies",
@@ -55,7 +62,8 @@ const essentialGuides = [
     icon: TrendingUp,
     duration: '18 min read',
     category: 'Value Strategy',
-    link: '/resources/nevada-probate-guide#advantages',
+    link: '/resources/nevada-probate-guide/#advantages',
+    imageId: 'propertyValuation' as SiteImageId,
   },
 ];
 
@@ -103,22 +111,22 @@ const videoContent = [
     title: 'Dr. Jan Duffy Explains the Probate Process',
     description: '3-minute overview of Nevada probate real estate',
     duration: '3:15',
-    thumbnail: '/images/dr-duffy-probate-overview.jpg',
-    link: '#',
+    imageId: 'probateVideos' as SiteImageId,
+    link: '/blog/probate-videos/',
   },
   {
     title: 'Client Success Story: Summerlin Estate',
     description: 'How Dr. Duffy sold a $750K property in 30 days',
     duration: '2:45',
-    thumbnail: '/images/summerlin-success-story.jpg',
-    link: '#',
+    imageId: 'summerlinHomes' as SiteImageId,
+    link: '/blog/probate-videos/',
   },
   {
     title: 'Virtual Probate Consultation Walkthrough',
     description: 'See what to expect in your free consultation',
     duration: '4:20',
-    thumbnail: '/images/consultation-walkthrough.jpg',
-    link: '#',
+    imageId: 'freeConsultation' as SiteImageId,
+    link: '/blog/probate-videos/',
   },
 ];
 
@@ -129,6 +137,8 @@ const downloadableResources = [
     icon: FileText,
     size: '2.3 MB',
     downloads: '1,247',
+    imageId: 'propertyChecklist' as SiteImageId,
+    link: '/resources/#property-checklist',
   },
   {
     title: 'Nevada Probate Timeline (Infographic)',
@@ -136,6 +146,8 @@ const downloadableResources = [
     icon: Clock,
     size: '1.8 MB',
     downloads: '892',
+    imageId: 'probateTimeline' as SiteImageId,
+    link: '/resources/#probate-timeline',
   },
   {
     title: "Executor's Guide to Property Sales (eBook)",
@@ -143,6 +155,8 @@ const downloadableResources = [
     icon: BookOpen,
     size: '5.1 MB',
     downloads: '634',
+    imageId: 'downloadableGuides' as SiteImageId,
+    link: '/resources/nevada-probate-guide/',
   },
 ];
 
@@ -163,6 +177,9 @@ export default function EducationalContentHub() {
             Access Dr. Duffy's expertise through comprehensive guides, videos, and downloadable
             resources designed to help you navigate probate real estate with confidence.
           </p>
+          <div className="mt-8 max-w-4xl mx-auto">
+            <SectionVisual imageId="resourcesGuides" className="h-48 md:h-64" />
+          </div>
         </div>
 
         {/* Essential Guides */}
@@ -174,36 +191,46 @@ export default function EducationalContentHub() {
             {essentialGuides.map((guide) => (
               <div
                 key={guide.title}
-                className="bg-white rounded-xl shadow-soft p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-100"
+                className="bg-white rounded-xl shadow-soft overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-100"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-primary-100 rounded-lg">
-                    <guide.icon className="h-5 w-5 text-primary-700" />
-                  </div>
-                  <span className="text-xs font-medium text-primary-700 bg-primary-50 px-2 py-1 rounded-full">
-                    {guide.category}
-                  </span>
+                <div className="relative h-32">
+                  <SiteImage
+                    imageId={guide.imageId}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                  />
                 </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 bg-primary-100 rounded-lg">
+                      <guide.icon className="h-5 w-5 text-primary-700" />
+                    </div>
+                    <span className="text-xs font-medium text-primary-700 bg-primary-50 px-2 py-1 rounded-full">
+                      {guide.category}
+                    </span>
+                  </div>
 
-                <h4 className="font-semibold text-secondary-900 mb-2 text-lg">{guide.title}</h4>
+                  <h4 className="font-semibold text-secondary-900 mb-2 text-lg">{guide.title}</h4>
 
-                <p className="text-secondary-600 text-sm mb-4 leading-relaxed">
-                  {guide.description}
-                </p>
+                  <p className="text-secondary-600 text-sm mb-4 leading-relaxed">
+                    {guide.description}
+                  </p>
 
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-secondary-500 flex items-center gap-1">
-                    <Clock className="h-3 w-3" />
-                    {guide.duration}
-                  </span>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-secondary-500 flex items-center gap-1">
+                      <Clock className="h-3 w-3" />
+                      {guide.duration}
+                    </span>
 
-                  <Link
-                    href={guide.link}
-                    className="text-primary-700 hover:text-primary-900 text-sm font-medium flex items-center gap-1 group"
-                  >
-                    Read Guide
-                    <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                    <Link
+                      href={guide.link}
+                      className="text-primary-700 hover:text-primary-900 text-sm font-medium flex items-center gap-1 group"
+                    >
+                      Read Guide
+                      <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
@@ -249,8 +276,14 @@ export default function EducationalContentHub() {
                 key={video.title}
                 className="bg-white rounded-xl shadow-soft overflow-hidden border border-gray-100"
               >
-                <div className="aspect-video bg-gradient-to-br from-primary-200 to-accent-200 flex items-center justify-center relative">
-                  <Play className="h-16 w-16 text-white drop-shadow-lg" />
+                <div className="aspect-video relative">
+                  <SiteImage
+                    imageId={video.imageId}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <Play className="h-16 w-16 text-white drop-shadow-lg absolute inset-0 m-auto" />
                   <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white text-xs px-2 py-1 rounded">
                     {video.duration}
                   </div>
@@ -282,30 +315,40 @@ export default function EducationalContentHub() {
             {downloadableResources.map((resource) => (
               <div
                 key={resource.title}
-                className="bg-white rounded-xl shadow-soft p-6 border border-gray-100 hover:shadow-lg transition-shadow duration-300"
+                className="bg-white rounded-xl shadow-soft overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 bg-accent-100 rounded-lg">
-                    <resource.icon className="h-6 w-6 text-accent-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-secondary-900">{resource.title}</h4>
-                    <p className="text-secondary-600 text-sm">{resource.description}</p>
-                  </div>
+                <div className="relative h-32">
+                  <SiteImage
+                    imageId={resource.imageId}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                 </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-3 bg-accent-100 rounded-lg">
+                      <resource.icon className="h-6 w-6 text-accent-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-secondary-900">{resource.title}</h4>
+                      <p className="text-secondary-600 text-sm">{resource.description}</p>
+                    </div>
+                  </div>
 
-                <div className="flex items-center justify-between text-sm text-secondary-500 mb-4">
-                  <span>Size: {resource.size}</span>
-                  <span>{resource.downloads} downloads</span>
+                  <div className="flex items-center justify-between text-sm text-secondary-500 mb-4">
+                    <span>Size: {resource.size}</span>
+                    <span>{resource.downloads} downloads</span>
+                  </div>
+
+                  <Link
+                    href={resource.link}
+                    className="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+                  >
+                    <Download className="h-4 w-4" />
+                    Open resource
+                  </Link>
                 </div>
-
-                <button
-                  type="button"
-                  className="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
-                >
-                  <Download className="h-4 w-4" />
-                  Download Free
-                </button>
               </div>
             ))}
           </div>

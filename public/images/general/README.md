@@ -1,23 +1,11 @@
 # General Images
 
-Multipurpose probate and real estate imagery.
+Placeholder filenames in this folder were replaced. Heading-matched photos now live under
+`public/images/sections/` and `public/images/services/` and are keyed in
+`src/lib/cloudflare-images.ts`.
 
-## Expected Files
-
-- `Bright professional conference room.jpg` – Probate consultation, about, services
-- `clipboard with property checklist.jpg` – Probate checklist, resources
-- Hero backgrounds, CTA backgrounds
-
-## Alt Text (Probate)
-
-| Image | Alt | Use |
-|-------|-----|-----|
-| Conference room | Probate consultation room Las Vegas Nevada | Services, About |
-| Clipboard checklist | Probate property checklist Nevada | Resources, ProbatePropertyChecklist |
-| Hero background | Las Vegas probate real estate | Homepage, location hero |
-
-## Usage
-
-- Use across multiple pages where context fits
-- Alt: include "probate" and location when relevant
-- See `docs/hyperlocal/content-guidelines.md` for patterns
+| Former placeholder | Catalog ID | File |
+|--------------------|------------|------|
+| Bright professional conference room.jpg | `consultationRoom` | `sections/probate-consultation-room.jpg` |
+| Bright professional conference room side view.jpg | `consultationRoomSide` | `sections/probate-office-conference.jpg` |
+| clipboard with property checklist.jpg | `propertyChecklist` | `sections/probate-property-checklist.jpg` |

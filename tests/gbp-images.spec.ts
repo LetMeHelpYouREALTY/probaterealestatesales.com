@@ -18,7 +18,9 @@ test.describe('GBP actions and heading images', () => {
       page.locator('iframe[title*="Google Maps"], iframe[title*="office map"]')
     ).toHaveCount(1);
 
-    await expect(page.getByRole('heading', { name: /Search probate homes for sale/i })).toBeVisible();
+    await expect(
+      page.getByRole('heading', { name: /Search probate homes for sale/i })
+    ).toBeVisible();
     await expect(
       page.getByRole('link', { name: 'Browse probate homes', exact: true })
     ).toBeVisible();
@@ -34,7 +36,9 @@ test.describe('GBP actions and heading images', () => {
     await expect(page.locator('img[alt*="probate timeline"]').first()).toBeVisible();
 
     await page.goto('/blog/certificate-of-incumbency/');
-    await expect(page.getByRole('heading', { name: /Certificate of Incumbency Guide/i })).toBeVisible();
+    await expect(
+      page.getByRole('heading', { name: /Certificate of Incumbency Guide/i })
+    ).toBeVisible();
     await expect(page.locator('img[alt*="certificate of incumbency"]').first()).toBeVisible();
 
     await page.goto('/resources/las-vegas-probate-legal-resources/');
@@ -51,6 +55,25 @@ test.describe('GBP actions and heading images', () => {
     ).toBeVisible();
     await expect(page.locator('img[alt*="Henderson"]').first()).toBeVisible();
     await expect(page.getByRole('link', { name: /View Google Reviews/i }).first()).toBeVisible();
+  });
+
+  test('services and resources H2/H3 cards use heading-matched photos', async ({ page }) => {
+    await page.goto('/faq/');
+    await expect(
+      page.getByRole('heading', { name: /Small Estate Affidavit Guide/i })
+    ).toBeVisible();
+    await expect(page.locator('img[alt*="small estate affidavit"]').first()).toBeVisible();
+
+    await page.goto('/services/');
+    await expect(
+      page.getByRole('heading', { name: /Independent Administration: Faster & More Private/i })
+    ).toBeVisible();
+    await expect(page.locator('img[alt*="Independent administration"]').first()).toBeVisible();
+    await expect(page.locator('img[alt*="Partition action"]').first()).toBeVisible();
+
+    await page.goto('/resources/');
+    await expect(page.getByRole('heading', { name: /Cost Calculator/i }).first()).toBeVisible();
+    await expect(page.locator('img[alt*="cost calculator"]').first()).toBeVisible();
   });
 
   test('contact page has Call, Directions, Reviews, and map', async ({ page }) => {

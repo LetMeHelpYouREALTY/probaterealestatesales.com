@@ -23,6 +23,7 @@ import { ProbateTimelineEstimator } from '@/components/ProbateTimelineEstimator'
 import SchemaMarkup from '@/components/SchemaMarkup';
 import SiteImage from '@/components/SiteImage';
 import { SITE_LOGO_ABSOLUTE_URL } from '@/config/site-google';
+import { getServiceImageId } from '@/lib/cloudflare-images';
 import { SERVICE_PAGES } from '@/lib/service-pages';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
@@ -247,17 +248,27 @@ export default function ServicesPage() {
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}/`}
-                className="rounded-xl border border-gray-200 bg-gray-50 p-6 transition hover:border-primary-300 hover:shadow-md"
+                className="overflow-hidden rounded-xl border border-gray-200 bg-gray-50 transition hover:border-primary-300 hover:shadow-md"
               >
-                <p className="text-xs font-semibold uppercase tracking-wide text-primary-700">
-                  {service.category}
-                </p>
-                <h3 className="mt-2 text-xl font-bold text-gray-900">{service.title}</h3>
-                <p className="mt-3 text-sm text-gray-700">{service.summary}</p>
-                <span className="mt-4 inline-flex items-center font-semibold text-primary-700">
-                  View service details
-                  <ArrowRight className="ml-1 h-4 w-4" />
-                </span>
+                <div className="relative h-36">
+                  <SiteImage
+                    imageId={getServiceImageId(service.slug)}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <div className="p-6">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-primary-700">
+                    {service.category}
+                  </p>
+                  <h3 className="mt-2 text-xl font-bold text-gray-900">{service.title}</h3>
+                  <p className="mt-3 text-sm text-gray-700">{service.summary}</p>
+                  <span className="mt-4 inline-flex items-center font-semibold text-primary-700">
+                    View service details
+                    <ArrowRight className="ml-1 h-4 w-4" />
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
@@ -274,219 +285,249 @@ export default function ServicesPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Court Confirmation Sales */}
             <div
-              className="service-card bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300"
+              className="service-card overflow-hidden bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               data-service="court-confirmation"
             >
-              <div className="text-center mb-6">
-                <Gavel className="w-16 h-16 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Court Confirmation Sales: We Handle Every Hearing
-                </h3>
+              <div className="relative h-40">
+                <SiteImage
+                  imageId="courtApprovedSales"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
-
-              <p className="problem text-red-600 font-semibold mb-3">
-                Worried about court appearances and legal procedures?
-              </p>
-              <p className="solution text-gray-700 mb-6">
-                Our team attends hearings, prepares court-focused documentation, and works within
-                procedures used at{' '}
-                <Link
-                  href="/locations/las-vegas/"
-                  className="text-blue-600 hover:text-blue-800 font-semibold underline"
-                >
-                  Clark County Probate Court
-                </Link>{' '}
-                (outcomes vary by judge and case). Learn more about{' '}
-                <Link
-                  href="/resources/nevada-probate-guide/"
-                  className="text-blue-600 hover:text-blue-800 font-semibold underline"
-                >
-                  Nevada probate court procedures
-                </Link>
-                .
-              </p>
-
-              <ul className="deliverables space-y-3 mb-6">
-                <li className="flex items-center text-gray-700">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                  Prepare & file all court petitions
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                  Attend Wednesday/Friday hearings with commissioners
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                  Handle overbid procedures
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                  Coordinate with your attorney
-                </li>
-              </ul>
-
-              <div className="proof-points bg-blue-50 p-4 rounded-lg mb-6">
-                <div className="flex flex-col sm:flex-row sm:justify-between gap-2 text-sm text-blue-800">
-                  <span className="stat">Court confirmation guidance</span>
-                  <span className="time">Timelines vary by case—ask during consultation</span>
-                  <span className="savings">Coordinate with your attorney on fees</span>
+              <div className="p-8">
+                <div className="text-center mb-6">
+                  <Gavel className="w-16 h-16 text-blue-600 mx-auto mb-4" />
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Court Confirmation Sales: We Handle Every Hearing
+                  </h3>
                 </div>
-              </div>
 
-              <a
-                href="https://drjanduffy.realscout.com/onboarding"
-                className="micro-conversion w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center space-x-2"
-              >
-                <span>See Our Court Confirmation Process</span>
-                <ArrowRight className="w-4 h-4" />
-                <span className="incentive text-xs opacity-90 block">
-                  + Get free court checklist
-                </span>
-              </a>
+                <p className="problem text-red-600 font-semibold mb-3">
+                  Worried about court appearances and legal procedures?
+                </p>
+                <p className="solution text-gray-700 mb-6">
+                  Our team attends hearings, prepares court-focused documentation, and works within
+                  procedures used at{' '}
+                  <Link
+                    href="/locations/las-vegas/"
+                    className="text-blue-600 hover:text-blue-800 font-semibold underline"
+                  >
+                    Clark County Probate Court
+                  </Link>{' '}
+                  (outcomes vary by judge and case). Learn more about{' '}
+                  <Link
+                    href="/resources/nevada-probate-guide/"
+                    className="text-blue-600 hover:text-blue-800 font-semibold underline"
+                  >
+                    Nevada probate court procedures
+                  </Link>
+                  .
+                </p>
+
+                <ul className="deliverables space-y-3 mb-6">
+                  <li className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Prepare & file all court petitions
+                  </li>
+                  <li className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Attend Wednesday/Friday hearings with commissioners
+                  </li>
+                  <li className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Handle overbid procedures
+                  </li>
+                  <li className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Coordinate with your attorney
+                  </li>
+                </ul>
+
+                <div className="proof-points bg-blue-50 p-4 rounded-lg mb-6">
+                  <div className="flex flex-col sm:flex-row sm:justify-between gap-2 text-sm text-blue-800">
+                    <span className="stat">Court confirmation guidance</span>
+                    <span className="time">Timelines vary by case—ask during consultation</span>
+                    <span className="savings">Coordinate with your attorney on fees</span>
+                  </div>
+                </div>
+
+                <a
+                  href="https://drjanduffy.realscout.com/onboarding"
+                  className="micro-conversion w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center space-x-2"
+                >
+                  <span>See Our Court Confirmation Process</span>
+                  <ArrowRight className="w-4 h-4" />
+                  <span className="incentive text-xs opacity-90 block">
+                    + Get free court checklist
+                  </span>
+                </a>
+              </div>
             </div>
 
             {/* Independent Administration */}
             <div
-              className="service-card bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300"
+              className="service-card overflow-hidden bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               data-service="independent-administration"
             >
-              <div className="text-center mb-6">
-                <Shield className="w-16 h-16 text-green-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Independent Administration: Faster & More Private
-                </h3>
+              <div className="relative h-40">
+                <SiteImage
+                  imageId="independentAdministration"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
-
-              <p className="problem text-red-600 font-semibold mb-3">
-                Want to avoid court oversight and speed up the process?
-              </p>
-              <p className="solution text-gray-700 mb-6">
-                Independent administration allows you to sell property without court confirmation,
-                reducing timeline by 3-4 months. This is ideal for{' '}
-                <Link
-                  href="/trust-property-sales/"
-                  className="text-green-600 hover:text-green-800 font-semibold underline"
-                >
-                  trust property sales
-                </Link>{' '}
-                and estates that qualify. See our{' '}
-                <Link
-                  href="/resources/nevada-probate-guide/#timeline"
-                  className="text-green-600 hover:text-green-800 font-semibold underline"
-                >
-                  probate timeline guide
-                </Link>{' '}
-                for details.
-              </p>
-
-              <ul className="deliverables space-y-3 mb-6">
-                <li className="flex items-center text-gray-700">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                  No court hearings required
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                  Faster closing process
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                  Lower legal costs
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                  Maintain privacy
-                </li>
-              </ul>
-
-              <div className="proof-points bg-green-50 p-4 rounded-lg mb-6">
-                <div className="flex justify-between text-sm text-green-800">
-                  <span className="stat">300+ independent sales</span>
-                  <span className="time">Average time: 45 days</span>
-                  <span className="savings">Save $3,000+ in fees</span>
+              <div className="p-8">
+                <div className="text-center mb-6">
+                  <Shield className="w-16 h-16 text-green-600 mx-auto mb-4" />
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Independent Administration: Faster & More Private
+                  </h3>
                 </div>
-              </div>
 
-              <a
-                href="https://drjanduffy.realscout.com/onboarding"
-                className="micro-conversion w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center space-x-2"
-              >
-                <span>Learn About Independent Administration</span>
-                <ArrowRight className="w-4 h-4" />
-                <span className="incentive text-xs opacity-90 block">
-                  + Get qualification checklist
-                </span>
-              </a>
+                <p className="problem text-red-600 font-semibold mb-3">
+                  Want to avoid court oversight and speed up the process?
+                </p>
+                <p className="solution text-gray-700 mb-6">
+                  Independent administration allows you to sell property without court confirmation,
+                  reducing timeline by 3-4 months. This is ideal for{' '}
+                  <Link
+                    href="/trust-property-sales/"
+                    className="text-green-600 hover:text-green-800 font-semibold underline"
+                  >
+                    trust property sales
+                  </Link>{' '}
+                  and estates that qualify. See our{' '}
+                  <Link
+                    href="/resources/nevada-probate-guide/#timeline"
+                    className="text-green-600 hover:text-green-800 font-semibold underline"
+                  >
+                    probate timeline guide
+                  </Link>{' '}
+                  for details.
+                </p>
+
+                <ul className="deliverables space-y-3 mb-6">
+                  <li className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    No court hearings required
+                  </li>
+                  <li className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Faster closing process
+                  </li>
+                  <li className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Lower legal costs
+                  </li>
+                  <li className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Maintain privacy
+                  </li>
+                </ul>
+
+                <div className="proof-points bg-green-50 p-4 rounded-lg mb-6">
+                  <div className="flex justify-between text-sm text-green-800">
+                    <span className="stat">300+ independent sales</span>
+                    <span className="time">Average time: 45 days</span>
+                    <span className="savings">Save $3,000+ in fees</span>
+                  </div>
+                </div>
+
+                <a
+                  href="https://drjanduffy.realscout.com/onboarding"
+                  className="micro-conversion w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center space-x-2"
+                >
+                  <span>Learn About Independent Administration</span>
+                  <ArrowRight className="w-4 h-4" />
+                  <span className="incentive text-xs opacity-90 block">
+                    + Get qualification checklist
+                  </span>
+                </a>
+              </div>
             </div>
 
             {/* Trust Administration */}
             <div
-              className="service-card bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300"
+              className="service-card overflow-hidden bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               data-service="trust-administration"
             >
-              <div className="text-center mb-6">
-                <FileText className="w-16 h-16 text-purple-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Trust Administration: Certificate of Incumbency
-                </h3>
+              <div className="relative h-40">
+                <SiteImage
+                  imageId="certificateOfIncumbency"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
-
-              <p className="problem text-red-600 font-semibold mb-3">
-                Need to access trust property but don't have authority?
-              </p>
-              <p className="solution text-gray-700 mb-6">
-                We help obtain certificates of incumbency and navigate trust administration for
-                faster property access and sales. Learn more about{' '}
-                <Link
-                  href="/blog/certificate-of-incumbency/"
-                  className="text-purple-600 hover:text-purple-800 font-semibold underline"
-                >
-                  certificates of incumbency
-                </Link>{' '}
-                and our{' '}
-                <Link
-                  href="/trust-property-sales/"
-                  className="text-purple-600 hover:text-purple-800 font-semibold underline"
-                >
-                  trust property sales
-                </Link>{' '}
-                services.
-              </p>
-
-              <ul className="deliverables space-y-3 mb-6">
-                <li className="flex items-center text-gray-700">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                  Certificate of incumbency preparation
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                  Trust document review
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                  Attorney coordination
-                </li>
-                <li className="flex items-center text-gray-700">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                  Property transfer assistance
-                </li>
-              </ul>
-
-              <div className="proof-points bg-purple-50 p-4 rounded-lg mb-6">
-                <div className="flex justify-between text-sm text-purple-800">
-                  <span className="stat">200+ trust administrations</span>
-                  <span className="time">Average time: 30 days</span>
-                  <span className="savings">Cost: $750 flat fee</span>
+              <div className="p-8">
+                <div className="text-center mb-6">
+                  <FileText className="w-16 h-16 text-purple-600 mx-auto mb-4" />
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Trust Administration: Certificate of Incumbency
+                  </h3>
                 </div>
-              </div>
 
-              <a
-                href="https://drjanduffy.realscout.com/onboarding"
-                className="micro-conversion w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center space-x-2"
-              >
-                <span>Start Trust Administration</span>
-                <ArrowRight className="w-4 h-4" />
-                <span className="incentive text-xs opacity-90 block">+ Get trust review</span>
-              </a>
+                <p className="problem text-red-600 font-semibold mb-3">
+                  Need to access trust property but don't have authority?
+                </p>
+                <p className="solution text-gray-700 mb-6">
+                  We help obtain certificates of incumbency and navigate trust administration for
+                  faster property access and sales. Learn more about{' '}
+                  <Link
+                    href="/blog/certificate-of-incumbency/"
+                    className="text-purple-600 hover:text-purple-800 font-semibold underline"
+                  >
+                    certificates of incumbency
+                  </Link>{' '}
+                  and our{' '}
+                  <Link
+                    href="/trust-property-sales/"
+                    className="text-purple-600 hover:text-purple-800 font-semibold underline"
+                  >
+                    trust property sales
+                  </Link>{' '}
+                  services.
+                </p>
+
+                <ul className="deliverables space-y-3 mb-6">
+                  <li className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Certificate of incumbency preparation
+                  </li>
+                  <li className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Trust document review
+                  </li>
+                  <li className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Attorney coordination
+                  </li>
+                  <li className="flex items-center text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                    Property transfer assistance
+                  </li>
+                </ul>
+
+                <div className="proof-points bg-purple-50 p-4 rounded-lg mb-6">
+                  <div className="flex justify-between text-sm text-purple-800">
+                    <span className="stat">200+ trust administrations</span>
+                    <span className="time">Average time: 30 days</span>
+                    <span className="savings">Cost: $750 flat fee</span>
+                  </div>
+                </div>
+
+                <a
+                  href="https://drjanduffy.realscout.com/onboarding"
+                  className="micro-conversion w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center space-x-2"
+                >
+                  <span>Start Trust Administration</span>
+                  <ArrowRight className="w-4 h-4" />
+                  <span className="incentive text-xs opacity-90 block">+ Get trust review</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -500,69 +541,100 @@ export default function ServicesPage() {
           </h2>
 
           <div className="neighborhood-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Summerlin */}
-            <article className="neighborhood-card bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Summerlin Probate Sales</h3>
-              <ul className="local-insights space-y-2 mb-4">
-                <li className="text-sm text-gray-700">• Average sale time: 42 days</li>
-                <li className="text-sm text-gray-700">• Common issue: HOA documentation delays</li>
-                <li className="text-sm text-gray-700">
-                  • Solution: Pre-approved with 12 Summerlin HOAs
-                </li>
-                <li className="text-sm text-gray-700">
-                  • Recent sale: Red Rock Country Club - $1.2M in 35 days
-                </li>
-              </ul>
-              <a
-                href="/locations/summerlin/"
-                className="text-red-600 hover:text-red-800 font-semibold flex items-center"
-              >
-                Summerlin Probate Guide <ArrowRight className="w-4 h-4 ml-2" />
-              </a>
+            <article className="neighborhood-card overflow-hidden rounded-xl bg-white shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="relative h-40">
+                <SiteImage
+                  imageId="summerlinHomes"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Summerlin Probate Sales</h3>
+                <ul className="local-insights space-y-2 mb-4">
+                  <li className="text-sm text-gray-700">• Average sale time: 42 days</li>
+                  <li className="text-sm text-gray-700">
+                    • Common issue: HOA documentation delays
+                  </li>
+                  <li className="text-sm text-gray-700">
+                    • Solution: Pre-approved with 12 Summerlin HOAs
+                  </li>
+                  <li className="text-sm text-gray-700">
+                    • Recent sale: Red Rock Country Club - $1.2M in 35 days
+                  </li>
+                </ul>
+                <a
+                  href="/locations/summerlin/"
+                  className="text-red-600 hover:text-red-800 font-semibold flex items-center"
+                >
+                  Summerlin Probate Guide <ArrowRight className="w-4 h-4 ml-2" />
+                </a>
+              </div>
             </article>
 
-            {/* Henderson */}
-            <article className="neighborhood-card bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Henderson Estate Properties</h3>
-              <ul className="local-insights space-y-2 mb-4">
-                <li className="text-sm text-gray-700">• Average sale time: 48 days</li>
-                <li className="text-sm text-gray-700">
-                  • Specialty: 55+ communities (Sun City, Anthem)
-                </li>
-                <li className="text-sm text-gray-700">
-                  • Challenge: Out-of-state heirs coordination
-                </li>
-                <li className="text-sm text-gray-700">
-                  • Recent: Seven Hills estate - 5 heirs, 3 states, closed in 44 days
-                </li>
-              </ul>
-              <a
-                href="/locations/henderson/"
-                className="text-green-600 hover:text-green-800 font-semibold flex items-center"
-              >
-                Henderson Probate Guide <ArrowRight className="w-4 h-4 ml-2" />
-              </a>
+            <article className="neighborhood-card overflow-hidden rounded-xl bg-white shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="relative h-40">
+                <SiteImage
+                  imageId="hendersonHomes"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  Henderson Estate Properties
+                </h3>
+                <ul className="local-insights space-y-2 mb-4">
+                  <li className="text-sm text-gray-700">• Average sale time: 48 days</li>
+                  <li className="text-sm text-gray-700">
+                    • Specialty: Sun City Anthem and Green Valley listings
+                  </li>
+                  <li className="text-sm text-gray-700">
+                    • Challenge: Out-of-state heirs coordination
+                  </li>
+                  <li className="text-sm text-gray-700">
+                    • Recent: Seven Hills estate - 5 heirs, 3 states, closed in 44 days
+                  </li>
+                </ul>
+                <a
+                  href="/locations/henderson/"
+                  className="text-green-600 hover:text-green-800 font-semibold flex items-center"
+                >
+                  Henderson Probate Guide <ArrowRight className="w-4 h-4 ml-2" />
+                </a>
+              </div>
             </article>
 
-            {/* North Las Vegas */}
-            <article className="neighborhood-card bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">North Las Vegas Probate</h3>
-              <ul className="local-insights space-y-2 mb-4">
-                <li className="text-sm text-gray-700">• Average sale time: 45 days</li>
-                <li className="text-sm text-gray-700">
-                  • Specialty: Newer developments & family homes
-                </li>
-                <li className="text-sm text-gray-700">• Challenge: Multiple heir coordination</li>
-                <li className="text-sm text-gray-700">
-                  • Recent: Aliante estate - 3 heirs, closed in 41 days
-                </li>
-              </ul>
-              <a
-                href="/locations/north-las-vegas/"
-                className="text-blue-600 hover:text-blue-800 font-semibold flex items-center"
-              >
-                North Las Vegas Guide <ArrowRight className="w-4 h-4 ml-2" />
-              </a>
+            <article className="neighborhood-card overflow-hidden rounded-xl bg-white shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="relative h-40">
+                <SiteImage
+                  imageId="northLasVegasHomes"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">North Las Vegas Probate</h3>
+                <ul className="local-insights space-y-2 mb-4">
+                  <li className="text-sm text-gray-700">• Average sale time: 45 days</li>
+                  <li className="text-sm text-gray-700">
+                    • Specialty: Aliante and Centennial Hills homes
+                  </li>
+                  <li className="text-sm text-gray-700">• Challenge: Multiple heir coordination</li>
+                  <li className="text-sm text-gray-700">
+                    • Recent: Aliante estate - 3 heirs, closed in 41 days
+                  </li>
+                </ul>
+                <a
+                  href="/locations/north-las-vegas/"
+                  className="text-blue-600 hover:text-blue-800 font-semibold flex items-center"
+                >
+                  North Las Vegas Guide <ArrowRight className="w-4 h-4 ml-2" />
+                </a>
+              </div>
             </article>
           </div>
         </div>
@@ -647,7 +719,7 @@ export default function ServicesPage() {
           <h2 className="text-4xl font-bold mb-8">Ready to Start Your Probate Property Sale?</h2>
           <p className="text-xl mb-12 max-w-3xl mx-auto">
             Don't let probate delays keep you from moving forward. Our team has helped hundreds of
-            families in Las Vegas sell inherited properties quickly and for fair market value.
+            Clark County executors sell inherited properties quickly and for fair market value.
           </p>
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -667,9 +739,9 @@ export default function ServicesPage() {
             </div>
             <div className="bg-white/10 p-6 rounded-lg">
               <Users className="w-12 h-12 text-blue-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2">Family-Focused</h3>
+              <h3 className="text-xl font-bold mb-2">Executor Support</h3>
               <p className="text-gray-300">
-                We handle the legal details while you focus on what matters most
+                We handle the court paperwork while you keep the sale on timeline
               </p>
             </div>
           </div>
