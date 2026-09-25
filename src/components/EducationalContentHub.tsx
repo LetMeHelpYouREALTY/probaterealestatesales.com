@@ -387,7 +387,7 @@ export default function EducationalContentHub() {
               </span>
               <span className="flex items-center gap-2">
                 <Users className="h-4 w-4 text-green-600" />
-                Trusted by Families
+                Trusted by executors
               </span>
             </div>
           </div>

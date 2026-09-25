@@ -207,7 +207,7 @@ export default function Home() {
               Comprehensive Probate Services
             </h2>
             <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
-              Dr. Jan Duffy provides end-to-end solutions to help families navigate the complex
+              Dr. Jan Duffy provides end-to-end solutions to help executors navigate the complex
               process of{' '}
               <Link
                 href="/services/"

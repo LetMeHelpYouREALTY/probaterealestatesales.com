@@ -237,8 +237,7 @@ test.describe('Performance Tests', () => {
 
       // Simulate some DOM operations
       const elements = document.querySelectorAll('*');
-      let count = 0;
-      elements.forEach(() => count++);
+      const count = elements.length;
 
       const end = performance.now();
       return {

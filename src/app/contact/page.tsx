@@ -8,6 +8,7 @@ import GbpLocalActions from '@/components/GbpLocalActions';
 import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import SectionVisual from '@/components/SectionVisual';
+import SiteImage from '@/components/SiteImage';
 import {
   FACEBOOK_PAGE_URL,
   GOOGLE_BUSINESS_REVIEW_URL,
@@ -170,30 +171,40 @@ export default function ContactPage() {
               </a>
               <p className="text-sm text-secondary-600 mt-2">Email us today</p>
             </div>
-            <div className="bg-gradient-to-br from-purple-50 to-violet-100 rounded-xl p-8 text-center">
-              <MapPin className="h-12 w-12 text-purple-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-secondary-900 mb-2">Visit</h3>
-              <p className="text-secondary-700 font-medium mb-4">
-                400 S 4th St suite 250 b<br />
-                Las Vegas, NV 89101
-              </p>
-              <a
-                href={OFFICE_GOOGLE_MAPS_DIRECTIONS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors text-sm font-medium"
-              >
-                <MapPin className="h-4 w-4 mr-2" />
-                Get Directions
-              </a>
-              <a
-                href={GOOGLE_BUSINESS_REVIEW_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 mt-3 bg-white text-purple-700 border border-purple-600 rounded-md hover:bg-purple-50 transition-colors text-sm font-medium"
-              >
-                View Google Reviews
-              </a>
+            <div className="overflow-hidden rounded-xl bg-gradient-to-br from-purple-50 to-violet-100 text-center">
+              <div className="relative h-28">
+                <SiteImage
+                  imageId="downtownOffice"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                />
+              </div>
+              <div className="p-8">
+                <MapPin className="h-12 w-12 text-purple-600 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-secondary-900 mb-2">Visit</h3>
+                <p className="text-secondary-700 font-medium mb-4">
+                  400 S 4th St suite 250 b<br />
+                  Las Vegas, NV 89101
+                </p>
+                <a
+                  href={OFFICE_GOOGLE_MAPS_DIRECTIONS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors text-sm font-medium"
+                >
+                  <MapPin className="h-4 w-4 mr-2" />
+                  Get Directions
+                </a>
+                <a
+                  href={GOOGLE_BUSINESS_REVIEW_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-2 mt-3 bg-white text-purple-700 border border-purple-600 rounded-md hover:bg-purple-50 transition-colors text-sm font-medium"
+                >
+                  View Google Reviews
+                </a>
+              </div>
             </div>
           </div>
 

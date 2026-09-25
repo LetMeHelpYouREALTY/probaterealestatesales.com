@@ -8,7 +8,7 @@
     "dev:alt": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "lint:internal-links": "node scripts/check-internal-links.js",
     "format": "biome format --write .",

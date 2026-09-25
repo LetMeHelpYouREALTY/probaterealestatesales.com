@@ -24,7 +24,9 @@ async function main() {
     .jpeg({ quality: 85, progressive: true, mozjpeg: true })
     .toFile(OUTPUT);
   const stats = fs.statSync(OUTPUT);
-  console.log(`Created ${path.basename(OUTPUT)} (${OG_WIDTH}x${OG_HEIGHT}, ${(stats.size / 1024).toFixed(1)} KB)`);
+  console.log(
+    `Created ${path.basename(OUTPUT)} (${OG_WIDTH}x${OG_HEIGHT}, ${(stats.size / 1024).toFixed(1)} KB)`
+  );
 }
 
 main().catch((err) => {

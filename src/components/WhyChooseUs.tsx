@@ -13,6 +13,7 @@ import {
   Users,
 } from 'lucide-react';
 import Image from 'next/image';
+import SectionVisual from '@/components/SectionVisual';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const reasons = [
@@ -36,7 +37,7 @@ const reasons = [
     title: 'Compassionate Service',
     description: 'We understand this is a difficult time and provide caring, sensitive support.',
     stat: '100%',
-    detail: 'Family Focused',
+    detail: 'Executor support',
   },
   {
     icon: Shield,
@@ -47,10 +48,10 @@ const reasons = [
   },
   {
     icon: Users,
-    title: 'Family Focused',
-    description: 'Dedicated to helping families navigate complex situations with clarity.',
+    title: 'Executor Support',
+    description: 'Dedicated guidance for executors and heirs through court-supervised sales.',
     stat: '200+',
-    detail: 'Families Helped',
+    detail: 'Clark County estates',
   },
   {
     icon: TrendingUp,
@@ -146,6 +147,9 @@ export default function WhyChooseUs() {
             results to deliver exceptional probate real estate services with compassion and
             expertise.
           </p>
+          <div className="mt-8 max-w-4xl mx-auto">
+            <SectionVisual imageId="consultationRoomSide" className="h-48 md:h-64" />
+          </div>
         </div>
 
         {/* Dr. Jan Duffy Photo & Introduction */}
@@ -158,9 +162,9 @@ export default function WhyChooseUs() {
                 </h3>
                 <p className="text-lg text-secondary-600 mb-6 leading-relaxed">
                   With over 20 years of experience in Las Vegas real estate and specialized
-                  expertise in probate sales, Dr. Duffy combines academic excellence with
-                  compassionate service to help families navigate complex probate situations with
-                  confidence and care.
+                  expertise in probate sales, Dr. Duffy combines academic excellence with clear,
+                  court-ready guidance for executors navigating complex probate sales with
+                  confidence.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                   <a

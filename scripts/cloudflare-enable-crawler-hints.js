@@ -17,10 +17,9 @@ async function listZones(token) {
   let page = 1;
   let more = true;
   while (more) {
-    const res = await fetch(
-      `${CLOUDFLARE_API}/zones?per_page=50&page=${page}`,
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
+    const res = await fetch(`${CLOUDFLARE_API}/zones?per_page=50&page=${page}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     const data = await res.json();
     if (!data.success) throw new Error(data.errors?.[0]?.message || 'Failed to list zones');
     const zones = data.result || [];
@@ -31,7 +30,7 @@ async function listZones(token) {
   return all;
 }
 
-const readline = require('readline');
+const readline = require('node:readline');
 
 function askToken() {
   return new Promise((resolve) => {

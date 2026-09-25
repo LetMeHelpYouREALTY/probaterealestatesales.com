@@ -63,7 +63,7 @@ export default function HomePageNavigation() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {quickLinks.map((link, index) => {
+          {quickLinks.map((link) => {
             const Icon = link.icon;
             const colorClasses = {
               blue: 'bg-blue-100 text-blue-800 hover:bg-blue-200',
@@ -76,7 +76,7 @@ export default function HomePageNavigation() {
 
             return (
               <a
-                key={index}
+                key={link.href}
                 href={link.href}
                 className={`${colorClasses[link.color as keyof typeof colorClasses]} rounded-lg p-4 text-center transition-all duration-200 hover:shadow-md group`}
               >

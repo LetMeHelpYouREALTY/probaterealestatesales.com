@@ -513,8 +513,8 @@ export default function ProbateDivisionPage() {
                     alt="Trust and probate consultation office, Las Vegas Nevada"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-slate-900/80 p-4 text-center text-white">
-                    <div className="text-lg font-semibold">Nancy Sanborn</div>
-                    <div className="text-sm text-blue-100">Director of Trust &amp; Probate</div>
+                    <div className="text-lg font-semibold">Probate consultation room</div>
+                    <div className="text-sm text-blue-100">400 S 4th St suite 250 b, Las Vegas</div>
                   </div>
                 </div>
               </div>

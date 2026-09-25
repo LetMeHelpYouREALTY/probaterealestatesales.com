@@ -1,13 +1,4 @@
-import {
-  ArrowRight,
-  CheckCircle,
-  DollarSign,
-  FileText,
-  Gavel,
-  Home,
-  Phone,
-  Scale,
-} from 'lucide-react';
+import { ArrowRight, Gavel, Phone } from 'lucide-react';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';

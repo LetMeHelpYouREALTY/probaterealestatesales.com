@@ -6,15 +6,15 @@
  * Exit: 0 if all OK, 1 if any violations found.
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 
 const SRC = path.join(__dirname, '..', 'src');
 const EXT = ['.tsx', '.ts', '.jsx', '.js'];
 
 // Static assets / special paths that do not need trailing slash
 const SKIP_PATTERNS = [
-  /^\/$/,                    // root
+  /^\/$/, // root
   /\.(xml|ico|png|jpg|jpeg|gif|webp|css|js|woff|woff2|ttf|eot|webmanifest)$/i,
   /^\/sitemap\.xml$/,
   /^\/robots\.txt$/,
@@ -63,13 +63,18 @@ const violations = [];
 for (const file of walkDir(SRC)) {
   const rel = path.relative(path.join(__dirname, '..'), file);
   const content = fs.readFileSync(file, 'utf8');
-  let m;
   RE_HREF.lastIndex = 0;
-  while ((m = RE_HREF.exec(content)) !== null) {
+  let m = RE_HREF.exec(content);
+  while (m !== null) {
     const hrefPath = m[1];
     if (needsTrailingSlash(hrefPath)) {
-      violations.push({ file: rel, href: hrefPath, line: content.slice(0, m.index).split('\n').length });
+      violations.push({
+        file: rel,
+        href: hrefPath,
+        line: content.slice(0, m.index).split('\n').length,
+      });
     }
+    m = RE_HREF.exec(content);
   }
 }
 

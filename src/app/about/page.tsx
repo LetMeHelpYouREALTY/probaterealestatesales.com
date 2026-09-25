@@ -228,7 +228,7 @@ export default function AboutPage() {
                 <div className="bg-gradient-to-br from-green-50 to-emerald-100 rounded-lg p-6 text-center">
                   <Users className="h-8 w-8 text-green-600 mx-auto mb-2" />
                   <div className="text-3xl font-bold text-secondary-900">100+</div>
-                  <div className="text-sm text-secondary-600">Families Helped</div>
+                  <div className="text-sm text-secondary-600">Estates guided</div>
                 </div>
                 <div className="bg-gradient-to-br from-purple-50 to-violet-100 rounded-lg p-6 text-center">
                   <Clock className="h-8 w-8 text-purple-600 mx-auto mb-2" />
