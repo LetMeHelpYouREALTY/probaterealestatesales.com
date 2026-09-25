@@ -1,11 +1,12 @@
 import { ArrowRight, Award, ExternalLink, Phone, Quote, Star } from 'lucide-react';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SectionVisual from '@/components/SectionVisual';
+import SiteImage from '@/components/SiteImage';
 import { GOOGLE_BUSINESS_REVIEW_URL } from '@/config/site-google';
 import { buildLocalBusinessNestedReviewsStructuredData } from '@/lib/schema';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
@@ -17,7 +18,7 @@ const FAQ = dynamic(() => import('@/components/FAQ'), {
 export const metadata: Metadata = {
   title: 'Client Testimonials & Success Stories | Dr. Jan Duffy Probate Real Estate',
   description:
-    "Read real testimonials from families who trusted Dr. Jan Duffy with their probate property sales. See how we've helped clients achieve results above asking price with compassionate, expert guidance.",
+    "Read real testimonials from executors and heirs who trusted Dr. Jan Duffy with their probate property sales. See how we've helped clients achieve results above asking price with expert guidance.",
   keywords:
     'probate real estate testimonials, client success stories, probate property sales reviews, Dr. Jan Duffy reviews, estate sale testimonials',
   alternates: {
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Client Testimonials & Success Stories | Dr. Jan Duffy',
     description:
-      "Real stories from families who have experienced Dr. Duffy's compassionate, expert guidance through the probate process.",
+      "Real stories from executors and heirs who used Dr. Duffy's probate real estate guidance in Las Vegas and Clark County.",
     type: 'website',
     url: 'https://www.probaterealestatesales.com/testimonials/',
   },
@@ -191,13 +192,13 @@ export default function TestimonialsPage() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="text-center md:text-left">
                 <h2 className="text-2xl md:text-3xl font-bold text-secondary-900 mb-4">
-                  Trusted by Hundreds of Families
+                  Trusted by executors and heirs
                 </h2>
                 <p className="text-lg text-secondary-600 mb-6 leading-relaxed">
-                  Dr. Jan Duffy's compassionate approach and proven expertise have helped countless
-                  families navigate the complex probate process with confidence. Her dedication to
-                  maximizing property value while minimizing stress has earned her the trust of Las
-                  Vegas probate courts and families alike.
+                  Dr. Jan Duffy's approach and proven expertise have helped executors and heirs
+                  navigate the complex probate process with confidence. Her dedication to maximizing
+                  property value while minimizing stress has earned her the trust of Las Vegas
+                  probate courts and clients alike.
                 </p>
                 <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center md:justify-start">
                   <Link
@@ -228,9 +229,9 @@ export default function TestimonialsPage() {
               <div className="flex justify-center">
                 <div className="relative">
                   <div className="w-64 h-64 overflow-hidden rounded-2xl border-4 border-primary-200 shadow-xl">
-                    <Image
-                      src="/images/dr-jan-duffy.jpg"
-                      alt="Dr. Jan Duffy - Trusted Probate Real Estate Expert"
+                    <SiteImage
+                      imageId="agentPortrait"
+                      alt="Dr. Jan Duffy, Las Vegas probate realtor"
                       width={256}
                       height={256}
                       className="w-full h-full object-cover"
@@ -343,9 +344,11 @@ export default function TestimonialsPage() {
               <h2 className="text-2xl md:text-3xl font-bold text-secondary-900 mb-4">
                 Professional credentials &amp; local focus
               </h2>
+              <div className="mb-6 max-w-3xl mx-auto">
+                <SectionVisual imageId="consultationRoomSide" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-600">
-                Licensed Nevada probate real estate guidance for Las Vegas and Clark County
-                families.
+                Licensed Nevada probate real estate guidance for Las Vegas and Clark County estates.
               </p>
             </div>
 
@@ -411,7 +414,7 @@ export default function TestimonialsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Experience the Same Success?</h2>
           <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
-            Join hundreds of families who have trusted Dr. Jan Duffy with their probate property
+            Join executors and heirs who have trusted Dr. Jan Duffy with their probate property
             sales. Get a free consultation to discuss your unique situation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

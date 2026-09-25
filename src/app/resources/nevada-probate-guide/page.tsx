@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SectionVisual from '@/components/SectionVisual';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const FAQ = dynamic(() => import('@/components/FAQ'), {
@@ -104,6 +105,9 @@ export default function NevadaProbateGuidePage() {
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Nevada offers significant advantages for probate property sales
             </p>
+            <div className="mt-8 max-w-4xl mx-auto">
+              <SectionVisual imageId="nevadaCaliforniaProbate" className="h-48 md:h-64" />
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -187,6 +191,9 @@ export default function NevadaProbateGuidePage() {
               </Link>
               .
             </p>
+            <div className="mt-8 max-w-4xl mx-auto">
+              <SectionVisual imageId="probateTimeline" className="h-48 md:h-64" />
+            </div>
           </div>
 
           <div className="grid md:grid-cols-4 gap-6">
@@ -250,6 +257,9 @@ export default function NevadaProbateGuidePage() {
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Transparent cost structure for Nevada probate services
             </p>
+            <div className="mt-8 max-w-4xl mx-auto">
+              <SectionVisual imageId="probateCostCalculator" className="h-48 md:h-64" />
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -311,6 +321,9 @@ export default function NevadaProbateGuidePage() {
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Detailed breakdown of Nevada's efficient probate process
             </p>
+            <div className="mt-8 max-w-4xl mx-auto">
+              <SectionVisual imageId="courtPetitionSale" className="h-48 md:h-64" />
+            </div>
           </div>
 
           <div className="space-y-6">
@@ -385,6 +398,9 @@ export default function NevadaProbateGuidePage() {
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Why Nevada is the best choice for probate real estate
             </p>
+            <div className="mt-8 max-w-4xl mx-auto">
+              <SectionVisual imageId="smallEstateAffidavit" className="h-48 md:h-64" />
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

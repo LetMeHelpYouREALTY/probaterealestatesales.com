@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SectionVisual from '@/components/SectionVisual';
 import { getSiteImageSrc } from '@/lib/cloudflare-images';
 
 export const metadata: Metadata = {
@@ -64,6 +65,9 @@ export default function ClarkCountyProbatePage() {
             <h2 className="text-3xl font-bold text-secondary-900 mb-4">
               Clark County Probate Court Overview
             </h2>
+            <div className="mb-6 max-w-3xl mx-auto">
+              <SectionVisual imageId="courthouse" className="h-48 md:h-64" />
+            </div>
             <p className="text-lg text-secondary-700 max-w-3xl mx-auto">
               Clark County Probate Court is part of the Eighth Judicial District Court of Nevada.
               The court has 2 probate commissioners who handle probate matters, making the process
@@ -97,6 +101,9 @@ export default function ClarkCountyProbatePage() {
           <h2 className="text-3xl font-bold text-secondary-900 mb-8 text-center">
             Step-by-Step Court Procedures
           </h2>
+          <div className="mb-8">
+            <SectionVisual imageId="courtPetitionSale" className="h-48 md:h-64" />
+          </div>
 
           <div className="space-y-8">
             {/* Step 1 */}

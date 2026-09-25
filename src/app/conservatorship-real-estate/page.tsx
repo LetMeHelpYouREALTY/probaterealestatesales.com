@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SectionVisual from '@/components/SectionVisual';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_E164, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const FAQ = dynamic(() => import('@/components/FAQ'), {
@@ -14,7 +15,7 @@ const FAQ = dynamic(() => import('@/components/FAQ'), {
 export const metadata: Metadata = {
   title: 'Conservatorship Real Estate Sales in Las Vegas, Nevada | Court-Appointed Sales Expert',
   description:
-    'Expert conservatorship real estate sales in Las Vegas, Nevada. Complete guidance for conservators, attorneys, and families on selling property for conservatees. Court-approved sales, fiduciary compliance, and professional representation.',
+    'Expert conservatorship real estate sales in Las Vegas, Nevada. Complete guidance for conservators, attorneys, and fiduciaries on selling property for conservatees. Court-approved sales, fiduciary compliance, and professional representation.',
   keywords: [
     'conservatorship real estate',
     'conservatorship real estate sales',
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Conservatorship Real Estate Sales in Las Vegas, Nevada | Court-Appointed Sales Expert',
     description:
-      'Expert conservatorship real estate sales in Las Vegas, Nevada. Complete guidance for conservators, attorneys, and families on selling property for conservatees.',
+      'Expert conservatorship real estate sales in Las Vegas, Nevada. Complete guidance for conservators, attorneys, and fiduciaries on selling property for conservatees.',
     type: 'website',
     locale: 'en_US',
     url: 'https://www.probaterealestatesales.com/conservatorship-real-estate/',
@@ -64,7 +65,7 @@ export default function ConservatorshipRealEstatePage() {
               '@type': 'Service',
               name: 'Conservatorship Real Estate Sales',
               description:
-                'Expert conservatorship real estate sales services in Las Vegas, Nevada. Complete guidance for conservators, attorneys, and families on selling property for conservatees.',
+                'Expert conservatorship real estate sales services in Las Vegas, Nevada. Complete guidance for conservators, attorneys, and fiduciaries on selling property for conservatees.',
               provider: {
                 '@type': 'RealEstateAgent',
                 name: 'Dr. Jan Duffy',
@@ -111,6 +112,9 @@ export default function ConservatorshipRealEstatePage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 Understanding Conservatorship Real Estate Sales
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="conservatorship" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Conservatorship real estate sales represent one of the most sensitive and legally
                 complex types of property transactions in Las Vegas and throughout Nevada. When an
@@ -225,6 +229,9 @@ export default function ConservatorshipRealEstatePage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 The Court Approval Process for Conservatorship Sales
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="courtPetitionSale" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Selling property in a conservatorship requires obtaining court approval before the
                 sale can proceed. This process ensures the sale serves the conservatee's best
@@ -331,6 +338,9 @@ export default function ConservatorshipRealEstatePage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 Conservator Responsibilities in Property Sales
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="conservatorFiduciary" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Conservators have significant legal and ethical responsibilities when selling
                 property. These duties are more extensive than those in standard real estate
@@ -423,6 +433,9 @@ export default function ConservatorshipRealEstatePage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 Common Challenges in Conservatorship Sales
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="executorConsulting" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Conservatorship property sales present unique challenges that don't arise in
                 standard real estate transactions. Understanding these challenges and how to address

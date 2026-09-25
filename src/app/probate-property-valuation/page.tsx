@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SectionVisual from '@/components/SectionVisual';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_E164, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const FAQ = dynamic(() => import('@/components/FAQ'), {
@@ -110,6 +111,9 @@ export default function ProbatePropertyValuationPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 Understanding Probate Property Valuation
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="propertyValuation" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Probate property valuation is a critical component of the{' '}
                 <Link
@@ -232,6 +236,9 @@ export default function ProbatePropertyValuationPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 The Probate Property Valuation Process
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="propertyChecklist" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 The probate property valuation process involves several steps to ensure accurate,
                 defensible property values. Understanding this process helps executors, trustees,
@@ -312,6 +319,9 @@ export default function ProbatePropertyValuationPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 Factors Affecting Probate Property Valuation
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="lasVegasHomes" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Multiple factors influence probate property valuations in Las Vegas and throughout
                 Nevada. Understanding these factors helps executors, trustees, and beneficiaries
@@ -384,6 +394,9 @@ export default function ProbatePropertyValuationPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 Court Requirements for Probate Property Valuations
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="courtPetitionSale" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Nevada probate courts have specific requirements for property valuations used in
                 probate sales. Understanding these requirements helps ensure valuations meet court

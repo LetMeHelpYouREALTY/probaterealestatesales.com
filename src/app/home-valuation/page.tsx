@@ -1,11 +1,13 @@
-import { ArrowRight, DollarSign, Home, Phone, TrendingUp } from 'lucide-react';
+import { ArrowRight, Phone } from 'lucide-react';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import { CalendlyBookingPanel } from '@/components/calendly/CalendlyBookingPanel';
+import HeadingPhotoCard from '@/components/HeadingPhotoCard';
 import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SectionVisual from '@/components/SectionVisual';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const FAQ = dynamic(() => import('@/components/FAQ'), {
@@ -60,38 +62,31 @@ export default function HomeValuationPage() {
       {/* Benefits Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-secondary-900 mb-12 text-center">
+          <h2 className="text-3xl font-bold text-secondary-900 mb-8 text-center">
             Why Get a Professional Valuation?
           </h2>
+          <div className="mb-12 max-w-4xl mx-auto">
+            <SectionVisual imageId="propertyValuation" className="h-48 md:h-64" />
+          </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-8 shadow-md">
-              <TrendingUp className="h-12 w-12 text-primary-700 mb-4" />
-              <h3 className="text-xl font-semibold text-secondary-900 mb-2">
-                Accurate Market Value
-              </h3>
+            <HeadingPhotoCard imageId="listingsHero" title="Accurate Market Value">
               <p className="text-secondary-600">
                 Get an accurate estimate based on current Las Vegas real estate market conditions
                 and comparable sales.
               </p>
-            </div>
-            <div className="bg-white rounded-xl p-8 shadow-md">
-              <DollarSign className="h-12 w-12 text-green-600 mb-4" />
-              <h3 className="text-xl font-semibold text-secondary-900 mb-2">Maximize Sale Price</h3>
+            </HeadingPhotoCard>
+            <HeadingPhotoCard imageId="estateLiquidation" title="Maximize Sale Price">
               <p className="text-secondary-600">
                 Understand your property's worth to price it competitively and maximize your sale
                 proceeds.
               </p>
-            </div>
-            <div className="bg-white rounded-xl p-8 shadow-md">
-              <Home className="h-12 w-12 text-purple-600 mb-4" />
-              <h3 className="text-xl font-semibold text-secondary-900 mb-2">
-                Probate-Specific Insights
-              </h3>
+            </HeadingPhotoCard>
+            <HeadingPhotoCard imageId="courtApprovedSales" title="Probate-Specific Insights">
               <p className="text-secondary-600">
                 Our valuations consider probate-specific factors and timelines that affect property
                 value.
               </p>
-            </div>
+            </HeadingPhotoCard>
           </div>
         </div>
       </section>

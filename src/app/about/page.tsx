@@ -204,7 +204,7 @@ export default function AboutPage() {
                   the next season of life with convenience while maximizing your sale proceeds.
                 </p>
                 <p className="text-lg text-secondary-700 leading-relaxed mb-4">
-                  I've supported hundreds of people and families with real property including Single
+                  I've supported hundreds of executors and heirs with real property including Single
                   Family Homes, High-Rise Units, Multi-Family Properties, Condos, and Land in the
                   Las Vegas valley since 2004. My background includes specialized knowledge in
                   probate real estate, estate liquidation, and Clark County probate court
@@ -214,7 +214,7 @@ export default function AboutPage() {
                   With a Ph.D. in Research, I bring analytical rigor and attention to detail to
                   every probate transaction. I understand the complexities of Nevada probate law and
                   work diligently to ensure smooth, efficient property sales during what can be a
-                  difficult time for families.
+                  difficult time for executors and heirs.
                 </p>
               </div>
 
@@ -327,6 +327,16 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-xl shadow-lg p-8">
             <h2 className="text-3xl font-bold text-secondary-900 mb-8 text-center">Get In Touch</h2>
+            <div className="mb-8 max-w-3xl mx-auto">
+              <SiteImage
+                imageId="downtownOffice"
+                alt="Downtown Las Vegas office building near 400 S 4th St suite 250 b"
+                width={1200}
+                height={675}
+                className="h-48 md:h-64 w-full object-cover rounded-xl"
+                sizes="(max-width: 768px) 100vw, 768px"
+              />
+            </div>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <Phone className="h-8 w-8 text-primary-700 mx-auto mb-4" />

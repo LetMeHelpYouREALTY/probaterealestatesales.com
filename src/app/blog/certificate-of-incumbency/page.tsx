@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SectionVisual from '@/components/SectionVisual';
 import { getSiteImageSrc } from '@/lib/cloudflare-images';
 
 export const metadata: Metadata = {
@@ -64,6 +65,9 @@ export default function CertificateOfIncumbencyPage() {
             <h2 className="text-3xl font-bold text-secondary-900 mb-6">
               What is a Certificate of Incumbency?
             </h2>
+            <div className="mb-6">
+              <SectionVisual imageId="certificateOfIncumbency" className="h-48 md:h-64" />
+            </div>
             <p className="text-lg text-secondary-700 mb-4">
               A Certificate of Incumbency is an official document that verifies the identity and
               authority of the current trustee(s) of a trust. This document is essential when a
