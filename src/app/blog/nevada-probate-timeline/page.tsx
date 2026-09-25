@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SectionVisual from '@/components/SectionVisual';
 import { getSiteImageSrc } from '@/lib/cloudflare-images';
 
 export const metadata: Metadata = {
@@ -62,6 +63,9 @@ export default function NevadaProbateTimelinePage() {
             <h2 className="text-3xl font-bold text-secondary-900 mb-8 text-center">
               Complete Probate Timeline Breakdown
             </h2>
+            <div className="mb-8">
+              <SectionVisual imageId="probateTimeline" className="h-48 md:h-64" />
+            </div>
 
             <div className="space-y-8">
               {/* Month 0-1 */}

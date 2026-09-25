@@ -82,4 +82,20 @@ test.describe('GBP actions and heading images', () => {
     await expect(page.getByRole('link', { name: /View Google Reviews/i }).first()).toBeVisible();
     await expect(page.locator('iframe[title*="400 S 4th"]')).toBeVisible();
   });
+
+  test('long-form H2s use heading-matched photos', async ({ page }) => {
+    await page.goto('/resources/nevada-probate-guide/');
+    await expect(
+      page.getByRole('heading', { name: /Why Nevada Probate is Better Than California/i })
+    ).toBeVisible();
+    await expect(page.locator('img[alt*="Nevada and California"]').first()).toBeVisible();
+
+    await page.goto('/conservatorship-real-estate/');
+    await expect(page.locator('img[alt*="petition for authority"]').first()).toBeVisible();
+    await expect(page.locator('img[alt*="Conservator accounting"]').first()).toBeVisible();
+
+    await page.goto('/mortgage-calculator/');
+    await expect(page.getByRole('heading', { name: /Mortgage Calculator/i }).first()).toBeVisible();
+    await expect(page.locator('img[alt*="Mortgage worksheet"]').first()).toBeVisible();
+  });
 });

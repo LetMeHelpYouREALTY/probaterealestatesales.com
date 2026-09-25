@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SectionVisual from '@/components/SectionVisual';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_E164, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const FAQ = dynamic(() => import('@/components/FAQ'), {
@@ -112,6 +113,9 @@ export default function TrustPropertySalesPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 Understanding Trust Property Sales
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="trustSales" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Trust property sales represent a specialized segment of real estate transactions in
                 Las Vegas and throughout Nevada. When real property is held in a trust, whether
@@ -213,6 +217,9 @@ export default function TrustPropertySalesPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 Certificate of Incumbency for Trust Property Sales
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="certificateOfIncumbency" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 One of the most critical documents required for trust property sales in Nevada is
                 the Certificate of Incumbency. This document proves that the person signing the sale
@@ -302,6 +309,9 @@ export default function TrustPropertySalesPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 The Trust Property Sale Process
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="independentAdministration" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Selling trust property involves a structured process that ensures legal compliance
                 and protects all parties. Understanding each step helps trustees and their advisors
@@ -393,6 +403,9 @@ export default function TrustPropertySalesPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 Trustee Responsibilities in Property Sales
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="executorConsulting" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Trustees have significant legal and ethical responsibilities when selling trust
                 property. Understanding these duties helps trustees avoid liability and ensures

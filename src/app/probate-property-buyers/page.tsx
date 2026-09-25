@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SectionVisual from '@/components/SectionVisual';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_E164, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const FAQ = dynamic(() => import('@/components/FAQ'), {
@@ -111,6 +112,9 @@ export default function ProbatePropertyBuyersPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 Why Buy Probate Properties?
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="listingsHero" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Probate property buyers represent a growing segment of the real estate market in Las
                 Vegas and throughout Nevada. These buyers are attracted to probate properties for
@@ -200,6 +204,9 @@ export default function ProbatePropertyBuyersPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 How to Find Probate Properties for Sale
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="lasVegasSunset" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Finding probate properties requires different strategies than searching for standard
                 real estate listings. These properties often don't appear on traditional MLS
@@ -293,6 +300,9 @@ export default function ProbatePropertyBuyersPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 Evaluating Probate Properties
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="propertyValuation" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Evaluating probate properties requires careful consideration of both the property
                 itself and the unique aspects of probate sales. Probate property buyers should
@@ -364,6 +374,9 @@ export default function ProbatePropertyBuyersPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 Making Offers on Probate Properties
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="courtApprovedSales" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Making offers on probate properties involves unique considerations compared to
                 standard real estate transactions. Understanding these differences helps probate
@@ -429,6 +442,9 @@ export default function ProbatePropertyBuyersPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 The Probate Property Closing Process
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="independentAdministration" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Closing on a probate property involves additional steps beyond standard real estate
                 transactions. Understanding this process helps probate property buyers prepare and

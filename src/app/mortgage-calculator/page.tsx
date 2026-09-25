@@ -1,10 +1,12 @@
-import { ArrowRight, DollarSign, Home, Info, Phone, TrendingUp } from 'lucide-react';
+import { ArrowRight, Info, Phone } from 'lucide-react';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import HeadingPhotoCard from '@/components/HeadingPhotoCard';
 import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SectionVisual from '@/components/SectionVisual';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const FAQ = dynamic(() => import('@/components/FAQ'), {
@@ -51,7 +53,7 @@ export default function MortgageCalculatorPage() {
       <PageHero
         title="Mortgage Calculator"
         subtitle="Calculate monthly payments for probate property purchases in Las Vegas, Nevada."
-        imageId="propertyValuation"
+        imageId="mortgageCalculator"
       />
 
       {/* Calculator Section */}
@@ -240,34 +242,31 @@ export default function MortgageCalculatorPage() {
       {/* Information Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-secondary-900 mb-12 text-center">
+          <h2 className="text-3xl font-bold text-secondary-900 mb-8 text-center">
             Understanding Your Mortgage
           </h2>
+          <div className="mb-12 max-w-4xl mx-auto">
+            <SectionVisual imageId="mortgageCalculator" className="h-48 md:h-64" />
+          </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-8 shadow-md">
-              <DollarSign className="h-12 w-12 text-primary-700 mb-4" />
-              <h3 className="text-xl font-semibold text-secondary-900 mb-2">Down Payment</h3>
+            <HeadingPhotoCard imageId="propertyValuation" title="Down Payment">
               <p className="text-secondary-600">
                 A 20% down payment is typically recommended to avoid Private Mortgage Insurance
                 (PMI) and get better rates.
               </p>
-            </div>
-            <div className="bg-white rounded-xl p-8 shadow-md">
-              <TrendingUp className="h-12 w-12 text-green-600 mb-4" />
-              <h3 className="text-xl font-semibold text-secondary-900 mb-2">Interest Rates</h3>
+            </HeadingPhotoCard>
+            <HeadingPhotoCard imageId="listingsHero" title="Interest Rates">
               <p className="text-secondary-600">
                 Current interest rates vary based on credit score, loan type, and market conditions.
                 Shop around for the best rate.
               </p>
-            </div>
-            <div className="bg-white rounded-xl p-8 shadow-md">
-              <Home className="h-12 w-12 text-purple-600 mb-4" />
-              <h3 className="text-xl font-semibold text-secondary-900 mb-2">Additional Costs</h3>
+            </HeadingPhotoCard>
+            <HeadingPhotoCard imageId="probateCostCalculator" title="Additional Costs">
               <p className="text-secondary-600">
                 Remember to factor in property taxes, homeowners insurance, HOA fees, and
                 maintenance costs.
               </p>
-            </div>
+            </HeadingPhotoCard>
           </div>
         </div>
       </section>

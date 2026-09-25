@@ -237,8 +237,8 @@ export default function LeadGenerationSystem() {
               Ready to Generate Qualified Probate Leads?
             </h3>
             <p className="text-lg text-secondary-600 mb-6 max-w-2xl mx-auto">
-              Implement this proven lead generation system to connect with families who need Dr. Jan
-              Duffy's probate expertise.
+              Implement this proven lead generation system to connect with executors and heirs who
+              need Dr. Jan Duffy's probate expertise.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

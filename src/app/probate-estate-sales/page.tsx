@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SectionVisual from '@/components/SectionVisual';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_E164, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const FAQ = dynamic(() => import('@/components/FAQ'), {
@@ -111,6 +112,9 @@ export default function ProbateEstateSalesPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 Understanding Probate Estate Sales
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="estateLiquidation" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Probate estate sales represent a specialized type of real estate transaction that
                 occurs when property from a deceased person's estate must be sold as part of the
@@ -201,6 +205,9 @@ export default function ProbateEstateSalesPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 The Probate Estate Sale Process
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="courtPetitionSale" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Selling property in a probate estate involves a structured process that ensures
                 legal compliance and protects all parties. Understanding each step helps executors
@@ -303,6 +310,9 @@ export default function ProbateEstateSalesPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 Executor Responsibilities in Probate Estate Sales
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="executorConsulting" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Executors have significant legal and ethical responsibilities when selling estate
                 property. Understanding these duties helps executors avoid liability and ensures
@@ -388,6 +398,9 @@ export default function ProbateEstateSalesPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-6">
                 Common Challenges in Probate Estate Sales
               </h2>
+              <div className="mb-6">
+                <SectionVisual imageId="propertyChecklist" className="h-48 md:h-64" />
+              </div>
               <p className="text-lg text-secondary-700 mb-6">
                 Probate estate sales present unique challenges that don't arise in standard real
                 estate transactions. Understanding these challenges and how to address them helps

@@ -66,6 +66,11 @@ export const SITE_IMAGE_IDS = [
   'probateCostCalculator',
   'partitionAction',
   'executorConsulting',
+  'nevadaCaliforniaProbate',
+  'courtPetitionSale',
+  'mortgageCalculator',
+  'attorneyReferral',
+  'conservatorFiduciary',
 ] as const;
 
 export type SiteImageId = (typeof SITE_IMAGE_IDS)[number];
@@ -252,6 +257,31 @@ export const SITE_IMAGES: Record<SiteImageId, SiteImageRecord> = {
     alt: 'Executor property consulting binder, listing packet, and Clark County checklist in a downtown Las Vegas office',
     heading: 'Executor Property Consulting',
   },
+  nevadaCaliforniaProbate: {
+    file: 'sections/nevada-california-probate.jpg',
+    alt: 'Nevada and California probate timeline packets compared on a Las Vegas desk with house keys',
+    heading: 'Why Nevada Probate is Better Than California',
+  },
+  courtPetitionSale: {
+    file: 'sections/court-petition-sale.jpg',
+    alt: 'Clark County petition for authority to sell real property with gavel and house keys overlooking Las Vegas',
+    heading: 'The Court Approval Process for Conservatorship Sales',
+  },
+  mortgageCalculator: {
+    file: 'sections/probate-mortgage-calculator.jpg',
+    alt: 'Mortgage worksheet for an inherited Las Vegas probate home with calculator, keys, and stucco house photo',
+    heading: 'Mortgage Calculator',
+  },
+  attorneyReferral: {
+    file: 'services/estate-attorney-referral.jpg',
+    alt: 'Estate attorney referral packet, Nevada code books, and Clark County court contact sheet in a Las Vegas office',
+    heading: 'Estate Attorney Referral Services',
+  },
+  conservatorFiduciary: {
+    file: 'services/conservator-fiduciary-files.jpg',
+    alt: 'Conservator accounting ledger, Clark County court order packet, and probate checklist on a Las Vegas desk',
+    heading: 'Conservator Responsibilities in Property Sales',
+  },
 };
 
 const LOCATION_IMAGE_BY_SLUG: Record<string, SiteImageId> = {
@@ -272,7 +302,7 @@ const SERVICE_IMAGE_BY_SLUG: Record<string, SiteImageId> = {
   'trust-sale-services': 'trustSales',
   'probate-property-valuation': 'propertyValuation',
   'estate-property-cma-reports': 'propertyValuation',
-  'estate-attorney-referral-services': 'consultationRoom',
+  'estate-attorney-referral-services': 'attorneyReferral',
   'partition-action-consulting': 'partitionAction',
   'executor-property-consulting': 'executorConsulting',
 };
@@ -318,6 +348,11 @@ export function getSiteImageRecord(id: SiteImageId): SiteImageRecord {
     case 'probateCostCalculator':
     case 'partitionAction':
     case 'executorConsulting':
+    case 'nevadaCaliforniaProbate':
+    case 'courtPetitionSale':
+    case 'mortgageCalculator':
+    case 'attorneyReferral':
+    case 'conservatorFiduciary':
       return SITE_IMAGES[id];
     default:
       return assertNever(id);

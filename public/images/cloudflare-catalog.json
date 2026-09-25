@@ -33,5 +33,10 @@
   "independentAdministration": "services/independent-administration.jpg",
   "probateCostCalculator": "sections/probate-cost-calculator.jpg",
   "partitionAction": "services/partition-action-consulting.jpg",
-  "executorConsulting": "services/executor-property-consulting.jpg"
+  "executorConsulting": "services/executor-property-consulting.jpg",
+  "nevadaCaliforniaProbate": "sections/nevada-california-probate.jpg",
+  "courtPetitionSale": "sections/court-petition-sale.jpg",
+  "mortgageCalculator": "sections/probate-mortgage-calculator.jpg",
+  "attorneyReferral": "services/estate-attorney-referral.jpg",
+  "conservatorFiduciary": "services/conservator-fiduciary-files.jpg"
 }

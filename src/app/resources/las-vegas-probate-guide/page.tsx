@@ -18,6 +18,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import PageHero from '@/components/PageHero';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import SEOMetaTags from '@/components/SEOMetaTags';
+import SectionVisual from '@/components/SectionVisual';
 
 const FAQ = dynamic(() => import('@/components/FAQ'), {
   loading: () => <div className="py-16 text-center text-gray-500">Loading FAQ...</div>,
@@ -168,9 +169,12 @@ export default function LasVegasProbateGuide() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900">
               Why Las Vegas Probate is Different
             </h2>
+            <div className="mb-12">
+              <SectionVisual imageId="courthouse" className="h-48 md:h-64" />
+            </div>
 
             <div className="grid md:grid-cols-2 gap-12">
               <div className="space-y-6">
@@ -269,9 +273,12 @@ export default function LasVegasProbateGuide() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900">
               Las Vegas Probate Process: Step by Step
             </h2>
+            <div className="mb-12">
+              <SectionVisual imageId="probateTimeline" className="h-48 md:h-64" />
+            </div>
 
             <div className="space-y-8">
               <div className="flex items-start gap-6">
