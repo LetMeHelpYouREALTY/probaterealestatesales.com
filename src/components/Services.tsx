@@ -139,14 +139,18 @@ const services = [
   },
   {
     icon: Heart,
-    title: 'Family Support Services',
-    description:
-      'Sensitive guidance for families during difficult times with mediation between multiple heirs.',
-    features: ['Family Mediation', 'Emotional Support', 'Clear Communication', 'Heir Coordination'],
+    title: 'Heir Coordination',
+    description: 'Clear communication among co-owners and executors during court-supervised sales.',
+    features: [
+      'Co-owner coordination',
+      'Executor briefings',
+      'Clear Communication',
+      'Heir Coordination',
+    ],
     timeline: 'Ongoing support',
     pricing: 'Included in service',
     question: 'How Long Will This Take?',
-    specialNote: 'We handle sensitive family dynamics with care',
+    specialNote: 'We keep co-owners and executors on the same timeline',
     priority: 8,
   },
 ];
@@ -168,9 +172,8 @@ export default function Services() {
             Comprehensive Probate Services
           </h2>
           <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
-            Dr. Jan Duffy provides end-to-end solutions to help families navigate the complex
-            process of probate real estate with compassion, expertise, and maximum value for your
-            estate.
+            Dr. Jan Duffy provides end-to-end solutions for executors navigating the complex process
+            of probate real estate with clear guidance, expertise, and maximum value for the estate.
           </p>
         </div>
 

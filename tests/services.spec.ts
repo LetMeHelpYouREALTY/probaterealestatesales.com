@@ -159,7 +159,7 @@ test.describe('Services Page Tests', () => {
     // Check guarantee elements
     await expect(page.locator('text=45-Day Guarantee')).toBeVisible();
     await expect(page.locator('text=No Upfront Costs')).toBeVisible();
-    await expect(page.locator('text=Family-Focused')).toBeVisible();
+    await expect(page.locator('text=Executor Support')).toBeVisible();
 
     // Check final CTA buttons
     const finalButtons = page.locator('section:last-child button');

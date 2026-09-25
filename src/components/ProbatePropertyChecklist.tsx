@@ -9,6 +9,7 @@ import {
   MapPin,
   Shield,
 } from 'lucide-react';
+import SectionVisual from '@/components/SectionVisual';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 const checklistCategories = [
@@ -249,6 +250,9 @@ export default function ProbatePropertyChecklist() {
             Dr. Jan Duffy's comprehensive checklist ensures you complete every required step of the
             Nevada probate process on time and in compliance with court requirements.
           </p>
+          <div className="mt-8 max-w-4xl mx-auto">
+            <SectionVisual imageId="propertyChecklist" className="h-48 md:h-64" />
+          </div>
         </div>
 
         {/* Checklist Categories */}

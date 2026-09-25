@@ -5,8 +5,8 @@
  * Run: node scripts/probate-content-audit.js
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 
 const LOCATIONS = [
   'Las Vegas',
@@ -19,12 +19,7 @@ const LOCATIONS = [
   'Spring Valley',
 ];
 
-const REQUIRED_TERMS = [
-  'probate',
-  '702-830-9222',
-  'Nevada',
-  '6-8 month',
-];
+const REQUIRED_TERMS = ['probate', '702-830-9222', 'Nevada', '6-8 month'];
 
 function scanDirectory(dir, ext = '.tsx') {
   const results = [];
@@ -54,7 +49,7 @@ function auditPage(filePath) {
     if (content.includes(loc)) report.locations.push(loc);
   }
 
-  if (report.terms['probate'] === 0) report.issues.push('No "probate" mentions');
+  if (report.terms.probate === 0) report.issues.push('No "probate" mentions');
   const isServiceOrLocationPage =
     (relative.includes('probate-') ||
       relative.includes('trust-') ||
@@ -82,7 +77,9 @@ function main() {
     if (r.issues.length > 0) {
       hasIssues = true;
       console.log(`${r.file}:`);
-      r.issues.forEach((i) => console.log(`  - ${i}`));
+      for (const issue of r.issues) {
+        console.log(`  - ${issue}`);
+      }
       console.log();
     }
   }

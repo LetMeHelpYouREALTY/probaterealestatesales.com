@@ -5,8 +5,8 @@
  * Run: node scripts/hyperlocal-schema-validate.js
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 
 const BASE_URL = 'https://www.probaterealestatesales.com';
 const LOCATIONS = [
@@ -64,7 +64,9 @@ function checkLocationPages() {
   );
   const ok = hasGenerateStaticParams && hasAllSlugs;
   return {
-    missing: ok ? [] : [hasGenerateStaticParams ? 'location slugs in hyperlocal.ts' : 'generateStaticParams'],
+    missing: ok
+      ? []
+      : [hasGenerateStaticParams ? 'location slugs in hyperlocal.ts' : 'generateStaticParams'],
     ok,
   };
 }
@@ -75,7 +77,7 @@ function checkSchemaReferences() {
 
   const checks = {
     areaServed: content.includes("'Las Vegas'") && content.includes("'Henderson'"),
-    localBusiness: content.includes("LocalBusiness") || content.includes("RealEstateAgent"),
+    localBusiness: content.includes('LocalBusiness') || content.includes('RealEstateAgent'),
     probateServices: content.includes('Probate') && content.includes('hasOfferCatalog'),
     nap: content.includes('400 S 4th') && content.includes('702-830-9222'),
   };

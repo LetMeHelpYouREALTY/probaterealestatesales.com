@@ -23,7 +23,7 @@ export function CalendlyInlineEmbed({
   className = '',
   ariaLabel = 'Calendly scheduling',
 }: CalendlyInlineEmbedProps) {
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLElement | null>(null);
   const didInitRef = useRef(false);
 
   useEffect(() => {
@@ -62,9 +62,8 @@ export function CalendlyInlineEmbed({
   }, []);
 
   return (
-    <div
+    <section
       ref={containerRef}
-      role="region"
       className={`block w-full ${className}`.trim()}
       style={{ minWidth: 320, height, minHeight: height }}
       aria-label={ariaLabel}

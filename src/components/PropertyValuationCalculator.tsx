@@ -2,6 +2,7 @@
 
 import { Calculator, DollarSign, Home, Phone, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
+import SectionVisual from '@/components/SectionVisual';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
 
 interface ValuationForm {
@@ -176,6 +177,9 @@ export default function PropertyValuationCalculator() {
               Get an instant estimate of your inherited property's value. Our advanced algorithm
               considers location, condition, and market factors.
             </p>
+            <div className="mt-8 max-w-4xl mx-auto">
+              <SectionVisual imageId="propertyValuation" className="h-48 md:h-64" />
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
@@ -458,8 +462,8 @@ export default function PropertyValuationCalculator() {
                         <div>
                           <h4 className="font-medium text-green-700 mb-2">Positive Factors</h4>
                           <ul className="space-y-1">
-                            {result.factors.positive.map((factor, index) => (
-                              <li key={index} className="text-sm text-green-600 flex items-center">
+                            {result.factors.positive.map((factor) => (
+                              <li key={factor} className="text-sm text-green-600 flex items-center">
                                 <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
                                 {factor}
                               </li>
@@ -471,8 +475,8 @@ export default function PropertyValuationCalculator() {
                         <div>
                           <h4 className="font-medium text-red-700 mb-2">Areas for Improvement</h4>
                           <ul className="space-y-1">
-                            {result.factors.negative.map((factor, index) => (
-                              <li key={index} className="text-sm text-red-600 flex items-center">
+                            {result.factors.negative.map((factor) => (
+                              <li key={factor} className="text-sm text-red-600 flex items-center">
                                 <div className="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
                                 {factor}
                               </li>
@@ -487,8 +491,8 @@ export default function PropertyValuationCalculator() {
                   <div className="bg-white rounded-2xl shadow-xl p-8">
                     <h3 className="text-xl font-semibold text-gray-900 mb-4">Recommendations</h3>
                     <ul className="space-y-2">
-                      {result.recommendations.map((rec, index) => (
-                        <li key={index} className="text-sm text-gray-600 flex items-start">
+                      {result.recommendations.map((rec) => (
+                        <li key={rec} className="text-sm text-gray-600 flex items-start">
                           <div className="w-2 h-2 bg-blue-500 rounded-full mr-2 mt-2 flex-shrink-0"></div>
                           {rec}
                         </li>

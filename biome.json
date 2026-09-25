@@ -67,7 +67,11 @@
       }
     },
     {
-      "includes": ["src/app/layout.tsx", "src/components/SEOMetaTags.tsx"],
+      "includes": [
+        "src/app/layout.tsx",
+        "src/components/SEOMetaTags.tsx",
+        "src/components/FAQ.tsx"
+      ],
       "linter": {
         "rules": {
           "security": {

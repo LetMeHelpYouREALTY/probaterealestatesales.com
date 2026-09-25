@@ -15,6 +15,7 @@ import Hero from '@/components/Hero';
 import HomebuyerListingsStrip from '@/components/HomebuyerListingsStrip';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import SectionVisual from '@/components/SectionVisual';
+import SiteImage from '@/components/SiteImage';
 import { GBP_BUSINESS_NAME, SITE_PHONE_DISPLAY } from '@/lib/site-contact';
 
 // Removed heavy components - moved to dedicated pages for better performance
@@ -206,7 +207,7 @@ export default function Home() {
               Comprehensive Probate Services
             </h2>
             <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
-              Dr. Jan Duffy provides end-to-end solutions to help families navigate the complex
+              Dr. Jan Duffy provides end-to-end solutions to help executors navigate the complex
               process of{' '}
               <Link
                 href="/services/"
@@ -236,87 +237,127 @@ export default function Home() {
             <div className="md:col-span-2 lg:col-span-4">
               <SectionVisual imageId="consultationRoom" className="h-56 md:h-72" />
             </div>
-            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md hover-lift transition-all duration-300">
-              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                <HomeIcon className="h-6 w-6 text-primary-700" />
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md hover-lift transition-all duration-300 overflow-hidden">
+              <div className="relative h-28">
+                <SiteImage
+                  imageId="propertyValuation"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                />
               </div>
-              <Link href="/probate-property-valuation/" className="block">
-                <h3 className="text-lg font-semibold text-secondary-900 mb-2 hover:text-primary-700 transition-colors">
-                  Estate Property Valuation
-                </h3>
-                <p className="text-secondary-600 text-sm">
-                  Comprehensive market analysis and court-compliant property appraisal. Learn more
-                  about our{' '}
-                  <span className="text-primary-700 font-medium">probate property valuation</span>{' '}
-                  services.
-                </p>
-              </Link>
+              <div className="p-6">
+                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                  <HomeIcon className="h-6 w-6 text-primary-700" />
+                </div>
+                <Link href="/probate-property-valuation/" className="block">
+                  <h3 className="text-lg font-semibold text-secondary-900 mb-2 hover:text-primary-700 transition-colors">
+                    Estate Property Valuation
+                  </h3>
+                  <p className="text-secondary-600 text-sm">
+                    Comprehensive market analysis and court-compliant property appraisal. Learn more
+                    about our{' '}
+                    <span className="text-primary-700 font-medium">probate property valuation</span>{' '}
+                    services.
+                  </p>
+                </Link>
+              </div>
             </div>
-            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md hover-lift transition-all duration-300">
-              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                <Gavel className="h-6 w-6 text-primary-700" />
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md hover-lift transition-all duration-300 overflow-hidden">
+              <div className="relative h-28">
+                <SiteImage
+                  imageId="courthouse"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                />
               </div>
-              <Link href="/services/#probate-sales" className="block">
-                <h3 className="text-lg font-semibold text-secondary-900 mb-2 hover:text-primary-700 transition-colors">
-                  Probate Process Navigation
-                </h3>
-                <p className="text-secondary-600 text-sm">
-                  Step-by-step guidance through court requirements with attorney coordination. View
-                  our complete{' '}
-                  <span className="text-primary-700 font-medium">probate services</span> and{' '}
-                  <Link
-                    href="/resources/nevada-probate-guide/"
-                    className="text-primary-700 font-medium underline"
-                  >
-                    Nevada probate guide
-                  </Link>
-                  .
-                </p>
-              </Link>
+              <div className="p-6">
+                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                  <Gavel className="h-6 w-6 text-primary-700" />
+                </div>
+                <Link href="/services/#probate-sales" className="block">
+                  <h3 className="text-lg font-semibold text-secondary-900 mb-2 hover:text-primary-700 transition-colors">
+                    Probate Process Navigation
+                  </h3>
+                  <p className="text-secondary-600 text-sm">
+                    Step-by-step guidance through court requirements with attorney coordination.
+                    View our complete{' '}
+                    <span className="text-primary-700 font-medium">probate services</span> and{' '}
+                    <Link
+                      href="/resources/nevada-probate-guide/"
+                      className="text-primary-700 font-medium underline"
+                    >
+                      Nevada probate guide
+                    </Link>
+                    .
+                  </p>
+                </Link>
+              </div>
             </div>
-            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md hover-lift transition-all duration-300">
-              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                <Shield className="h-6 w-6 text-primary-700" />
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md hover-lift transition-all duration-300 overflow-hidden">
+              <div className="relative h-28">
+                <SiteImage
+                  imageId="courtApprovedSales"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                />
               </div>
-              <Link href="/services/#court-representation" className="block">
-                <h3 className="text-lg font-semibold text-secondary-900 mb-2 hover:text-primary-700 transition-colors">
-                  Legal Compliance
-                </h3>
-                <p className="text-secondary-600 text-sm">
-                  Complete handling of all legal documents and probate court requirements. Explore
-                  our <span className="text-primary-700 font-medium">court representation</span>{' '}
-                  services and{' '}
-                  <Link
-                    href="/probate-division/"
-                    className="text-primary-700 font-medium underline"
-                  >
-                    probate division
-                  </Link>{' '}
-                  expertise.
-                </p>
-              </Link>
+              <div className="p-6">
+                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                  <Shield className="h-6 w-6 text-primary-700" />
+                </div>
+                <Link href="/services/#court-representation" className="block">
+                  <h3 className="text-lg font-semibold text-secondary-900 mb-2 hover:text-primary-700 transition-colors">
+                    Legal Compliance
+                  </h3>
+                  <p className="text-secondary-600 text-sm">
+                    Complete handling of all legal documents and probate court requirements. Explore
+                    our <span className="text-primary-700 font-medium">court representation</span>{' '}
+                    services and{' '}
+                    <Link
+                      href="/probate-division/"
+                      className="text-primary-700 font-medium underline"
+                    >
+                      probate division
+                    </Link>{' '}
+                    expertise.
+                  </p>
+                </Link>
+              </div>
             </div>
-            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md hover-lift transition-all duration-300">
-              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                <FileText className="h-6 w-6 text-primary-700" />
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md hover-lift transition-all duration-300 overflow-hidden">
+              <div className="relative h-28">
+                <SiteImage
+                  imageId="listingsHero"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                />
               </div>
-              <Link href="/probate-homes-for-sale/" className="block">
-                <h3 className="text-lg font-semibold text-secondary-900 mb-2 hover:text-primary-700 transition-colors">
-                  Market Optimization
-                </h3>
-                <p className="text-secondary-600 text-sm">
-                  Strategic marketing to qualified buyers with proven negotiation support. Browse{' '}
-                  <span className="text-primary-700 font-medium">probate homes for sale</span> and
-                  learn about{' '}
-                  <Link
-                    href="/probate-property-buyers/"
-                    className="text-primary-700 font-medium underline"
-                  >
-                    probate property buyers
-                  </Link>
-                  .
-                </p>
-              </Link>
+              <div className="p-6">
+                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                  <FileText className="h-6 w-6 text-primary-700" />
+                </div>
+                <Link href="/probate-homes-for-sale/" className="block">
+                  <h3 className="text-lg font-semibold text-secondary-900 mb-2 hover:text-primary-700 transition-colors">
+                    Market Optimization
+                  </h3>
+                  <p className="text-secondary-600 text-sm">
+                    Strategic marketing to qualified buyers with proven negotiation support. Browse{' '}
+                    <span className="text-primary-700 font-medium">probate homes for sale</span> and
+                    learn about{' '}
+                    <Link
+                      href="/probate-property-buyers/"
+                      className="text-primary-700 font-medium underline"
+                    >
+                      probate property buyers
+                    </Link>
+                    .
+                  </p>
+                </Link>
+              </div>
             </div>
           </div>
 

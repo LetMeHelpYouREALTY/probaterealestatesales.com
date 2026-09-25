@@ -1,14 +1,4 @@
-import {
-  ArrowRight,
-  CheckCircle,
-  DollarSign,
-  Home,
-  MapPin,
-  Phone,
-  Search,
-  Shield,
-  Users,
-} from 'lucide-react';
+import { ArrowRight, Phone, Search } from 'lucide-react';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';

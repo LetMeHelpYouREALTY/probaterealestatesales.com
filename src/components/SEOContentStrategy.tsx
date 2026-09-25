@@ -244,9 +244,9 @@ export default function SEOContentStrategy() {
                 <div className="mb-4">
                   <h5 className="font-medium text-secondary-800 mb-2">Examples:</h5>
                   <ul className="space-y-1">
-                    {content.examples.map((example, index) => (
+                    {content.examples.map((example) => (
                       <li
-                        key={`example-${index}`}
+                        key={example}
                         className="text-sm text-secondary-600 flex items-center gap-2"
                       >
                         <div className="w-1.5 h-1.5 bg-primary-400 rounded-full" />
@@ -259,9 +259,9 @@ export default function SEOContentStrategy() {
                 <div>
                   <h5 className="font-medium text-secondary-800 mb-2">Target Keywords:</h5>
                   <div className="flex flex-wrap gap-2">
-                    {content.targetKeywords.map((keyword, index) => (
+                    {content.targetKeywords.map((keyword) => (
                       <span
-                        key={`keyword-${index}`}
+                        key={keyword}
                         className="text-xs bg-primary-100 text-primary-700 px-2 py-1 rounded-full"
                       >
                         {keyword}
@@ -290,11 +290,8 @@ export default function SEOContentStrategy() {
                   {category.category}
                 </h4>
                 <ul className="space-y-2">
-                  {category.tips.map((tip, index) => (
-                    <li
-                      key={`tip-${index}`}
-                      className="text-sm text-secondary-600 flex items-start gap-2"
-                    >
+                  {category.tips.map((tip) => (
+                    <li key={tip} className="text-sm text-secondary-600 flex items-start gap-2">
                       <div className="w-1.5 h-1.5 bg-accent-400 rounded-full mt-2 flex-shrink-0" />
                       {tip}
                     </li>
@@ -323,9 +320,9 @@ export default function SEOContentStrategy() {
                   <div>
                     <p className="text-xs text-secondary-500 mb-2">Variations:</p>
                     <div className="flex flex-wrap gap-1">
-                      {keyword.variations.map((variation, index) => (
+                      {keyword.variations.map((variation) => (
                         <span
-                          key={`variation-${index}`}
+                          key={variation}
                           className="text-xs bg-gray-100 text-secondary-600 px-2 py-1 rounded"
                         >
                           {variation}

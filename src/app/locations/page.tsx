@@ -154,31 +154,61 @@ export default function LocationsPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6 bg-blue-50 rounded-lg">
-              <Clock className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Faster Timeline</h3>
-              <p className="text-gray-600">
-                Nevada: 6-8 months vs California: 9-18 months. Get your inheritance faster with
-                Nevada's efficient probate process.
-              </p>
+            <div className="overflow-hidden rounded-lg bg-blue-50 text-center">
+              <div className="relative h-32">
+                <SiteImage
+                  imageId="probateTimeline"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="p-6">
+                <Clock className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Faster Timeline</h3>
+                <p className="text-gray-600">
+                  Nevada: 6-8 months vs California: 9-18 months. Get your inheritance faster with
+                  Nevada's efficient probate process.
+                </p>
+              </div>
             </div>
 
-            <div className="text-center p-6 bg-green-50 rounded-lg">
-              <DollarSign className="h-12 w-12 text-green-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Lower Costs</h3>
-              <p className="text-gray-600">
-                Clark County court costs: $1,000. Trust administration: $2,500 vs Probate:
-                $8,000-9,000.
-              </p>
+            <div className="overflow-hidden rounded-lg bg-green-50 text-center">
+              <div className="relative h-32">
+                <SiteImage
+                  imageId="probateCostCalculator"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="p-6">
+                <DollarSign className="h-12 w-12 text-green-600 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Lower Costs</h3>
+                <p className="text-gray-600">
+                  Clark County court costs: $1,000. Trust administration: $2,500 vs Probate:
+                  $8,000-9,000.
+                </p>
+              </div>
             </div>
 
-            <div className="text-center p-6 bg-purple-50 rounded-lg">
-              <Users className="h-12 w-12 text-purple-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Expert Access</h3>
-              <p className="text-gray-600">
-                Direct access to Clark County's two probate commissioners. Personalized service and
-                faster court processing.
-              </p>
+            <div className="overflow-hidden rounded-lg bg-purple-50 text-center">
+              <div className="relative h-32">
+                <SiteImage
+                  imageId="courthouse"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="p-6">
+                <Users className="h-12 w-12 text-purple-600 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Expert Access</h3>
+                <p className="text-gray-600">
+                  Direct access to Clark County's two probate commissioners. Personalized service
+                  and faster court processing.
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -1,13 +1,4 @@
-import {
-  ArrowRight,
-  Calculator,
-  DollarSign,
-  FileText,
-  Home,
-  Phone,
-  Search,
-  TrendingUp,
-} from 'lucide-react';
+import { ArrowRight, Calculator, Phone } from 'lucide-react';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';

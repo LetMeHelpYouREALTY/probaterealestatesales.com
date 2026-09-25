@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Breadcrumb from '@/components/Breadcrumb';
 import FAQ from '@/components/FAQ';
+import HeadingPhotoCard from '@/components/HeadingPhotoCard';
 import PageHero from '@/components/PageHero';
 import RealScoutOfficeListings from '@/components/RealScoutOfficeListings';
 import SchemaMarkup from '@/components/SchemaMarkup';
@@ -74,53 +75,47 @@ export default function FAQPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-8 border border-blue-200">
-              <h3 className="text-xl font-semibold text-secondary-900 mb-4">
-                Nevada Probate Timeline Guide
-              </h3>
+            <HeadingPhotoCard
+              imageId="probateTimeline"
+              title="Nevada Probate Timeline Guide"
+              href="/resources/nevada-probate-guide/"
+            >
               <p className="text-secondary-600 mb-6">
                 Detailed breakdown of the 6-8 month Nevada probate process, including court
                 schedules, document requirements, and how to expedite your case.
               </p>
-              <a
-                href="/resources/nevada-probate-guide/"
-                className="inline-flex items-center text-primary-700 hover:text-primary-900 font-semibold"
-              >
+              <span className="inline-flex items-center text-primary-700 font-semibold">
                 Read Guide →
-              </a>
-            </div>
+              </span>
+            </HeadingPhotoCard>
 
-            <div className="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-8 border border-green-200">
-              <h3 className="text-xl font-semibold text-secondary-900 mb-4">
-                Clark County Probate Procedures
-              </h3>
+            <HeadingPhotoCard
+              imageId="courthouse"
+              title="Clark County Probate Procedures"
+              href="/blog/clark-county-probate/"
+            >
               <p className="text-secondary-600 mb-6">
                 Specific information about Clark County probate court, commissioners, filing
                 procedures, and local requirements for probate real estate sales.
               </p>
-              <a
-                href="/services/"
-                className="inline-flex items-center text-primary-700 hover:text-primary-900 font-semibold"
-              >
+              <span className="inline-flex items-center text-primary-700 font-semibold">
                 Learn More →
-              </a>
-            </div>
+              </span>
+            </HeadingPhotoCard>
 
-            <div className="bg-gradient-to-br from-purple-50 to-violet-100 rounded-xl p-8 border border-purple-200">
-              <h3 className="text-xl font-semibold text-secondary-900 mb-4">
-                Small Estate Affidavit Guide
-              </h3>
+            <HeadingPhotoCard
+              imageId="smallEstateAffidavit"
+              title="Small Estate Affidavit Guide"
+              href="/resources/nevada-probate-guide/#small-estates"
+            >
               <p className="text-secondary-600 mb-6">
                 Complete guide to Nevada's $100,000 small estate limit, including simplified
                 procedures for estates under $25,000 and how to avoid formal probate.
               </p>
-              <a
-                href="/resources/nevada-probate-guide/#small-estates"
-                className="inline-flex items-center text-primary-700 hover:text-primary-900 font-semibold"
-              >
+              <span className="inline-flex items-center text-primary-700 font-semibold">
                 View Guide →
-              </a>
-            </div>
+              </span>
+            </HeadingPhotoCard>
           </div>
         </div>
       </section>

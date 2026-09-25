@@ -59,6 +59,13 @@ export const SITE_IMAGE_IDS = [
   'certificateOfIncumbency',
   'probateTimeline',
   'probateVideos',
+  'smallEstateAffidavit',
+  'serviceCoverage',
+  'downloadableGuides',
+  'independentAdministration',
+  'probateCostCalculator',
+  'partitionAction',
+  'executorConsulting',
 ] as const;
 
 export type SiteImageId = (typeof SITE_IMAGE_IDS)[number];
@@ -210,6 +217,41 @@ export const SITE_IMAGES: Record<SiteImageId, SiteImageRecord> = {
     alt: 'Probate real estate education desk with video lesson, timeline checklist, and Las Vegas listing packet',
     heading: 'Probate Real Estate Videos',
   },
+  smallEstateAffidavit: {
+    file: 'sections/small-estate-affidavit.jpg',
+    alt: 'Nevada small estate affidavit packet, house keys, and Clark County court stamp on a Las Vegas desk',
+    heading: 'Small Estate Affidavit Guide',
+  },
+  serviceCoverage: {
+    file: 'sections/clark-county-service-coverage.jpg',
+    alt: 'Clark County Nevada residential rooftops and desert mountain backdrop — Las Vegas probate service area',
+    heading: 'Service Coverage: Las Vegas & Clark County',
+  },
+  downloadableGuides: {
+    file: 'sections/downloadable-probate-guides.jpg',
+    alt: 'Downloadable Nevada probate guides, checklist PDF, and Las Vegas home keys on an office desk',
+    heading: 'Downloadable Resources',
+  },
+  independentAdministration: {
+    file: 'services/independent-administration.jpg',
+    alt: 'Independent administration closing packet, Letters of Administration, and house keys on a Las Vegas office desk',
+    heading: 'Independent Administration: Faster & More Private',
+  },
+  probateCostCalculator: {
+    file: 'sections/probate-cost-calculator.jpg',
+    alt: 'Nevada probate cost calculator worksheet, court fee schedule, and house keys on a Las Vegas desk',
+    heading: 'Nevada Probate Cost Calculator',
+  },
+  partitionAction: {
+    file: 'services/partition-action-consulting.jpg',
+    alt: 'Partition action consulting packet, survey plat, and house keys for a Las Vegas inherited property',
+    heading: 'Partition Action Consulting',
+  },
+  executorConsulting: {
+    file: 'services/executor-property-consulting.jpg',
+    alt: 'Executor property consulting binder, listing packet, and Clark County checklist in a downtown Las Vegas office',
+    heading: 'Executor Property Consulting',
+  },
 };
 
 const LOCATION_IMAGE_BY_SLUG: Record<string, SiteImageId> = {
@@ -231,8 +273,8 @@ const SERVICE_IMAGE_BY_SLUG: Record<string, SiteImageId> = {
   'probate-property-valuation': 'propertyValuation',
   'estate-property-cma-reports': 'propertyValuation',
   'estate-attorney-referral-services': 'consultationRoom',
-  'partition-action-consulting': 'courthouse',
-  'executor-property-consulting': 'freeConsultation',
+  'partition-action-consulting': 'partitionAction',
+  'executor-property-consulting': 'executorConsulting',
 };
 
 function assertNever(value: never): never {
@@ -269,6 +311,13 @@ export function getSiteImageRecord(id: SiteImageId): SiteImageRecord {
     case 'certificateOfIncumbency':
     case 'probateTimeline':
     case 'probateVideos':
+    case 'smallEstateAffidavit':
+    case 'serviceCoverage':
+    case 'downloadableGuides':
+    case 'independentAdministration':
+    case 'probateCostCalculator':
+    case 'partitionAction':
+    case 'executorConsulting':
       return SITE_IMAGES[id];
     default:
       return assertNever(id);
@@ -318,9 +367,7 @@ function isHostedDeliveryRequested(): boolean {
     return false;
   }
 
-  return Boolean(
-    process.env.NEXT_PUBLIC_CLOUDFLARE_IMAGES_DELIVERY_BASE?.trim() || hashEnv
-  );
+  return Boolean(process.env.NEXT_PUBLIC_CLOUDFLARE_IMAGES_DELIVERY_BASE?.trim() || hashEnv);
 }
 
 /**
