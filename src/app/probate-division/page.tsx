@@ -3,7 +3,9 @@ import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import HeadingPhotoCard from '@/components/HeadingPhotoCard';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import SectionVisual from '@/components/SectionVisual';
 import SiteImage from '@/components/SiteImage';
 import { SITE_LOGO_ABSOLUTE_URL } from '@/config/site-google';
 import { SITE_PHONE_DISPLAY, SITE_PHONE_TEL_HREF } from '@/lib/site-contact';
@@ -290,117 +292,150 @@ export default function ProbateDivisionPage() {
               </span>
               , we offer peace of mind to probate and trust clients across Nevada.
             </p>
+            <div className="mt-8">
+              <SectionVisual imageId="serviceCoverage" className="h-48 md:h-64" />
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Trust Service */}
             <article
-              className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border-t-4 border-blue-600"
+              className="overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-blue-600"
               itemScope
               itemType="https://schema.org/Service"
             >
-              <div className="text-center mb-6">
-                <FileText className="w-16 h-16 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-2" itemProp="name">
-                  Trust Property Sales
-                </h3>
-                <div className="text-sm text-gray-500 uppercase tracking-wide mb-4">trust</div>
+              <div className="relative h-40">
+                <SiteImage
+                  imageId="trustSales"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
+              <div className="p-8">
+                <div className="text-center mb-6">
+                  <FileText className="w-16 h-16 text-blue-600 mx-auto mb-4" />
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2" itemProp="name">
+                    Trust Property Sales
+                  </h3>
+                  <div className="text-sm text-gray-500 uppercase tracking-wide mb-4">trust</div>
+                </div>
 
-              <p className="text-gray-700 leading-relaxed mb-4" itemProp="description">
-                Real property held in trust, managed by a successor trustee for the benefit of
-                beneficiaries, requires specialized expertise to navigate successfully. Trust sales
-                in Nevada are governed by state laws and often involve court proceedings, making
-                astute management by a probate realtor essential to safeguard the assets for the
-                long-term benefit of the beneficiaries.
-              </p>
+                <p className="text-gray-700 leading-relaxed mb-4" itemProp="description">
+                  Real property held in trust, managed by a successor trustee for the benefit of
+                  beneficiaries, requires specialized expertise to navigate successfully. Trust
+                  sales in Nevada are governed by state laws and often involve court proceedings,
+                  making astute management by a probate realtor essential to safeguard the assets
+                  for the long-term benefit of the beneficiaries.
+                </p>
 
-              <div className="mt-6">
-                <Link
-                  href="/services/"
-                  className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold text-sm"
-                >
-                  Learn More About Trust Sales
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+                <div className="mt-6">
+                  <Link
+                    href="/services/"
+                    className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold text-sm"
+                  >
+                    Learn More About Trust Sales
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             </article>
 
             {/* Probate Service */}
             <article
-              className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border-t-4 border-green-600"
+              className="overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-green-600"
               itemScope
               itemType="https://schema.org/Service"
             >
-              <div className="text-center mb-6">
-                <Gavel className="w-16 h-16 text-green-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-2" itemProp="name">
-                  Probate Property Sales
-                </h3>
-                <div className="text-sm text-gray-500 uppercase tracking-wide mb-4">probate</div>
+              <div className="relative h-40">
+                <SiteImage
+                  imageId="courtApprovedSales"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
+              <div className="p-8">
+                <div className="text-center mb-6">
+                  <Gavel className="w-16 h-16 text-green-600 mx-auto mb-4" />
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2" itemProp="name">
+                    Probate Property Sales
+                  </h3>
+                  <div className="text-sm text-gray-500 uppercase tracking-wide mb-4">probate</div>
+                </div>
 
-              <p className="text-gray-700 leading-relaxed mb-4" itemProp="description">
-                Probate, a legal process overseeing the distribution of assets, including real
-                property, to heirs, can be intricate and highly regulated according to{' '}
-                <Link
-                  href="/resources/nevada-probate-guide/"
-                  className="text-green-600 hover:underline"
-                >
-                  Nevada probate law
-                </Link>
-                . In this supervised court procedure, the transfer of legal title for real property
-                to a buyer involves specific disclosures, procedural requirements, and critical
-                deadlines. The ultimate objective of these real estate sales is to benefit the
-                estate and we are here to ensure this probate process is as seamless and
-                advantageous as possible.
-              </p>
+                <p className="text-gray-700 leading-relaxed mb-4" itemProp="description">
+                  Probate, a legal process overseeing the distribution of assets, including real
+                  property, to heirs, can be intricate and highly regulated according to{' '}
+                  <Link
+                    href="/resources/nevada-probate-guide/"
+                    className="text-green-600 hover:underline"
+                  >
+                    Nevada probate law
+                  </Link>
+                  . In this supervised court procedure, the transfer of legal title for real
+                  property to a buyer involves specific disclosures, procedural requirements, and
+                  critical deadlines. The ultimate objective of these real estate sales is to
+                  benefit the estate and we are here to ensure this probate process is as seamless
+                  and advantageous as possible.
+                </p>
 
-              <div className="mt-6">
-                <Link
-                  href="/services/"
-                  className="inline-flex items-center gap-2 text-green-600 hover:text-green-800 font-semibold text-sm"
-                >
-                  Learn More About Probate Sales
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+                <div className="mt-6">
+                  <Link
+                    href="/services/"
+                    className="inline-flex items-center gap-2 text-green-600 hover:text-green-800 font-semibold text-sm"
+                  >
+                    Learn More About Probate Sales
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             </article>
 
             {/* Conservatorship Service */}
             <article
-              className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border-t-4 border-purple-600"
+              className="overflow-hidden rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-purple-600"
               itemScope
               itemType="https://schema.org/Service"
             >
-              <div className="text-center mb-6">
-                <Shield className="w-16 h-16 text-purple-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-2" itemProp="name">
-                  Conservatorship Property Sales
-                </h3>
-                <div className="text-sm text-gray-500 uppercase tracking-wide mb-4">
-                  conservatorship
-                </div>
+              <div className="relative h-40">
+                <SiteImage
+                  imageId="conservatorship"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
+              <div className="p-8">
+                <div className="text-center mb-6">
+                  <Shield className="w-16 h-16 text-purple-600 mx-auto mb-4" />
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2" itemProp="name">
+                    Conservatorship Property Sales
+                  </h3>
+                  <div className="text-sm text-gray-500 uppercase tracking-wide mb-4">
+                    conservatorship
+                  </div>
+                </div>
 
-              <p className="text-gray-700 leading-relaxed mb-4" itemProp="description">
-                When an individual is unable to manage their own care or assets, the court may
-                appoint a responsible party as a conservator. This conservator assumes a fiduciary
-                responsibility, often necessitating the sale of real property for the benefit of the
-                conservatee. Similar to trust and probate proceedings, the sale of real property
-                through conservatorship occurs through a closely monitored legal process. We provide
-                expert guidance to ensure that these transactions are executed with precision and
-                result in the best possible outcome for all involved parties.
-              </p>
+                <p className="text-gray-700 leading-relaxed mb-4" itemProp="description">
+                  When an individual is unable to manage their own care or assets, the court may
+                  appoint a responsible party as a conservator. This conservator assumes a fiduciary
+                  responsibility, often necessitating the sale of real property for the benefit of
+                  the conservatee. Similar to trust and probate proceedings, the sale of real
+                  property through conservatorship occurs through a closely monitored legal process.
+                  We provide expert guidance to ensure that these transactions are executed with
+                  precision and result in the best possible outcome for all involved parties.
+                </p>
 
-              <div className="mt-6">
-                <Link
-                  href="/services/"
-                  className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-800 font-semibold text-sm"
-                >
-                  Learn More About Conservatorship Sales
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+                <div className="mt-6">
+                  <Link
+                    href="/services/"
+                    className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-800 font-semibold text-sm"
+                  >
+                    Learn More About Conservatorship Sales
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             </article>
           </div>
@@ -531,36 +566,32 @@ export default function ProbateDivisionPage() {
               Related Resources & Information
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <Link
-                href="/services/"
-                className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow border-l-4 border-primary-600"
-              >
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Our Services</h3>
+              <HeadingPhotoCard imageId="courtApprovedSales" title="Our Services" href="/services/">
                 <p className="text-gray-600 text-sm">
                   Comprehensive probate real estate services including court confirmation sales,
                   independent administration, and trust administration.
                 </p>
-              </Link>
-              <Link
+              </HeadingPhotoCard>
+              <HeadingPhotoCard
+                imageId="resourcesGuides"
+                title="Nevada Probate Guide"
                 href="/resources/nevada-probate-guide/"
-                className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow border-l-4 border-green-600"
               >
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Nevada Probate Guide</h3>
                 <p className="text-gray-600 text-sm">
                   Complete guide to Nevada probate law, timelines, costs, and procedures for probate
                   real estate sales.
                 </p>
-              </Link>
-              <Link
+              </HeadingPhotoCard>
+              <HeadingPhotoCard
+                imageId="probateTimeline"
+                title="Frequently Asked Questions"
                 href="/faq/"
-                className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow border-l-4 border-blue-600"
               >
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Frequently Asked Questions</h3>
                 <p className="text-gray-600 text-sm">
                   Common questions about probate, trust, and conservatorship real estate sales in
                   Nevada.
                 </p>
-              </Link>
+              </HeadingPhotoCard>
             </div>
           </div>
         </div>
