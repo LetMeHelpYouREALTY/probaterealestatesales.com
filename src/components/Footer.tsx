@@ -193,7 +193,7 @@ export default function Footer() {
               <div className="flex items-start text-secondary-300 group">
                 <Clock className="h-5 w-5 mr-3 text-primary-400 mt-0.5 flex-shrink-0" />
                 <div className="text-sm">
-                  <p>Mon–Fri 8:00 AM–6:00 PM · Sat 9:00 AM–2:00 PM · Sun closed</p>
+                  <p>Mon–Sun 8:00 AM–8:00 PM</p>
                   {GBP_SPECIAL_HOURS.map((row) => (
                     <p key={row.dateLabel} className="text-secondary-400 mt-1">
                       {row.dateLabel} ({row.label}): {row.note}
@@ -303,9 +303,7 @@ export default function Footer() {
                 <Clock className="h-5 w-5 mr-3 text-primary-400 mt-0.5 flex-shrink-0" aria-hidden />
                 <div>
                   <span className="font-medium block">Business hours</span>
-                  <span className="text-sm text-secondary-400">Mon–Fri 8:00 AM – 6:00 PM</span>
-                  <span className="text-sm text-secondary-400 block">Sat 9:00 AM – 2:00 PM</span>
-                  <span className="text-sm text-secondary-400 block">Sun Closed</span>
+                  <span className="text-sm text-secondary-400">Mon–Sun 8:00 AM – 8:00 PM</span>
                 </div>
               </div>
             </div>

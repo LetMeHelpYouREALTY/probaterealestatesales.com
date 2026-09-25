@@ -214,16 +214,8 @@ export default function ContactPage() {
             <h3 className="text-xl font-semibold text-secondary-900 mb-4">Office Hours</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto text-sm">
               <div>
-                <p className="font-medium text-secondary-900">Monday – Friday</p>
-                <p className="text-secondary-600">8:00 AM – 6:00 PM</p>
-              </div>
-              <div>
-                <p className="font-medium text-secondary-900">Saturday</p>
-                <p className="text-secondary-600">9:00 AM – 2:00 PM</p>
-              </div>
-              <div>
-                <p className="font-medium text-secondary-900">Sunday</p>
-                <p className="text-secondary-600">Closed</p>
+                <p className="font-medium text-secondary-900">Monday – Sunday</p>
+                <p className="text-secondary-600">8:00 AM – 8:00 PM</p>
               </div>
               {GBP_SPECIAL_HOURS.map((row) => (
                 <div key={row.dateLabel}>

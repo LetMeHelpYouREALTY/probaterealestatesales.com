@@ -42,10 +42,10 @@ export const SITE_SMS_HREF = 'sms:+17028309222';
 /** Website URL as listed on GBP (trailing slash) */
 export const SITE_WEBSITE_GBP = `${SITE_ORIGIN}/`;
 
-/** Opening hours: Sunday closed — omit Sunday from schema.org arrays */
-export const GBP_OPENING_HOURS_ARRAY = ['Mo-Fr 08:00-18:00', 'Sa 09:00-14:00'] as const;
+/** Opening hours: 8:00 AM–8:00 PM every day */
+export const GBP_OPENING_HOURS_ARRAY = ['Mo-Su 08:00-20:00'] as const;
 
-export const GBP_OPENING_HOURS_STRING = 'Mo-Fr 08:00-18:00, Sa 09:00-14:00';
+export const GBP_OPENING_HOURS_STRING = 'Mo-Su 08:00-20:00';
 
 /** GBP opening date (September 20, 2008) in ISO format for schema fields. */
 export const GBP_OPENING_DATE_ISO = '2008-09-20';

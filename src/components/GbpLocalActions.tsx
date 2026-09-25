@@ -56,7 +56,7 @@ export default function GbpLocalActions({ variant = 'bar', className = '' }: Gbp
         <p className="text-sm text-secondary-600">{OFFICE_ADDRESS_LINE}</p>
         <p className="text-sm text-secondary-600 inline-flex items-center gap-2">
           <Clock className="h-4 w-4" aria-hidden />
-          Mon–Fri 8:00 AM–6:00 PM · Sat 9:00 AM–2:00 PM · Sun closed
+          Mon–Sun 8:00 AM–8:00 PM
         </p>
         <div className="flex flex-wrap gap-2">
           {actions.map((action) => (
