@@ -248,6 +248,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer />
         <CalendlyBadgeScript />
+        <Script src="/ads-conversions.js" strategy="afterInteractive" />
       </body>
     </html>
   );
