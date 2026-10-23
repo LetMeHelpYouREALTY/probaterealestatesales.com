@@ -13,6 +13,7 @@ import {
   Star,
   Target,
 } from 'lucide-react';
+import { CalendlyAfterListings } from '@/components/calendly/CalendlyAfterListings';
 import RealScoutScriptLoader from '@/components/RealScoutScriptLoader';
 import { GOOGLE_BUSINESS_REVIEW_URL } from '@/config/site-google';
 
@@ -359,6 +360,7 @@ export default function Services() {
               </div>
             </div>
           </RealScoutScriptLoader>
+          <CalendlyAfterListings />
         </div>
 
         {/* Final CTA Section */}
