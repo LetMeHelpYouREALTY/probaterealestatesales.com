@@ -15,7 +15,6 @@
       "!**/build",
       "!**/*.min.js",
       "!**/*.min.css",
-      "!public/ads-conversions.js",
       "!**/*-log.json",
       "!**/performance-log.json",
       "!**/improvement-report.json"
