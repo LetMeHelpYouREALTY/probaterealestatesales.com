@@ -1,27 +1,40 @@
 'use client';
 
 import { Calendar } from 'lucide-react';
-import { CALENDLY_SCHEDULE_URL } from '@/config/calendly';
+import { usePathname } from 'next/navigation';
+import { calendlyUrlFor, tagCalendlyUrl } from '@/config/calendly';
 
 type CalendlyScheduleButtonProps = {
   className?: string;
   variant?: 'primary' | 'outline' | 'footerLink';
   /** e.g. close mobile nav after opening Calendly */
   onScheduleClick?: () => void;
+  /** Event to book instead of the page default. */
+  eventUrl?: string;
+  /** utm_medium for this placement. */
+  medium?: string;
+  label?: string;
 };
 
 export function CalendlyScheduleButton({
   className = '',
   variant = 'primary',
   onScheduleClick,
+  eventUrl,
+  medium = 'button',
+  label = 'Schedule time with me',
 }: CalendlyScheduleButtonProps) {
+  const pathname = usePathname();
   const open = () => {
     onScheduleClick?.();
+    const url = eventUrl
+      ? tagCalendlyUrl(eventUrl, medium, pathname)
+      : calendlyUrlFor(pathname, medium);
     if (typeof window !== 'undefined' && window.Calendly?.initPopupWidget) {
-      window.Calendly.initPopupWidget({ url: CALENDLY_SCHEDULE_URL });
+      window.Calendly.initPopupWidget({ url });
       return;
     }
-    window.open(CALENDLY_SCHEDULE_URL, '_blank', 'noopener,noreferrer');
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   const variantClasses = {
@@ -38,10 +51,10 @@ export function CalendlyScheduleButton({
       type="button"
       onClick={open}
       className={`inline-flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 focus-visible:ring-offset-2 rounded-md ${variantClasses} ${className}`}
-      aria-label="Schedule time with Dr. Jan Duffy using Calendly"
+      aria-label={`${label} with Dr. Jan Duffy using Calendly`}
     >
       <Calendar className="h-4 w-4 shrink-0" aria-hidden />
-      Schedule time with me
+      {label}
     </button>
   );
 }

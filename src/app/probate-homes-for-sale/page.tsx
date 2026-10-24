@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import { CalendlyAfterListings } from '@/components/calendly/CalendlyAfterListings';
 import PageHero from '@/components/PageHero';
 import RealScoutOfficeListings from '@/components/RealScoutOfficeListings';
 import SchemaMarkup from '@/components/SchemaMarkup';
@@ -563,6 +564,7 @@ export default function ProbateHomesForSalePage() {
           subtitle="Browse our current inventory of probate homes in Las Vegas. These probate properties are available for immediate purchase with court-approved sales and expert guidance."
           themeColor="blue"
         />
+        <CalendlyAfterListings />
 
         {/* CTA Section */}
         <section className="py-16 bg-primary-600 text-white">

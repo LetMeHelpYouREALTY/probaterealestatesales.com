@@ -2,6 +2,7 @@
 
 /// <reference path="../types/realscout.d.ts" />
 
+import { CalendlyAfterListings } from '@/components/calendly/CalendlyAfterListings';
 import RealScoutScriptLoader from '@/components/RealScoutScriptLoader';
 
 export default function FeaturedProperties() {
@@ -33,6 +34,7 @@ export default function FeaturedProperties() {
             />
           </div>
         </RealScoutScriptLoader>
+        <CalendlyAfterListings />
 
         {/* View All Properties CTA */}
         <div className="text-center mt-12">

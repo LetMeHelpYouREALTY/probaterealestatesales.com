@@ -13,6 +13,7 @@ import {
   Star,
   Target,
 } from 'lucide-react';
+import { CalendlyAfterListings } from '@/components/calendly/CalendlyAfterListings';
 import RealScoutScriptLoader from '@/components/RealScoutScriptLoader';
 import { GOOGLE_BUSINESS_REVIEW_URL } from '@/config/site-google';
 
@@ -318,8 +319,8 @@ export default function Services() {
                   Affordable Las Vegas Properties
                 </h4>
                 <p className="text-secondary-600 max-w-2xl mx-auto">
-                  Discover quality properties in the $500K-$750K range. Perfect for investors and
-                  families looking for value in the Las Vegas market.
+                  Discover quality properties in the $500K-$750K range. A fit for any buyer or
+                  investor looking for value in the Las Vegas market.
                 </p>
               </div>
 
@@ -359,6 +360,7 @@ export default function Services() {
               </div>
             </div>
           </RealScoutScriptLoader>
+          <CalendlyAfterListings />
         </div>
 
         {/* Final CTA Section */}
