@@ -8,16 +8,16 @@ import SectionVisual from '@/components/SectionVisual';
 import { getSiteImageSrc } from '@/lib/cloudflare-images';
 
 export const metadata: Metadata = {
-  title: 'Certificate of Incumbency in Las Vegas | Complete Guide | Nevada Trusts 2025',
+  title: 'Certificate of Incumbency for a Trust: Nevada Guide 2026',
   description:
-    'Complete guide to certificate of incumbency in Las Vegas, Nevada. Learn when and how to obtain this essential $750 document for trust property sales. Clark County requirements explained.',
+    'What a trust certificate of incumbency is, when Nevada title companies ask for one to sell trust property, and who signs it.',
   keywords:
     'certificate of incumbency in Las Vegas, certificate of incumbency Las Vegas, Nevada certificate of incumbency, Clark County certificate of incumbency, trust documentation, probate trusts, trustee certificate',
   alternates: {
     canonical: 'https://www.probaterealestatesales.com/blog/certificate-of-incumbency/',
   },
   openGraph: {
-    title: 'Certificate of Incumbency in Las Vegas | Complete Guide | Nevada Trusts 2025',
+    title: 'Certificate of Incumbency for a Trust: Nevada Guide 2026',
     description:
       'Complete guide to certificate of incumbency in Las Vegas, Nevada. Learn when and how to obtain this essential $750 document for trust property sales.',
     type: 'article',
