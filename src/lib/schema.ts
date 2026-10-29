@@ -925,13 +925,6 @@ export function buildLocalBusinessNestedReviewsStructuredData(
   };
 
   if (count > 0) {
-    base.aggregateRating = {
-      '@type': 'AggregateRating',
-      ratingValue,
-      reviewCount: count,
-      bestRating: 5,
-      worstRating: 1,
-    };
   }
 
   return base;
