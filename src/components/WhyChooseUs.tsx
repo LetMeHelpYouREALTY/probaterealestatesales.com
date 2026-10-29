@@ -116,7 +116,7 @@ const awards = [
     color: 'text-yellow-600',
   },
   {
-    title: 'Top 1% of Probate Specialists',
+    title: '5.0★ from 50 Realtor.com reviews',
     organization: 'National Probate Network',
     icon: Star,
     color: 'text-accent-600',
