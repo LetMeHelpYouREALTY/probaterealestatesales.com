@@ -49,7 +49,11 @@ function isLikelyGoogleMapsOrGbpUrl(url: string): boolean {
   }
 }
 
-const MAPS_LISTING_FALLBACK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(OFFICE_MAPS_SEARCH_QUERY)}`;
+/** GBP CID for Probate Real Estate Sales - Dr. Jan Duffy (same listing as the g.page review link). */
+export const GBP_CID = '14583596581037641901';
+
+/** Canonical Maps listing (CID form): resolves to the GBP itself, not an address search. */
+const MAPS_LISTING_FALLBACK = `https://maps.google.com/?cid=${GBP_CID}`;
 
 /**
  * Google Maps listing URL for schema `hasMap`, footer, and sameAs tail.
@@ -79,7 +83,7 @@ export const OFFICE_GOOGLE_MAPS_DIRECTIONS_URL = (() => {
 export const OFFICE_GOOGLE_MAPS_EMBED_SRC = (() => {
   const explicit = process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_SRC?.trim();
   if (explicit) return explicit;
-  return `https://www.google.com/maps?q=${encodeURIComponent(OFFICE_MAPS_SEARCH_QUERY)}&output=embed&hl=en&z=15`;
+  return `https://maps.google.com/maps?cid=${GBP_CID}&output=embed&hl=en`;
 })();
 
 /** Official business profiles (use in footer + sameAs; keep in sync with GBP / marketing). */
