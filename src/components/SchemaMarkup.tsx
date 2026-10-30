@@ -3,7 +3,6 @@
 import { useEffect } from 'react';
 import {
   defaultSchemas,
-  generateAggregateRatingSchema,
   generateArticleSchema,
   generateBreadcrumbSchema,
   generateLegalServiceSchema,
@@ -299,11 +298,6 @@ export default function SchemaMarkup({
       reviews.forEach((review) => {
         schemas.push(generateReviewSchema(review));
       });
-    }
-
-    // Add aggregate rating if provided
-    if (aggregateRating) {
-      schemas.push(generateAggregateRatingSchema(aggregateRating));
     }
 
     // Add person schema if provided
