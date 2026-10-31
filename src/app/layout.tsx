@@ -14,6 +14,8 @@ import {
   GBP_OPENING_HOURS_STRING,
   SITE_PHONE_E164,
 } from '@/lib/site-contact';
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import { SpeedInsights as VercelSpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
@@ -249,6 +251,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <CalendlyBadgeScript />
         <Script src="/ads-conversions.js" strategy="afterInteractive" />
+        <VercelAnalytics />
+        <VercelSpeedInsights />
       </body>
     </html>
   );
