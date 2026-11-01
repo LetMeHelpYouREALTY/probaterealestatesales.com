@@ -52,7 +52,9 @@ export const metadata: Metadata = {
     images: ['/images/og-dr-jan-duffy.jpg'],
   },
   alternates: {
-    canonical: 'https://www.probaterealestatesales.com/',
+    // Self-referencing canonical per route (resolved against metadataBase).
+    // A fixed homepage canonical here made pages without their own canonical point at "/".
+    canonical: './',
   },
   manifest: '/site.webmanifest',
   robots: {

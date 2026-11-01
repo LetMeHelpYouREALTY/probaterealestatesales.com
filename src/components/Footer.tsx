@@ -38,22 +38,22 @@ const footerNavigation = {
   services: [
     {
       name: 'Probate Sales',
-      href: '/services#probate-sales',
+      href: '/services/#probate-sales',
       description: 'Court-approved property sales',
     },
     {
       name: 'Estate Liquidation',
-      href: '/services#estate-liquidation',
+      href: '/services/#estate-liquidation',
       description: 'Complete estate property management',
     },
     {
       name: 'Property Valuation',
-      href: '/services#property-valuation',
+      href: '/services/#property-valuation',
       description: 'Expert market analysis',
     },
     {
       name: 'Court Representation',
-      href: '/services#court-representation',
+      href: '/services/#court-representation',
       description: 'Legal compliance support',
     },
   ],
@@ -74,64 +74,64 @@ const footerNavigation = {
   resources: [
     {
       name: 'Nevada Probate Guide',
-      href: '/resources/nevada-probate-guide',
+      href: '/resources/nevada-probate-guide/',
       description: 'Complete guide to Nevada probate',
     },
     {
       name: 'Las Vegas Guide',
-      href: '/resources/las-vegas-probate-guide',
+      href: '/resources/las-vegas-probate-guide/',
       description: 'Las Vegas & Clark County guide',
     },
     {
       name: 'Legal resources directory',
-      href: '/resources/las-vegas-probate-legal-resources',
+      href: '/resources/las-vegas-probate-legal-resources/',
       description: 'Courts, self-help & legal aid',
     },
     {
       name: 'Probate Timeline',
-      href: '/resources/nevada-probate-guide#timeline',
+      href: '/resources/nevada-probate-guide/#timeline',
       description: '6-8 month timeline',
     },
     {
       name: 'Probate Costs',
-      href: '/resources/nevada-probate-guide#costs',
+      href: '/resources/nevada-probate-guide/#costs',
       description: 'Costs breakdown',
     },
     {
       name: 'Court Process',
-      href: '/resources/nevada-probate-guide#process',
+      href: '/resources/nevada-probate-guide/#process',
       description: 'Clark County procedures',
     },
   ],
   probateServices: [
     {
       name: 'Probate Homes for Sale',
-      href: '/probate-homes-for-sale',
+      href: '/probate-homes-for-sale/',
       description: 'Find probate properties',
     },
     {
       name: 'Trust Property Sales',
-      href: '/trust-property-sales',
+      href: '/trust-property-sales/',
       description: 'Trust real estate sales',
     },
     {
       name: 'Conservatorship Real Estate',
-      href: '/conservatorship-real-estate',
+      href: '/conservatorship-real-estate/',
       description: 'Court-supervised sales',
     },
     {
       name: 'Probate Property Buyers',
-      href: '/probate-property-buyers',
+      href: '/probate-property-buyers/',
       description: 'Buyer resources',
     },
     {
       name: 'Probate Property Valuation',
-      href: '/probate-property-valuation',
+      href: '/probate-property-valuation/',
       description: 'Property appraisals',
     },
     {
       name: 'Probate Estate Sales',
-      href: '/probate-estate-sales',
+      href: '/probate-estate-sales/',
       description: 'Estate liquidation',
     },
   ],

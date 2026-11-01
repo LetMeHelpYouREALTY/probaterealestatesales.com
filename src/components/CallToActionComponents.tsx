@@ -25,7 +25,7 @@ const primaryCTA = {
   secondaryButton: {
     text: 'Download Probate Guide',
     subtext: 'Get your free 20-page guide',
-    href: '/resources/nevada-probate-guide',
+    href: '/resources/nevada-probate-guide/',
     icon: Download,
   },
   trustIndicators: [
@@ -61,7 +61,7 @@ const serviceCTAs = [
     title: 'Legal Guidance',
     description: 'Understand court requirements and documentation needs',
     buttonText: 'Get Guide',
-    href: '/resources/nevada-probate-guide',
+    href: '/resources/nevada-probate-guide/',
     icon: Download,
     color: 'green',
   },
@@ -106,7 +106,7 @@ const testimonialCTAs = [
     author: 'The Anderson Family',
     location: 'Summerlin Estate',
     buttonText: 'Read Success Story',
-    href: '/testimonials',
+    href: '/testimonials/',
     icon: Heart,
   },
   {
@@ -114,7 +114,7 @@ const testimonialCTAs = [
     author: 'Robert Martinez',
     location: 'Henderson Property',
     buttonText: 'See Timeline',
-    href: '/resources/nevada-probate-guide#timeline',
+    href: '/resources/nevada-probate-guide/#timeline',
     icon: Clock,
   },
 ];
