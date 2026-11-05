@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import CallToActionComponents from '@/components/CallToActionComponents';
 import ContentMarketingCalendar from '@/components/ContentMarketingCalendar';
+import { CalendlyAfterListings } from '@/components/calendly/CalendlyAfterListings';
 import EducationalContentHub from '@/components/EducationalContentHub';
 import HeadingPhotoCard from '@/components/HeadingPhotoCard';
 import LeadGenerationSystem from '@/components/LeadGenerationSystem';
@@ -219,6 +220,7 @@ export default function ResourcesPage() {
         subtitle="Browse our current inventory of properties in the Las Vegas area. These properties are available for immediate purchase with our expert guidance."
         themeColor="blue"
       />
+      <CalendlyAfterListings />
 
       {/* FAQ Section */}
       <section className="py-20 bg-white">

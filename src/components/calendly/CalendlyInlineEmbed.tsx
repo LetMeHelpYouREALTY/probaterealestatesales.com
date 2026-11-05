@@ -1,7 +1,8 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
-import { CALENDLY_SCHEDULE_URL } from '@/config/calendly';
+import { calendlyUrlFor } from '@/config/calendly';
 
 type CalendlyInlineEmbedProps = {
   /**
@@ -25,10 +26,12 @@ export function CalendlyInlineEmbed({
 }: CalendlyInlineEmbedProps) {
   const containerRef = useRef<HTMLElement | null>(null);
   const didInitRef = useRef(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
+    didInitRef.current = false;
 
     const tryInit = (): boolean => {
       if (didInitRef.current || !containerRef.current) return true;
@@ -36,7 +39,7 @@ export function CalendlyInlineEmbed({
       if (!Calendly?.initInlineWidget) return false;
       containerRef.current.innerHTML = '';
       Calendly.initInlineWidget({
-        url: CALENDLY_SCHEDULE_URL,
+        url: calendlyUrlFor(pathname, 'inline'),
         parentElement: containerRef.current,
       });
       didInitRef.current = true;
@@ -59,7 +62,7 @@ export function CalendlyInlineEmbed({
       window.clearInterval(interval);
       window.clearTimeout(timeout);
     };
-  }, []);
+  }, [pathname]);
 
   return (
     <section

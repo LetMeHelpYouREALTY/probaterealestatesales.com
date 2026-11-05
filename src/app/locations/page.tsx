@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import { CalendlyAfterListings } from '@/components/calendly/CalendlyAfterListings';
 import GbpLocalActions from '@/components/GbpLocalActions';
 import GbpOfficeMap from '@/components/GbpOfficeMap';
 import PageHero from '@/components/PageHero';
@@ -292,6 +293,7 @@ export default function LocationsPage() {
         subtitle="Browse our current inventory of properties in the Las Vegas area. These properties are available for immediate purchase with our expert guidance."
         themeColor="blue"
       />
+      <CalendlyAfterListings />
 
       {/* FAQ Section */}
       <section className="py-20 bg-white">

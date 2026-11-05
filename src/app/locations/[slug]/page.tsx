@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/Breadcrumb';
+import { CalendlyAfterListings } from '@/components/calendly/CalendlyAfterListings';
 import GbpLocalActions from '@/components/GbpLocalActions';
 import GbpOfficeMap from '@/components/GbpOfficeMap';
 import PageHero from '@/components/PageHero';
@@ -278,6 +279,7 @@ export default async function LocationSlugPage({ params }: { params: Promise<{ s
         subtitle={`Browse probate properties in the ${loc.name} area. Available for immediate purchase with expert probate guidance.`}
         themeColor={theme}
       />
+      <CalendlyAfterListings />
 
       <section
         className={`py-16 text-white ${

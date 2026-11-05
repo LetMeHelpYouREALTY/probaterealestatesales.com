@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Breadcrumb from '@/components/Breadcrumb';
+import { CalendlyAfterListings } from '@/components/calendly/CalendlyAfterListings';
 import FAQ from '@/components/FAQ';
 import HeadingPhotoCard from '@/components/HeadingPhotoCard';
 import PageHero from '@/components/PageHero';
@@ -125,6 +126,7 @@ export default function FAQPage() {
         subtitle="Browse our current inventory of properties in the Las Vegas area. These properties are available for immediate purchase with our expert guidance."
         themeColor="blue"
       />
+      <CalendlyAfterListings />
 
       {/* Contact CTA Section */}
       <section className="py-16 bg-primary-50">
